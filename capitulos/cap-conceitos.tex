@@ -5,15 +5,23 @@
 %% Título e rótulo de capítulo (rótulos não devem conter caracteres especiais, acentuados ou cedilha)
 \chapter{Fundamentação te\'orica}\label{cap:referencialTeorico}
 
-Neste capítulo são apresentados alguns dos conceitos importantes para o entendimento do trabalho. Sendo abordados assuntos como visão computacional, aprendizado de máquinas, biometria e reconhecimento facial.
+Neste capítulo são apresentados alguns dos conceitos importantes para o entendimento
+do trabalho. Sendo abordados assuntos como visão computacional, aprendizado de máquinas,
+biometria e reconhecimento facial.
 
 \section{SBC}\label{sec:formatacaoTexto}
 
-O computador de placa única é um computador onde todos os componentes necessários para sua operação estão localizados em uma única placa de circuito impresso. Esses computadores são geralmente utilizados em sistemas de alarme, sistemas de medição, entre outros.
+O computador de placa única é um computador onde todos os componentes
+necessários para sua operação estão localizados em uma única placa de circuito impresso. Esses
+computadores são geralmente utilizados em sistemas de alarme, sistemas de medição, entre
+outros.
 
-Quando se trata de computadores de placa única, uma opção com ótimo custo beneficio é o ESP32. Não é o modelo mais potente, nem o mais compacto, ainda assim, possui muitos utilizadores devido sua simplicidade, poder de processamento e baixo consumo de corrente.
+Quando se trata de computadores de placa única, uma opção com ótimo custo beneficio 
+é o ESP32. Não é o modelo mais potente, nem o mais compacto, ainda assim, possui muitos 
+utilizadores devido sua simplicidade, poder de processamento e baixo consumo de corrente.
 
-A versão para este projeto será o ESP32-CAM, onde além de possuir um chip ESP32 integrado, há também a câmera, entrada para cartão SD e LED de alto brilho.
+A versão para este projeto será o ESP32-CAM, onde além de possuir um chip ESP32 
+integrado, há também a câmera, entrada para cartão SD e LED de alto brilho.
 
 \subsection{Arduino IDE}\label{sec:espacamento}
 
@@ -24,27 +32,50 @@ ESP32.
 
 \section{OPENCV}\label{sec:formatacaoTexto}
 
-OpenCV é uma biblioteca de programação de código aberto originalmente da Intel com o objetivo de tornar a visão computacional mais acessível a desenvolvedores e amadores. Atualmente possui mais de 500 funções, pode estar em diferentes linguagens de programação e é utilizado para tipos de análise em imagens e vídeos, como detecção, rastreamento e reconhecimento facial, foto e edição de vídeo, detecção e análise de textos. (CEDRO, 2018).
+OpenCV é uma biblioteca de programação de código aberto originalmente da Intel com 
+o objetivo de tornar a visão computacional mais acessível a desenvolvedores e amadores. 
+Atualmente possui mais de 500 funções, pode estar em diferentes linguagens de programação e é 
+utilizado para tipos de análise em imagens e vídeos, como detecção, rastreamento e 
+reconhecimento facial, foto e edição de vídeo, detecção e análise de textos. (CEDRO, 2018).
 
 \section{MÉTODO DE RECONHECIMENTO OPENCV}\label{sec:formatacaoTexto}
 
-A primeira etapa do desenvolvimento é responsável por determinar qual modelo deve ser usado para detecção. Em seguida, uma instância de da webcam é criada e a imagem da webcam é capturada no loop de repetição.  (SCHMIDT, NOGUEIRA, 2015). 
+A primeira etapa do desenvolvimento é responsável por determinar qual modelo deve 
+ser usado para detecção. Em seguida, uma instância de da webcam é criada e a imagem da 
+webcam é capturada no loop de repetição. \cite{silverthorn2017}  (SCHMIDT, NOGUEIRA, 2015).
 
-A detecção realmente ocorre usando a função detectMultiScale. Porém este método espera como parâmetro a imagem onde deve ser buscada as informações geométricas necessárias para uma boa detecção.
+A detecção realmente ocorre usando a função detectMultiScale. Porém este método 
+espera como parâmetro a imagem onde deve ser buscada as informações geométricas 
+necessárias para uma boa detecção.
 
-Deve-se tomar cuidado com a iluminação do local, para que não ocorra problemas na detecção. Pois mesmo com algoritmos e métodos sofisticados, ainda assim, perde-se algumas referências de posicionamento, ocasionando resultados com falsos positivos, ou falsos negativos.
+Deve-se tomar cuidado com a iluminação do local, para que não ocorra problemas na 
+detecção. Pois mesmo com algoritmos e métodos sofisticados, ainda assim, perde-se algumas 
+referências de posicionamento, ocasionando resultados com falsos positivos, ou falsos 
+negativos.
 
 \section{BIOMETRIA FACIAL PARA CONTROLE E ACESSO}\label{sec:formatacaoTexto}
 
-A biometria facial é o recurso biométrico mais utilizado por humanos para identificação pessoal. A gama de aplicativos que usam esse recurso varia de aplicativos de reconhecimento facial estático em um ambiente controlado a imagens de fundo complexas de identidade em tempo.
+A biometria facial é o recurso biométrico mais utilizado por humanos para identificação 
+pessoal. A gama de aplicativos que usam esse recurso varia de aplicativos de reconhecimento 
+facial estático em um ambiente controlado a imagens de fundo complexas de identidade em 
+tempo.
 
-As abordagens mais populares usadas no problema de reconhecimento facial são baseadas na localização e análise de atributos faciais como olhos, nariz e boca, ou em análise global destes, representada como uma combinação de uma série de faces canônicas.
+As abordagens mais populares usadas no problema de reconhecimento facial são 
+baseadas na localização e análise de atributos faciais como olhos, nariz e boca, ou em análise 
+global destes, representada como uma combinação de uma série de faces canônicas.
 
-Os sistemas de identificação baseados em biometria são essencialmente sistemas de reconhecimento que, dadas informações biométricas, são capazes de distinguir padrões e classificá-los em diferentes classes ou categorias.  (MORAES, 2010).
+Os sistemas de identificação baseados em biometria são essencialmente sistemas de 
+reconhecimento que, dadas informações biométricas, são capazes de distinguir padrões e 
+classificá-los em diferentes classes ou categorias.  (MORAES, 2010).
 
-Ainda de acordo com o autor, algumas das principais características anatômicas, fisiológicas e comportamentais utilizadas em sistemas biométricos incluem impressão digital, impressão da mão, aparência facial, temperatura da face, retina, voz, assinatura, marcha e dental, entre outras.
+Ainda de acordo com o autor, algumas das principais características anatômicas, 
+fisiológicas e comportamentais utilizadas em sistemas biométricos incluem impressão digital, 
+impressão da mão, aparência facial, temperatura da face, retina, voz, assinatura, marcha e dental, 
+entre outras.
 
-Atualmente, nenhuma característica biométrica tem todas as propriedades de grau mais alto. Ou seja, não há "melhor característica" para um indivíduo. A escolha depende da aplicação em que será usada.
+Atualmente, nenhuma característica biométrica tem todas as propriedades de grau mais 
+alto. Ou seja, não há "melhor característica" para um indivíduo. A escolha depende da aplicação 
+em que será usada.
 
 \section{TIPOS DE BIOMETRIA}\label{sec:formatacaoTexto}
 

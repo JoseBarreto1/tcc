@@ -41,38 +41,94 @@ para o controle de acesso utilizando reconhecimento facial com SBC e OPENVC.
 
 \section{Objetivos}\label{sec:objetivos}
 
-Este trabalho tem como objetivo realizar o estudo, implementação e desenvolvimento 
-de um dispositivo para controle de acesso por meio de reconhecimento facial, em um Single 
-Board Computer (SBC) e utilizando a biblioteca de visão computacional OpenCV (Open Source 
-Computer Vision Library).
+Neste capítulo serão apresentados os objetivos desse trabalho, estes que são descrever
+e analisar os métodos utilizados tanto no processamento de imagens, quanto no reconhecimento
+facial. Utilizando métodos para desenvolver um algoritmo combinando técnicas de 
+processamento de imagens e aprendizado de máquina, buscando o aperfeiçoamento na 
+combinação das técnicas estudadas.
 
 \subsection{Objetivo geral}\label{subsec:objetivoGeral}
 
-O objetivo geral se refere ao resultado do trabalho realizado, enfatizando o que esse 
-trabalho deixa para a comunidade acadêmica, para a sociedade e/ou para o ambiente profissional. 
-Deve ser apresentado de forma a abranger o resultado principal do teste.
-
-O objetivo geral e os específicos devem iniciar com verbo. Sugere-se que o objetivo geral 
-contenha no máximo 3 (três) linhas, conforme exemplo abaixo:
-
-Desenvolver um protótipo de um sistema de software para determinar a capacidade 
-produtiva de pequenas empresas com base em estudos de cronoanálise industrial para pequenas 
-empresas com produção em série.
+Este trabalho tem como objetivo realizar o estudo, implementação e desenvolvimento 
+de um dispositivo para controle de acesso por meio de reconhecimento facial, em um Single 
+Board Computer (SBC), utilizando a biblioteca de visão computacional OpenCV (Open Source 
+Computer Vision Library).
 
 \subsection{Objetivos específicos}\label{subsec:objetivosEspecificos}
 
-Os objetivos específicos são opcionais, ou seja, somente devem ser apresentados...
+Para que se cumpram os objetivos gerais, são necessárias várias etapas, as quais são
+apresentadas a seguir:
+
+\begin{itemize}
+    \item  Desenvolver o \textit{hardware} para aquisição de imagens, levando em 
+    consideração a luminosidade do local e a qualidade da câmera, com o objetivo 
+    de obter com uma qualidade razoável para a filtragem e processamento da imagem.
+  
+    \item Implementar um código que seja otimizado e organizado, o suficiente para 
+    conseguir filtrar e processar as imagens em tempo real. 
+    
+    \item Desenvolver uma interface física, onde os usuários e utilizadores possam
+    interagir e utilizar de forma simples e prática. Permitindo uma boa comunicação,
+    de forma simples e direta. 
+    
+    \item Criar um sistema para controle de acesso, onde o usuário administrador
+    irá gerenciar e ser responsável pelo cadastro dos demais utilizadores, seja 
+    em um ambiente particular (casas e condomínios) corporativo (empresas) ou 
+    publico (Escolas e Universidades) permitindo ou restringindo o acesso, 
+    conforme julgar necessário. 
+\end{itemize}
 
 \section{Justificativa}\label{sec:justificativa}
 
-Justificar o objeto de...
+Os sistemas de reconhecimento facial foi uma grande solução para a retomada 
+das atividades presenciais após a pandemia do Coronavírus, ajudando empresas
+a promoverem uma maior segurança física, como também segurança sanitária, 
+evitando contaminações e agilizando os processos. Pois ao invés de 
+um sistema manual, que normalmente geram atrasos, com a aplicação dessa tecnologia, 
+é possível utilizar mais de um aparelho, aumentando a eficiência e rapidez 
+no controle de acesso.
 
-\section{Estrutura do trabalho}\label{sec:estruturaTrabalho}
+O grande risco do uso de chaves e tags, é que qualquer pessoa pode entrar 
+sem necessariamente estar credenciado para aquele local. 
+Sendo esta a fragilidade de locais que recebem um grande fluxo de pessoas, 
+porém não possuem sistemas para controlar e acompanhar as entradas 
+e saídas.
 
-A estrutura do trabalho contém uma relação dos capítulos e uma descrição...
+Um outro ponto importante, é a economia que este tipo de sistema pode gerar. 
+Com o controle de acesso automatizado, locais como condomínios, hotéis 
+ou recepções comerciais, passam a não ter mais necessidade de porteiros em tempo 
+integral, desta forma, reduzindo custos aos que o utilizam. 
+
+Com os leitores faciais, além do acesso mais seguro e exclusivo aos usuários 
+credenciados, por exemplo, moradores, proprietários e funcionários, também
+é possível credenciar usuários de forma temporária, limitando e liberando 
+os acessos, dentro do tempo que for necessário.
 
 \section{Cronograma}\label{sec:cronograma}
 
 O cronograma abaixo mostra qual será a sequência de pesquisa de
-desenvolvimento do trabalho.
+desenvolvimento do trabalho. como no exemplo \autoref{quad:quadro1}
 
+\begin{tabframed}[htb]
+    \caption{Cronograma de desenvolvimento do trabalho}
+    \label{quad:quadro1}
+    \begin{tabular}{|l|*{12}{p{0.04\textwidth-\columnsep}|}}
+    \hline
+    \multirow{2}{*}{\textbf{Etapa}} & \multicolumn{5}{c|}{\textbf{2022}} & \multicolumn{6}{c|}{\textbf{2023}} \\  
+    \cline{2-12}
+    &\textbf{Ag} &\textbf{Se} &\textbf{Ou} &\textbf{No} &\textbf{De} &\textbf{Ja} &\textbf{Fe} &\textbf{Ma} &\textbf{Ab} &\textbf{Ma} &\textbf{Ju} \\ \hline
+    Definição do tema                                 &X & & & & & & & & & & \\   \hline
+    Definição do escopo do trabalho                   &X & & & & & & & & & & \\   \hline
+    Analise de viabilidade e planejamento da execução &X & & & & & & & & & & \\   \hline
+    Revisão Bibliográfica                             & &X &X &X & & & & & & & \\ \hline
+    Pesquisa sobre Esp32 e OpenCV                     & &X &X & & & & & & & & \\  \hline
+    Estudo da plataforma Nextion Editor               & & & &X &X & & & & & & \\  \hline
+    Desenvolvimento do protótipo                      & & & & &X &X &X & & & & \\ \hline
+    Aplicação do reconhecimento facial                & & & & & &X &X & & & & \\  \hline
+    Análise dos resultados                            & & & & & & &X &X & & & \\  \hline
+    Correção de erros e aprimoramentos                & & & & & & & &X &X &X & \\ \hline
+    Escrita do trabalho                               &X &X &X &X &X &X &X &X &X &X &X \\ \hline
+    Apresentação do trabalho                          & & & & & & & & & & &X \\   \hline
+    \end{tabular}
+    \fonte{}%% Fonte
+\end{tabframed}

@@ -6,108 +6,118 @@
 %% Título e rótulo de capítulo (rótulos não devem conter caracteres especiais, acentuados ou cedilha)
 \chapter{Introdução}\label{cap:introducao}
 
-Desde o nascimento o ser humano desenvolve sua capacidade de reconhecer características 
-e essa capacidade atua como um dos principais fatores evolutivos da espécie humana. 
-Sendo as primeiras demonstrações de reconhecimento de características por humanos, 
-datados desde o período pré-histórico.
+Desde o nascimento, os seres humanos desenvolvem capacidades de reconhecimento e 
+identificação de objetos, onde essa capacidade foi muito 
+importante durante o processo evolutivo da espécie humana. Sendo as primeiras 
+demonstrações de identificação de seres vivos e objetos, datados no período 
+pré-histórico.
 
-Biometria (do grego bios vida e metron medida) é a medição de aspectos físicos, 
-biológicos e até comportamentais de seres vivos. Esse reconhecimento visa distinguir o indivíduo de 
-outros no meio em que ele está inserido. A partir daí, é possível permitir ou negar determinada 
-ação ou recurso a essa pessoa.
+A biometria, do grego \textit{bios}-vida e \textit{metron}-medida, pode ser 
+definida como o processo de identificação de aspectos físicos, biológicos e até 
+comportamentais dos seres vivos. Na qual, são utilizados para distinguir indivíduos, 
+a partir de suas características únicas. Como por exemplo, a face, retina, 
+íris, impressões digitais, geometria da mão, etc.
 
-Dentre as tecnologias atuais de biometria, o reconhecimento facial é uma das mais estudadas 
-atualmente, e, também um dos meios mais seguros de identificação e integridade dos 
-sistemas que a utilizam, em além de oferecer no processo de autenticação, pois é 
-instantâneo, não sendo necessário utilizar equipamentos especiais para identificação uma webcam ou 
-câmera de celular é suficiente para extrair um recurso.
+Dentre as tecnologias atuais de segurança, a biometria tem sido amplamente 
+utilizada, seja para acessar contas bancárias, aplicativos e até controlar 
+o acesso a locais públicos e privados. Onde atualmente o reconhecimento facial 
+é uma das biometrias mais estudadas, pois além da praticidade é considerada uma 
+das formas mais seguras de identificação. 
 
-Embora promissora, a biometria enfrenta desafios que devem ser contrabalançados para 
-não levar a interpretações e aplicações equivocadas. Dentre os principais desafios constam: 
-excesso de informação, paradoxo da população, privacidade, intrusividade, ruído, vulnerabilidade 
-e classificação.
+Embora seja promissora, mesmo assim, o sistema de identificação pode falhar durante o 
+processo de reconhecimento, principalmente devido a equívocos e interpretações 
+incorretas do \textit{software}. Onde esses problemas podem ser causados,
+desde sujeira na lente da câmera, alta umidade, baixa iluminação, filtros digitais 
+não calibrados, ruídos, excesso de informação, inserção de dados falsos, etc.
 
-Desta forma, observa-se que a biometria deve obstáculos para se tornar um padrão de 
-segurança antifraude. O principal problema da detecção de rosto é determinar se a imagem 
-arbitrária representa um rosto humano ou restaurar as coordenadas do rosto reconhecido.
+Desta forma, para um sistema biométrico obter uma alta assertividade, 
+deve-se validar todos os cenários possíveis e tomar os devidos cuidados durante seu 
+desenvolvimento. Pois, por exemplo, durante o processo de reconhecimento facial,
+pode-se haver falsos-positivo ou verdadeiros-negativo (\autoref{fig:pareidolia}), ou seja, o software pode identificar 
+um rosto humano que não existe, ou não identificar um rosto humano, mesmo existindo.
 
-Como solução, a literatura recente na área propõe técnicas de visão computacional e 
-reconhecimento que, diante do progresso dos sistemas computacionais, permitem corredeiras, 
-levando em consideração a relação de custo entre a velocidade da informação e a limitação de 
-tempo.
+\begin{figure}[h!]
+    \centering
+    \caption{Imagens que lembram rostos humanos}
+    \includegraphics[scale=0.25]{figuras/pareidolia.jpg} 
+    \legend{Fonte: Adaptado de \citeonline{pareidoliaimg}.}
+    \label{fig:pareidolia}
+    \centering
+\end{figure}
+
+Como solução, as literaturas recente propõe novas técnicas de visão computacional, 
+reconhecimento e aprendizado de máquina. Em conjunto disso, a taxa de assertividade 
+também vem aumentando, devido ao progresso dos sistemas computacionais e dos 
+novos \textit{hardwares}, onde é possível obter alta performance, com um 
+bom custo beneficio.
 
 Diante disso, o presente estudo visa discorrer sobre o desenvolvimento de um protótipo 
-para o controle de acesso utilizando reconhecimento facial com SBC e OPENVC.
+para o controle de acesso, utilizando reconhecimento facial com SBC e OPENCV.
 
 \section{Objetivos}\label{sec:objetivos}
 
-Neste capítulo serão apresentados os objetivos desse trabalho, estes que são descrever
-e analisar os métodos utilizados tanto no processamento de imagens, quanto no reconhecimento
-facial. Utilizando métodos para desenvolver um algoritmo combinando técnicas de 
-processamento de imagens e aprendizado de máquina, buscando o aperfeiçoamento na 
-combinação das técnicas estudadas.
+Neste capítulo serão apresentados os objetivos deste trabalho e as etapas necessárias 
+para o desenvolvimento do protótipo. Na qual, além da implementação do 
+\textit{hardware}, também serão necessárias algumas etapas para a elaboração do \textit{software}, 
+tendo como finalidade, obter uma alta assertividade.
 
 \subsection{Objetivo geral}\label{subsec:objetivoGeral}
 
-Este trabalho tem como objetivo realizar o estudo, implementação e desenvolvimento 
-de um dispositivo para controle de acesso por meio de reconhecimento facial, em um Single 
-Board Computer (SBC), utilizando a biblioteca de visão computacional OpenCV (Open Source 
-Computer Vision Library).
+Este trabalho tem por objetivo realizar o estudo e desenvolvimento de um protótipo 
+para controle de acesso por meio de reconhecimento facial. Para isso, serão implementados 
+algorítimos de visão computacional e aprendizado de maquina, em um computador de placa 
+única (ESP32-CAM).
 
 \subsection{Objetivos específicos}\label{subsec:objetivosEspecificos}
 
-Para que se cumpram os objetivos gerais, são necessárias várias etapas, as quais são
-apresentadas a seguir:
+Para que se cumpram os objetivos gerais, serão essenciais a realização de algumas etapas, 
+as quais, são apresentadas a seguir:
 
 \begin{itemize}
     \item  Desenvolver o \textit{hardware} para aquisição de imagens, levando em 
-    consideração a luminosidade do local e a qualidade da câmera, com o objetivo 
-    de obter com uma qualidade razoável para a filtragem e processamento da imagem.
+    consideração a luminosidade local e a qualidade da câmera. Garantindo assim, 
+    bons resultados para a etapa de reconhecimento facial.
   
     \item Implementar um código que seja otimizado e organizado, o suficiente para 
-    conseguir filtrar e processar as imagens em tempo real. 
+    conseguir filtrar e processar as imagens em quase tempo real. 
     
-    \item Desenvolver uma interface física, onde os usuários e utilizadores possam
-    interagir e utilizar de forma simples e prática. Permitindo uma boa comunicação,
-    de forma simples e direta. 
+    \item Desenvolver uma interface física, onde os usuários possam interagir e 
+    utilizar de forma simples e prática.
     
-    \item Criar um sistema para controle de acesso, onde o usuário administrador
-    irá gerenciar e ser responsável pelo cadastro dos demais utilizadores, seja 
-    em um ambiente particular (casas e condomínios) corporativo (empresas) ou 
-    publico (Escolas e Universidades) permitindo ou restringindo o acesso, 
-    conforme julgar necessário. 
+    \item Por ultimo, criar um sistema para controle de acesso, onde o usuário 
+    administrador, poderá gerenciar e cadastrar novos usuários, permitindo ou 
+    restringindo o acesso, conforme necessário. 
 \end{itemize}
 
 \section{Justificativa}\label{sec:justificativa}
 
-Os sistemas de reconhecimento facial foi uma grande solução para a retomada 
-das atividades presenciais após a pandemia do Coronavírus, ajudando empresas
+Os sistemas de reconhecimento facial foi uma grande solução durante a retomada 
+das atividades presenciais após a pandemia do coronavírus, ajudando empresas
 a promoverem uma maior segurança física, como também segurança sanitária, 
-evitando contaminações e agilizando os processos. Pois ao invés de 
-um sistema manual, que normalmente geram atrasos, com a aplicação dessa tecnologia, 
-é possível utilizar mais de um aparelho, aumentando a eficiência e rapidez 
-no controle de acesso.
+evitando contaminações e agilizando os processos. Ao contrário dos sistemas 
+manuais, onde normalmente geram atrasos e demandam atenção.
 
-O grande risco do uso de chaves e tags, é que qualquer pessoa pode entrar 
-sem necessariamente estar credenciado para aquele local. 
-Sendo esta a fragilidade de locais que recebem um grande fluxo de pessoas, 
-porém não possuem sistemas para controlar e acompanhar as entradas 
-e saídas.
+Atualmente o controle de acesso mais comum, são aqueles que utilizam chaves 
+e tags, porém, como possuem inúmeras fragilidades, estes procedimentos não são 
+recomendados em locais que recebem um grande fluxo de pessoas, como por exemplo, 
+hotéis e centros comerciais. Pois, desta forma, qualquer pessoa pode ter acesso, 
+sem necessariamente estar credenciado.
 
-Um outro ponto importante, é a economia que este tipo de sistema pode gerar. 
-Com o controle de acesso automatizado, locais como condomínios, hotéis 
-ou recepções comerciais, passam a não ter mais necessidade de porteiros em tempo 
-integral, desta forma, reduzindo custos aos que o utilizam. 
+Outro ponto importante é que a implantação de sistemas automatizados, também 
+podem gerar economias. Como por exemplo, em condomínios e hotéis, onde o 
+sistema pode realizar parte do serviço de porteiros e/ou recepcionistas, 
+possibilitando uma redução na carga horária destes trabalhadores e 
+inclusive, resultando na redução de custos para as empresas.
 
-Com os leitores faciais, além do acesso mais seguro e exclusivo aos usuários 
-credenciados, por exemplo, moradores, proprietários e funcionários, também
-é possível credenciar usuários de forma temporária, limitando e liberando 
-os acessos, dentro do tempo que for necessário.
+Por fim, a facilidade desses sistemas, fazem com que os usuários não precisem 
+mais memorizar senhas, ou carregar suas chaves, impactando positivamente na 
+experiência de uso. Além disso, esse sistema reduz a probabilidade de golpes 
+ou fraudes, pois impossibilita o compartilhamento do mesmo acesso.
 
 \section{Cronograma}\label{sec:cronograma}
 
-O cronograma abaixo mostra qual será a sequência de pesquisa de
-desenvolvimento do trabalho. como no exemplo \autoref{quad:quadro1}
+O cronograma abaixo (\autoref{quad:quadro1}), mostra as atividades que 
+serão realizadas durante o desenvolvimento deste trabalho.
 
 \begin{tabframed}[htb]
     \caption{Cronograma de desenvolvimento do trabalho}
@@ -121,7 +131,7 @@ desenvolvimento do trabalho. como no exemplo \autoref{quad:quadro1}
     Definição do escopo do trabalho                   &X & & & & & & & & & & \\   \hline
     Analise de viabilidade e planejamento da execução &X & & & & & & & & & & \\   \hline
     Revisão Bibliográfica                             & &X &X &X & & & & & & & \\ \hline
-    Pesquisa sobre Esp32 e OpenCV                     & &X &X & & & & & & & & \\  \hline
+    Pesquisa sobre ESP32-CAM e OpenCV                     & &X &X & & & & & & & & \\  \hline
     Estudo da plataforma Nextion Editor               & & & &X &X & & & & & & \\  \hline
     Desenvolvimento do protótipo                      & & & & &X &X &X & & & & \\ \hline
     Aplicação do reconhecimento facial                & & & & & &X &X & & & & \\  \hline

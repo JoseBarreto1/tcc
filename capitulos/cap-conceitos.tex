@@ -6,143 +6,274 @@
 \chapter{Fundamentação te\'orica}\label{cap:referencialTeorico}
 
 Neste capítulo são apresentados alguns dos conceitos importantes para o entendimento
-do trabalho. Sendo abordados assuntos como visão computacional, aprendizado de máquinas,
-biometria e reconhecimento facial.
+do trabalho. Sendo abordados assuntos como o visão computacional, biometria e 
+reconhecimento facial.
 
-\section{SBC}\label{sec:formatacaoTexto}
+\section{Computador de Placa Única}\label{sec:formatacaoTexto3}
 
-O computador de placa única é um computador onde todos os componentes
-necessários para sua operação estão localizados em uma única placa de circuito impresso. Esses
-computadores são geralmente utilizados em sistemas de alarme, sistemas de medição, entre
-outros.
+Computador de Placa Única ou Single Board Computer (SBC) é um computador onde todos 
+os componentes necessários para sua operação estão localizados em uma única placa de 
+circuito impresso. Esses computadores podem ser utilizados em sistemas simples ou complexos, 
+tendo diversas aplicações, desde sistemas de alarme, sistemas de controle, 
+monitoramento, etc.
 
-Quando se trata de computadores de placa única, uma opção com ótimo custo beneficio 
-é o ESP32. Não é o modelo mais potente, nem o mais compacto, ainda assim, possui muitos 
-utilizadores devido sua simplicidade, poder de processamento e baixo consumo de corrente.
+Quando se trata de SBC, uma boa opção é o ESP32 (\autoref{fig:esp32}). Mesmo não 
+sendo o modelo mais potente, nem o mais compacto, ainda assim, possui um ótimo custo 
+beneficio. Considerando sua simplicidade, poder de processamento e baixo consumo 
+de corrente.
 
 \begin{figure}[h!]
     \centering
     \caption{ESP32-DevKitC.}
     \includegraphics[scale=0.13]{figuras/esp323.png} 
     \legend{Fonte: Adaptado de \citeonline{espressifimg}.}
-    \label{espzin}
+    \label{fig:esp32}
     \centering
 \end{figure}
 
-A versão para este projeto será o ESP32-CAM, onde além de possuir um chip ESP32 
-integrado, há também a câmera, entrada para cartão SD e LED de alto brilho.
+A versão escolhida para este projeto será o ESP32-CAM, onde além de possuir um 
+chip ESP32 integrado, nele também está incluso uma câmera, uma entrada para 
+cartão SD e LED de alto brilho.
 
 \subsection{Arduino IDE}\label{sec:espacamento}
 
-Uma forma para programar o ESP32 é utilizando o Arduino IDE.
-Um software de código aberto, junto com um utilitário baseado em Python, também de código
-aberto, chamado Esptool, que se comunica com o bootloader em chips Espressif ESP8266 e
-ESP32.
+Uma forma para programar o ESP32 é utilizando o Arduino IDE. Um aplicativo de 
+código aberto, escrito em C e C++, que permite a comunicação e gravação em chips 
+megaAVR. Entretanto, para gravar em chips ESP32, basta ativar o utilitário Esptool.
+
+Além do ambiente de desenvolvimento, outra vantagem é que o Arduino IDE 
+possui inúmeras bibliotecas e documentação. Facilitando e assegurando o 
+desenvolvimento de novos códigos, pois essas bibliotecas são constantemente 
+testadas e atualizadas pela comunidade da plataforma Arduino.
 
 \section{OPENCV}\label{sec:formatacaoTexto}
 
-OpenCV é uma biblioteca de programação de código aberto originalmente da Intel com 
-o objetivo de tornar a visão computacional mais acessível a desenvolvedores e amadores. 
-Atualmente possui mais de 500 funções, pode estar em diferentes linguagens de programação e é 
-utilizado para tipos de análise em imagens e vídeos, como detecção, rastreamento e 
-reconhecimento facial, foto e edição de vídeo, detecção e análise de textos. (CEDRO, 2018).
+OpenCV é uma biblioteca de visão computacional e aprendizado de 
+máquina de código aberto, foi desenvolvido inicialmente pela Intel, com o 
+intuito de fornecer uma infraestrutura comum para aplicativos, acelerar o 
+desenvolvimento dessa tecnologia e tornar a visão computacional mais acessível 
+para desenvolvedores e pesquisadores.
 
-\section{MÉTODO DE RECONHECIMENTO OPENCV}\label{sec:formatacaoTexto}
+O \citeonline{opencv} é escrito nativamente em C++, mas possui interfaces em 
+Python, Java e MATLAB e suporta plataformas como Windows, Linux, Android e 
+Mac OS. Atualmente a biblioteca possui mais de 2.500 algoritmos otimizados, 
+que inclui algoritmos de visão computacional clássico, de última geração 
+e de aprendizado de máquina. Podendo ser usados para identificar objetos,
+detectar e reconhecer rostos, rastrear objetos em movimento, etc.
 
-A primeira etapa do desenvolvimento é determinar qual modelo deve 
-ser utilizado para a detecção. ...
+\section{PROCESSAMENTO DE IMAGENS}\label{sec:formatacaoTexto}
 
-A detecção realmente ocorre usando a função detectMultiScale. Porém este método 
-espera como parâmetro a imagem onde deve ser buscada as informações geométricas 
-necessárias para uma boa detecção.
+As técnicas de processamento de imagens começaram a surgir no final da década de 1960, 
+para serem utilizadas no realce e restauração de imagens capturadas do espaço, 
+como por exemplo, as imagens da missão Apollo. Logo em seguida essa tecnologia 
+começou a ser empregada para processar imagens em diagnósticos médicos, e com 
+o aumento de poder de processamento dos computadores, essas técnicas agora 
+são empregadas nas mais diversas áreas de conhecimento \cite{gonzalez2010}.
 
-Deve-se tomar cuidado com a iluminação do local, para que não ocorra problemas na 
-detecção. Pois mesmo com algoritmos e métodos sofisticados, ainda assim, perde-se algumas 
-referências de posicionamento, ocasionando resultados com falsos positivos, ou falsos 
-negativos.
+Em processamento de imagens um conceito bastante utilizado é a binarização de
+imagens, que consiste em duas classes distintas, o fundo e o objeto, esse processo 
+serve para de certa forma separar ambas as classes.
 
-\section{BIOMETRIA FACIAL PARA CONTROLE E ACESSO}\label{sec:formatacaoTexto}
+Sendo assim, a forma mais simples de processamentos consiste na
+bipartição do histograma, dando valores iguais a 0 (branco) aos pixels que estiverem
+abaixo do valor de threshold (T), e iguais a 255 (preto) aos pixels que estiverem 
+acima desse valor. A \autoref{fig:escalacinza} mostra uma escala de tons 
+de cinza, e a \autoref{fig:escalabinarizada} mostra essa mesma escala após passar 
+por esse processamento, exemplificando o processo de binarização.
 
-A biometria facial é o recurso biométrico mais utilizado por humanos para identificação 
-pessoal. A gama de aplicativos que usam esse recurso varia de aplicativos de reconhecimento 
-facial estático em um ambiente controlado a imagens de fundo complexas de identidade em 
-tempo.
+\begin{figure}[h!]
+    \centering
+    \caption{Escala de cinza}
+    \includegraphics[scale=0.25]{figuras/escala_cinza.png} 
+    \fonte{}%% Fonte
+    \label{fig:escalacinza}
+    \centering
+\end{figure}
 
-As abordagens mais populares usadas no problema de reconhecimento facial são 
-baseadas na localização e análise de atributos faciais como olhos, nariz e boca, ou em análise 
-global destes, representada como uma combinação de uma série de faces canônicas.
+\begin{figure}[h!]
+    \centering
+    \caption{Escala de cinza binarizada}
+    \includegraphics[scale=0.25]{figuras/escala_binarizada.png} 
+    \fonte{}%% Fonte
+    \label{fig:escalabinarizada}
+    \centering
+\end{figure}
 
-Os sistemas de identificação baseados em biometria são essencialmente sistemas de 
-reconhecimento que, dadas informações biométricas, são capazes de distinguir padrões e 
-classificá-los em diferentes classes ou categorias.  (MORAES, 2010).
+Especialmente durante o processo de reconhecimento de objetos. 
+A segmentação é uma ferramenta indispensável para fins de análise e interpretação.
 
-Ainda de acordo com o autor, algumas das principais características anatômicas, 
-fisiológicas e comportamentais utilizadas em sistemas biométricos incluem impressão digital, 
-impressão da mão, aparência facial, temperatura da face, retina, voz, assinatura, marcha e dental, 
-entre outras.
+A segmentação de uma imagem é um procedimento importante no que tange
+essas analises, uma vez que ela subdivide uma imagem em regiões que
+posteriormente serão ou não tidas como de interesse, o que pode variar muito de
+acordo com a aplicação \cite{gonzalez2010}.
 
-Atualmente, nenhuma característica biométrica tem todas as propriedades de grau mais 
-alto. Ou seja, não há "melhor característica" para um indivíduo. A escolha depende da aplicação 
-em que será usada.
+Os principais algoritmos de segmentação se baseiam nas técnicas de
+descontinuidade e similaridade, a abordagem de descontinuidade consiste em dividir
+uma imagem com base nas mudanças bruscas mudanças de intensidade, como
+ocorre nas bordas. Enquanto na técnica por similaridade a divisão da imagem
+acontece por regiões que sejam semelhantes de acordo com um conjunto de critérios
+preestabelecidos \cite{gonzalez2010}.
 
-\section{TIPOS DE BIOMETRIA}\label{sec:formatacaoTexto}
+Por fim, uma outra técnica conhecida como esqueletização, 
+consiste na representação de um conjunto de pontos no interior de um 
+objeto de uma imagem. O esqueleto de uma região pode
+ser definido pela transformada do eixo médio (MAT) do inglês (\textit{medial axis
+transformation}). Nessa técnica são selecionados os elementos centrais de um objeto,
+criando literalmente um esqueleto da imagem. MAT de uma região \textit{R} com uma borda
+\textit{B} é definida como: para cada ponto \textit{p} contido na região, encontramos seu vizinho
+mais próximo em \textit{B} (borda), e se houver mais de um vizinho então o ponto pertence
+ao eixo médio, ou seja ao esqueleto \cite{gonzalez2010}.
 
-De acordo com Moraes (2010), os principais tipos de biometria são:
+O que pode ser visualizado com mais facilidade na \autoref{fig:esqueletizacao}:
 
-Orelhas: Usa a anatomia da orelha para identificar indivíduos, abordagens incomuns. 
-Os pontos fortes são aceitabilidade e permanência; fraquezas, singularidade e desempenho.
+\begin{figure}[h!]
+    \centering
+    \caption{Processo de esqueletização}
+    \includegraphics[scale=0.25]{figuras/esqueletizacao.png} 
+    \fonte{}%% Fonte
+    \label{fig:esqueletizacao}
+    \centering
+\end{figure}
 
-Termograma da face e das mãos: O padrão de calor emitido pelo corpo humano é uma 
-característica de cada pessoa e pode ser captado por infravermelho. Sistemas baseados 
-em imagens termográficas não requerem contato ou cooperação individual. No entanto, a 
-captura de imagem continua sendo um desafio em ambientes não controlados, pois é afetada 
-por fontes de calor que possivelmente podem estar próximas ao indivíduo. Seus pontos fortes 
-são a universalidade, a impostura e a singularidade.
+\section{BIOMETRIA}\label{sec:formatacaoTexto1}
 
-Impressão digital: recurso mais comumente usado em credenciais automatizadas em grande escala. 
-Sua popularidade se deve em parte a dispositivos de coleta de baixo custo e desempenho de 
-processo razoável. Embora a impressão digital não se modifique naturalmente ao longo dos anos, 
-ela é sensível aos fatores ambientais aos quais os indivíduos estão submetidos, o que pode 
-levar à sua alteração e deterioração. Trabalhadores manuais, por exemplo, podem ver suas 
-impressões digitais constantemente alteradas devido a cortes profundos ou outros cortes em 
-seus dedos.
+No momento presente, a biometria pode ser definida como o processo de identificação 
+de aspectos físicos, biológicos e até comportamentais dos seres vivos. No intuito 
+de distinguir os indivíduos, a partir de suas características únicas. 
 
-Íris: Formada durante o desenvolvimento fetal, estabiliza-se durante os dois primeiros anos de 
-vida. Sua textura é extremamente complexa e fornece informações a serem utilizadas no reconhecimento 
-facial. Apresenta alta unicidade, sendo distinta mesmo em gêmeos idênticos. Tem um baixo grau de 
-impostura, pois é difícil até cirurgicamente alterar a textura da íris. Seu ponto fraco está em sua 
-capacidade de recuperação, requer equipamentos caros e complexos, bem como cooperação individual.
+A biometria se tornou uma nova área de estudo a partir do antropologista francês
+Alphonse Bertillon, em 1890, quando a utilizou para a identificação de criminosos
+\cite{moraes2006}. 
 
-Voz: Combinação de biometria fisiológica e comportamental. Ele não muda em curtos períodos de tempo, 
-mas é afetado por fatores como um simples frio, estado emocional e ruído de fundo. Possui baixa 
-exclusividade e não é recomendado para identificação em larga escala. O ponto forte é a capacidade 
-de coleta e aceitabilidade, além do baixo custo dos coletores. Geralmente indicado para verificação 
-de identidade em conversas.
+\section{TIPOS DE BIOMETRIA}\label{sec:formatacaoTexto1}
 
-\section{RECONHECIMENTO FACIAL}\label{sec:formatacaoTexto}
+De acordo com \citeonline{morais2010}, os principais tipos de biometria são:
+
+\begin{itemize}
+    \item Orelhas: Usa a anatomia da orelha para identificar indivíduos, abordagens 
+    incomuns. Os pontos fortes são aceitabilidade e permanência; fraquezas, 
+    singularidade e desempenho.
+
+    \item Termograma da face e das mãos: O padrão de calor emitido pelo corpo 
+    humano é uma característica de cada pessoa e pode ser captado por 
+    infravermelho. Sistemas baseados em imagens termográficas não requerem 
+    contato ou cooperação individual. No entanto, a captura de imagem continua 
+    sendo um desafio em ambientes não controlados, pois é afetada por fontes de 
+    calor que possivelmente podem estar próximas ao indivíduo. Seus pontos fortes 
+    são a universalidade, a impostura e a singularidade.
+
+    \item Impressão digital: recurso mais comumente usado em credenciais 
+     automatizadas em grande escala.  Sua popularidade se deve em parte a 
+     dispositivos de coleta de baixo custo e desempenho de processo razoável. 
+     Embora a impressão digital não se modifique naturalmente ao longo dos anos, 
+     ela é sensível aos fatores ambientais aos quais os indivíduos estão 
+     submetidos, o que pode levar à sua alteração e deterioração. Trabalhadores 
+     manuais, por exemplo, podem ver suas impressões digitais constantemente 
+     alteradas devido a cortes profundos ou outros cortes em seus dedos.
+
+    \item Íris: Formada durante o desenvolvimento fetal, estabiliza-se durante 
+    os dois primeiros anos de vida. Sua textura é extremamente complexa e 
+    fornece informações a serem utilizadas no reconhecimento facial. Apresenta 
+    alta unicidade, sendo distinta mesmo em gêmeos idênticos. Tem um baixo grau 
+    de impostura, pois é difícil até cirurgicamente alterar a textura da íris. 
+    Seu ponto fraco está em sua capacidade de recuperação, requer equipamentos 
+    caros e complexos, bem como cooperação individual.
+
+    \item Voz: Combinação de biometria fisiológica e comportamental. Ele não muda 
+    em curtos períodos de tempo, mas é afetado por fatores como um simples frio, 
+    estado emocional e ruído de fundo. Possui baixa exclusividade e não é 
+    recomendado para identificação em larga escala. O ponto forte é a capacidade 
+    de coleta e aceitabilidade, além do baixo custo dos coletores. Geralmente 
+    indicado para verificação de identidade em conversas.
+\end{itemize}
+
+\section{RECONHECIMENTO FACIAL}\label{sec:formatacaoTexto2}
 
 Desde a infância, o ser humano adquire e desenvolve sua capacidade de reconhecer traços faciais, 
-que é uma particularidade da visão, é o fundamento das relações sociais, atua como um dos principais 
-fatores da evolução da espécie humana. As principais características da face humana foram retratadas 
-relatadas há cerca de 27.000 anos atrás e durante esse período foram retratadas por inúmeros 
-artistas. (ROUHANI, 2019).
+que é uma particularidade da visão e fundamental para relações sociais \cite{rouhani2019}.
 
-Existem estudos sobre automatização do reconhecimento desde os anos 60. Os projetos iniciais nessa 
+Existem estudos sobre automatização do reconhecimento facial desde os anos 60. Os projetos iniciais nessa 
 área dependiam do administrador encontrar manualmente as características faciais nas imagens, só 
 então o sistema calculava as distâncias entre elas e comparava suas dimensões normalizadas com 
 as referenciadas.
 
 O processo de reconhecimento facial pode ser descrito a partir de uma imagem ou vídeo estático, 
-identificar ou múltiplos indivíduos utilizando um banco de dados de rostos previamente cadastrados.
- Assim, existem três abordagens conhecidas para reconhecimento:
+identificando um ou múltiplos indivíduos a partir de um banco de dados de rostos previamente 
+cadastrados. Assim, existem três abordagens conhecidas para reconhecimento:
 
 \begin{itemize}
     \item Imagem a imagem: a amostra e a base de dados composta por imagens estáticas;
 
     \item Vídeo para vídeo: a amostra e o banco de dados que consiste em vídeos;
 
-    \item Imagem para vídeo: o exemplo é um vídeo. O vídeo é comparado a um banco de dados de 
-    dados de imagens estáticas. A biblioteca OpenCV possibilita, a partir da versão 2.4, o 
-    uso da classe FaceRecognizer para reconhecimento facial. Os algoritmos atualmente disponíveis 
-    na biblioteca são: Fisherfaces e Histogramas de Padrões Binários Locais.
+    \item Imagem para vídeo: o exemplo é um vídeo. O vídeo é comparado a um banco de 
+    dados de imagens estáticas. Para esse caso, a biblioteca OpenCV possibilita,
+     a partir da versão 2.4, o uso da classe FaceRecognizer para reconhecimento 
+     facial. Os algoritmos atualmente disponíveis na biblioteca são: Fisherfaces 
+     e Histogramas de Padrões Binários Locais (LBP).
+\end{itemize}
+
+Após a imagem ter sido lida e transformada em uma matriz da OpenCV, a mesma é
+duplicada e redimensionada proporcionalmente para uma altura fixa. A imagem original 
+é mantida para ser utilizada posteriormente. Em seguida a imagem é convertida para 
+escalas de cinza e então equalizada para realçar o contraste e facilitar a detecção de faces.
+
+A seguir, é feita a detecção das faces utilizando o classificador LBP
+fornecido pela biblioteca OpenCV. Removendo o fundo ao redor da face, pois 
+pode atrapalhar os algoritmos de reconhecimento.
+
+As abordagens mais populares usadas no problema de reconhecimento facial são 
+baseadas na localização e análise de atributos faciais como olhos, nariz e boca (\autoref{fig:haarcascate}), 
+ou em análise global destes.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Reconhecimento baseado na localização dos olhos e nariz}
+    \includegraphics[scale=0.25]{figuras/haarcascate.png}
+    \legend{Fonte: Adaptado de \citeonline{opencvb}.}
+    \label{fig:haarcascate}
+    \centering
+\end{figure}
+
+E com a comparação das informações extraídas com as informações
+conhecidas, juntamente com uma pequena análise estatística, pode-se categorizar o
+objeto e ainda determinar com precisão do que se trata \cite{gonzalez2010}.
+
+\section{BIOMETRIA FACIAL PARA CONTROLE E ACESSO}\label{sec:formatacaoTexto}
+
+Os sistemas de identificação baseados em biometria são essencialmente sistemas de 
+reconhecimento que, dadas informações biométricas, são capazes de distinguir padrões e 
+classificá-los em diferentes classes ou categorias.  \cite{morais2010}.
+
+Ainda de acordo com o autor, algumas das principais características anatômicas, 
+fisiológicas e comportamentais utilizadas em sistemas biométricos incluem 
+impressão digital, impressão da mão, aparência facial, temperatura da face, 
+retina, voz, assinatura, entre outras.
+
+A biometria facial é o recurso biométrico mais utilizado por humanos para identificação 
+pessoal. Embora usar a face para identificar conhecidos seja uma tarefa trivial para 
+o ser humano, no entanto, é uma tarefa bastante complexa para computadores. Mesmo 
+tendo um desempenho razoável em sistemas comerciais, um sistema biométrico facial 
+impõem algumas restrições no fundo, como iluminação e o ângulo das imagens utilizadas.
+
+Segundo \citeonline{cavalcanti2005}, alterações estéticas, como cabelo e barba, uso de
+acessórios, como óculos e bonés, são fatores que aumentam as chances de falha no processo
+de reconhecimento facial.
+
+Sistemas biométricos que utilizam a face como característica biométrica seguem três
+etapas fundamentais. São elas :
+
+\begin{itemize}
+    \item Detecção Facial: Fase responsável por detectar e definir a localização de uma ou mais
+    faces em uma imagem estática ou vídeo;
+
+    \item Extração de Características: Esta fase é responsável por remover o excesso de
+    informações que rodeiam as faces detectadas, assim como selecionar as melhores
+    características para serem utilizadas na próxima etapa;
+
+    \item Reconhecimento Facial: Esta fase compara as características selecionadas pela fase
+    anterior com outras previamente cadastradas em um banco de dados. Sendo
+    responsável por encontrar um registro que se assemelhe ao que precisa ser
+    identificado;
+
 \end{itemize}

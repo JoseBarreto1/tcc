@@ -6,44 +6,141 @@
 %% Título e rótulo de capítulo (rótulos não devem conter caracteres especiais, acentuados ou cedilha)
 \chapter{Introdução}\label{cap:introducao}
 
-Um texto curto apresentando o capítulo.
+Desde o nascimento, os seres humanos desenvolvem capacidades de reconhecimento e 
+identificação de objetos, onde essa capacidade foi muito 
+importante durante o processo evolutivo da espécie humana. Sendo as primeiras 
+demonstrações de identificação de seres vivos e objetos, datados no período 
+pré-histórico.
 
-\section{Considerações iniciais}\label{sec:consideracoesIniciais}
+A biometria, do grego \textit{bios}-vida e \textit{metron}-medida, pode ser 
+definida como o processo de identificação de aspectos físicos, biológicos e até 
+comportamentais dos seres vivos. Na qual, são utilizados para distinguir indivíduos, 
+a partir de suas características únicas. Como por exemplo, a face, retina, 
+íris, impressões digitais, geometria da mão, etc.
 
-As considerações iniciais compõem um texto curto e geral apresentando uma visão geral e sucinta do assunto principal relacionado ao trabalho e a inserção do objeto de pesquisa nesse assunto \cite{Moore:2000:CMC:333067.333074}.
+Dentre as tecnologias atuais de segurança, a biometria tem sido amplamente 
+utilizada, seja para acessar contas bancárias, aplicativos e até controlar 
+o acesso a locais públicos e privados. Atualmente o reconhecimento facial 
+é uma das biometrias mais estudadas, pois além da praticidade é considerada uma 
+das formas mais seguras de identificação. 
 
-Em relação ao assunto, o apresentado nesta seção pode estar relacionado a trabalhos de outros autores ou ao assunto que fornece a fundamentação (motivação) para o trabalho a ser desenvolvido. Se o assunto está relacionado a trabalhos de outros autores, a contribuição do trabalho é definida em relação ao que já foi pesquisado nesse assunto. Se o assunto será utilizado para embasamento do que será proposto, explicitar como o trabalho se insere nesse assunto. A contribuição pode, ainda, estar relacionada a uma necessidade de mercado ou a uma oportunidade decorrente de algum problema real para o qual se pretender propor uma solução. Nesse caso, o assunto fornece um contexto teórico de suporte para o problema e/ou a solução.
+Embora seja promissora, mesmo assim, o sistema de identificação pode falhar durante o 
+processo de reconhecimento, principalmente devido a equívocos e interpretações 
+incorretas do \textit{software}. Esses problemas podem ser causados,
+desde sujeira na lente da câmera, alta umidade, baixa iluminação, filtros digitais 
+não calibrados, ruídos, excesso de informação, inserção de dados falsos, etc.
 
-O importante nesta seção é deixar claro do que se trata o trabalho (assunto ou tema), identificar o objeto de pesquisa, como será encaminhada a solução (procedimento metodológico, tecnologias, ferramentas utilizadas) e o que se pretende ao final do trabalho, sem explicitar a solução e os resultados.
+Desta forma, para um sistema biométrico obter uma alta assertividade, 
+deve-se validar todos os cenários possíveis e tomar os devidos cuidados durante seu 
+desenvolvimento. Pois, por exemplo, durante o processo de reconhecimento facial,
+pode-se haver falsos-positivo ou verdadeiros-negativo (\autoref{fig:pareidolia}), 
+ou seja, o \textit{software} pode identificar um rosto humano que não existe, 
+ou não identificar um rosto humano, mesmo existindo.
 
-\caixa{Atenção}{As seções a seguir são sugestões, converse com o seu orientador para ver quais seções devem ter em seu trabalho!}
+\begin{figure}[h!]
+    \centering
+    \caption{Imagens que lembram rostos humanos}
+    \includegraphics[scale=0.25]{figuras/pareidolia.jpg} 
+    \legend{Fonte: Adaptado de \citeonline{pareidoliaimg}.}
+    \label{fig:pareidolia}
+    \centering
+\end{figure}
+
+Como solução, as literaturas recentes propõem novas técnicas de visão computacional, 
+reconhecimento e aprendizado de máquina. Em razão disso, a taxa de assertividade 
+vem aumentando, devido ao progresso dos sistemas computacionais e dos 
+novos \textit{hardwares}, sendo possível obter um maior desempenho, com um custo
+menor.
+
+Diante disso, o presente estudo visa discorrer sobre o desenvolvimento de um protótipo 
+para o controle de acesso, utilizando reconhecimento facial com SBC e OPENCV.
 
 \section{Objetivos}\label{sec:objetivos}
 
-Um texto curto\footnote{Teste de nota de rodapé 1.} apresentando a seção.
+Neste capítulo serão apresentados os objetivos deste trabalho e as etapas necessárias 
+para o desenvolvimento do protótipo. Na qual, além da implementação do 
+\textit{hardware}, também serão necessárias algumas etapas para a elaboração do \textit{software}, 
+tendo como finalidade, obter uma alta assertividade no controle de acesso por 
+reconhecimento facial.
 
 \subsection{Objetivo geral}\label{subsec:objetivoGeral}
 
-O objetivo geral se refere ao resultado do trabalho realizado, enfatizando o que esse trabalho deixa para a comunidade acadêmica, para a sociedade e/ou para o ambiente profissional. Deve ser apresentado de forma a abranger o resultado principal do teste.
+Este trabalho tem por objetivo realizar o estudo e desenvolvimento de um protótipo 
+para controle de acesso por meio de reconhecimento facial. Para isso, serão implementados 
+algorítimos de visão computacional e aprendizado de maquina, em um computador de placa 
+única (ESP32-CAM).
 
-O objetivo geral e os específicos devem iniciar com verbo. Sugere-se que o objetivo geral contenha no máximo 3 (três) linhas, conforme exemplo abaixo:
+\subsection{Objetivos específicos}\label{subsec:objetivosEspecificos}
 
-Desenvolver um protótipo de um sistema de software para determinar a capacidade produtiva de pequenas empresas com base em estudos de cronoanálise industrial para pequenas empresas com produção em série.
+Para que se cumpram os objetivos gerais, serão essenciais a realização de algumas etapas, 
+as quais, são apresentadas a seguir:
 
-\subsection{Objetivos específicos (opcional)}\label{subsec:objetivosEspecificos}
-
-Os objetivos específicos são opcionais, ou seja, somente devem ser apresentados se caracterizarem resultados parciais gerados a partir do objetivo geral, os quais sejam considerados úteis para a comunidade acadêmica, para a sociedade ou para o ambiente profissional. Uma observação importante é que os resultados sejam passíveis de comprovação, ou seja, se o objetivo for: “Oferecer agilidade e confiabilidade aos processos gerenciais da empresa”, significa que o trabalho deverá realizar testes com relação a esses atributos, cujos resultados deverão ser apresentados nas discussões do trabalho.
-
-Destaca-se que os objetivos específicos não incluem as etapas do processo de desenvolvimento de software (realizar a modelagem, a análise, o projeto...) ou outras atividades necessárias para alcançar o objetivo geral, como, estudar as tecnologias necessárias para modelagem e implementação do sistema. Dentre as exceções estão a realização de estudos, procedimentos, métodos e técnicas considerados inéditos e de relevância para outros trabalhos a serem realizados na mesma área. Contudo, o resultado deste estudo deve ser documentado de forma que seja conhecimento disponibilizado para quem lê o trabalho.
+\begin{itemize}
+    \item  Desenvolver o \textit{hardware} para aquisição de imagens, levando em 
+    consideração a luminosidade local e a qualidade da câmera. Garantindo assim, 
+    bons resultados para a etapa de reconhecimento facial.
+  
+    \item Implementar um código que seja otimizado e organizado, o suficiente para 
+    conseguir filtrar e processar as imagens em quase tempo real. 
+    
+    \item Desenvolver uma interface física, onde os usuários possam interagir e 
+    utilizar de forma simples e prática.
+    
+    \item Por último, criar um sistema para controle de acesso, onde o usuário 
+    administrador, poderá gerenciar e cadastrar novos usuários, permitindo ou 
+    restringindo o acesso, conforme necessário. 
+\end{itemize}
 
 \section{Justificativa}\label{sec:justificativa}
 
-Justificar o objeto de pesquisa (o que será feito) e a forma de resolução do problema (como fazer). A forma de resolução pode estar centrada no método, nas tecnologias, no uso de conceitos (fundamentação teórica).
+Os sistemas de reconhecimento facial foram uma grande solução durante a retomada 
+das atividades presenciais após a pandemia do coronavírus, ajudando empresas
+a promoverem uma maior segurança física, como também segurança sanitária, 
+evitando contaminações e agilizando os processos. Ao contrário dos sistemas 
+manuais, onde normalmente geram atrasos e demandam atenção.
 
-A Justificativa explicita porque desenvolver o referido trabalho, como o mesmo se insere no contexto de pesquisa, de produção científica. Pode incluir o porquê utilizar as tecnologias e ferramentas indicadas, a contribuição em termos de inovação ou mesmo de aprendizado.
+Atualmente o controle de acesso mais comum, são aqueles que utilizam chaves 
+e tags, porém, como possuem inúmeras fragilidades, estes procedimentos não são 
+recomendados em locais que recebem um grande fluxo de pessoas, como por exemplo, 
+hotéis e centros comerciais. Pois, desta forma, qualquer pessoa pode ter acesso, 
+sem necessariamente estar credenciada.
 
-O trabalho não precisa ser justificado em decorrência de ser inovador ou por ter gerado uma significativa contribuição ao conhecimento na área em que o mesmo se insere. Pode referir-se simplesmente à aplicabilidade de conhecimentos adquiridos durante o curso. Sendo assim, a justificativa não deve ser elaborada considerando um mercado a ser atingido e sim com relação ao uso de tecnologias aprendidas e/ou estudadas, o conhecimento e aprendizado do aluno e a aplicabilidade do trabalho desenvolvido.
+Outro ponto importante é que a implantação de sistemas automatizados, também 
+podem gerar economias. Como por exemplo, em condomínios e hotéis, onde o 
+sistema pode realizar parte do serviço de porteiros e/ou recepcionistas, 
+possibilitando uma redução na carga horária destes trabalhadores e 
+inclusive, resultando na redução de custos para as empresas.
 
-\section{Estrutura do trabalho}\label{sec:estruturaTrabalho}
+Por fim, a facilidade desses sistemas, fazem com que os usuários não precisem 
+mais memorizar senhas, ou carregar suas chaves, impactando positivamente na 
+experiência de uso. Além disso, esse sistema reduz a probabilidade de golpes 
+ou fraudes, pois impossibilita o compartilhamento do mesmo acesso.
 
-A estrutura do trabalho contém uma relação dos capítulos e uma descrição sucinta do que cada um deles contém. Esta seção fornece uma visão geral do trabalho no sentido da sua estrutura em capítulos\footnote{Teste de nota de rodapé 2.}.
+\section{Cronograma}\label{sec:cronograma}
+
+O cronograma abaixo (\autoref{quad:quadro1}), mostra as atividades que 
+serão realizadas durante o desenvolvimento deste trabalho.
+
+\begin{tabframed}[htb]
+    \caption{Cronograma de desenvolvimento do trabalho}
+    \label{quad:quadro1}
+    \begin{tabular}{|l|*{12}{p{0.04\textwidth-\columnsep}|}}
+    \hline
+    \multirow{2}{*}{\textbf{Etapa}} & \multicolumn{5}{c|}{\textbf{2022}} & \multicolumn{6}{c|}{\textbf{2023}} \\  
+    \cline{2-12}
+    &\textbf{Ag} &\textbf{Se} &\textbf{Ou} &\textbf{No} &\textbf{De} &\textbf{Ja} &\textbf{Fe} &\textbf{Ma} &\textbf{Ab} &\textbf{Ma} &\textbf{Ju} \\ \hline
+    Definição do tema                                 &X & & & & & & & & & & \\   \hline
+    Definição do escopo do trabalho                   &X & & & & & & & & & & \\   \hline
+    Analise de viabilidade e planejamento da execução &X & & & & & & & & & & \\   \hline
+    Revisão Bibliográfica                             & &X &X &X & & & & & & & \\ \hline
+    Pesquisa sobre ESP32-CAM e OpenCV                     & &X &X & & & & & & & & \\  \hline
+    Estudo da plataforma Nextion Editor               & & & &X &X & & & & & & \\  \hline
+    Desenvolvimento do protótipo                      & & & & &X &X &X & & & & \\ \hline
+    Aplicação do reconhecimento facial                & & & & & &X &X & & & & \\  \hline
+    Análise dos resultados                            & & & & & & &X &X & & & \\  \hline
+    Correção de erros e aprimoramentos                & & & & & & & &X &X &X & \\ \hline
+    Escrita do trabalho                               &X &X &X &X &X &X &X &X &X &X &X \\ \hline
+    Apresentação do trabalho                          & & & & & & & & & & &X \\   \hline
+    \end{tabular}
+    \fonte{}%% Fonte
+\end{tabframed}

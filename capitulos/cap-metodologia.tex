@@ -1,22 +1,112 @@
 %%%% CAPÍTULO 3 - MATERIAL E MÉTODOS (PODE SER OUTRO TÍTULO DE ACORDO COM O TRABALHO REALIZADO)
 
-\chapter{Materiais e Método}\label{cap:materialemetodos}
+\chapter{Metodologia}\label{cap:materialemetodos}
 
-A ênfase deste capítulo está em reportar o que e como será feito para alcançar o objetivo do trabalho. Este capítulo pode ser subdividido, inicialmente, em duas seções, sendo uma para os materiais e outra para o método.
+O trabalho será dividido em três etapas principais: o desenvolvimento do \textit{software}, 
+do \textit{hardware}, e a execução dos testes. Sendo a primeira etapa 
+destinada ao desenvolvimento do algoritmo de reconhecimento facial, utilizando os 
+recursos da biblioteca OpenCV para o processamento de imagens.
 
-\section{Materiais}\label{sec:materiais}
+O fluxograma da \autoref{fig:fluxoprog} mostra de maneira simplificada e intuitiva
+como o sistema vai tratar as entradas dos sinais (imagens), até validar os resultados.
 
-Materiais são as ferramentas, as tecnologias, os ambientes de desenvolvimento e outros que são utilizados para realizar as atividades desde a definição dos requisitos à implantação do sistema. Exemplos de materiais: linguagens de programação e de modelagem, banco de dados e seus gerenciadores, editores para análise e modelagem, ambiente e plataforma de desenvolvimento.
+\begin{figure}[h!]
+    \centering
+    \caption{Fluxograma do \textit{firmware}}
+    \includegraphics[scale=0.4]{figuras/fluxo_programa.png} 
+    \fonte{}%% Fonte
+    \label{fig:fluxoprog}
+    \centering
+\end{figure}
 
-Cada um dos materiais pode ter uma subseção própria ou serem descritos em uma mesma seção. De qualquer forma, essa seção não precisa ser muito extensa, deve abranger apenas um conhecimento básico sobre cada um dos materiais e o que é mais relevante ou utilizado para o trabalho proposto. De maneira geral, não há necessidade de incluir informações históricas sobre os materiais. Centrar-se nos conceitos e particularidades mais relevantes para o trabalho. Exceto se necessário para o entendimento do objeto do trabalho ou considerado relevante para o tipo de pesquisa.
+Porém para executar esse algoritmo, será necessário a utilização de um \textit{hardware} 
+capaz de processá-lo, desta forma, a segunda etapa será responsável pela montagem 
+do protótipo. No intuito de facilitar a compreensão do seu funcionamento, o fluxograma da 
+\autoref{fig:fluxohard} foi criado. Onde no protótipo serão utilizados módulos para alimentação, 
+aquisição dos sinais e processamento, interface gráfica e por fim, um módulo para 
+acionamento da fechadura.
 
-\section{Método}\label{sec:metodo}
+\begin{figure}[h!]
+    \centering
+    \caption{Diagrama de blocos do \textit{hardware}}
+    \includegraphics[scale=0.4]{figuras/fluxo_hardware.png} 
+    \fonte{}%% Fonte
+    \label{fig:fluxohard}
+    \centering
+\end{figure}
 
-O método define, de certa maneira, um plano geral do trabalho, com as principais atividades realizadas durante seu processo de desenvolvimento. São apenas as atividades, o que será feito e o que se espera obter com as mesmas. O que é obtido com a realização dessas atividades está no \autoref{cap:resultados}. 
+A terceira e última etapa será referente a validação do protótipo, desde testes, 
+ajustes no algoritmo, até melhorias e atualização no \textit{hardware}. Nessa etapa será 
+analisada a assertividade do código desenvolvido e também a sua viabilidade para
+utilização no dia-a-dia.
 
-O método é, basicamente, uma sequência de atividades realizadas para definir o sistema, modelar o problema e a solução, implementar a solução, testar e implantar essa solução. Essas atividades devem enfatizar a forma de uso dos materiais de acordo com o referencial teórico e como foi procedido no sentido de alcançar os objetivos do trabalho.
-O método inclui os procedimentos utilizados para se alcançar o objetivo do trabalho. Assim, ele abrange o ciclo de vida do sistema, da identificação do problema à implantação da solução. A identificação pode incluir a definição dos requisitos por parte do usuário e/ou cliente definindo a proposta do sistema. A implantação pode incluir a forma de gerar os instaladores, os recursos e forma de instalação do sistema, a forma de manutenção e de descontinuidade do sistema.
+\section{Computador de placa única}\label{sec:materiais}
 
-A definição das atividades, passos, ou procedimentos que compõem o método pode (ou mesmo deve) estar baseado em autores. Esses autores, normalmente, estão relacionados à engenharia de software.
+O módulo principal do protótipo, será o ESP32-CAM (\autoref{fig:espcam}) da Espressif®. 
+Este dispositivo apesar de ser simples e compacto é ideal para este projeto,  
+pois além de possuir uma câmera integrada a sua placa, possui uma capacidade de 
+execução em quase tempo real. Sendo este também, o responsável por 
+processar, analisar e controlar os demais \textit{hardwares}. 
 
-O tempo verbal a ser utilizado na descrição do método é o passado, considerando que trata-se de um método que foi aplicado para a obtenção dos resultados a serem apresentados.
+\begin{figure}[h!]
+    \centering
+    \caption{ESP32-CAM}
+    \includegraphics[scale=0.25]{figuras/esp32cam.png} 
+    \legend{Fonte: Adaptado de \citeonline{espcamimg}.}
+    \label{fig:espcam}
+    \centering
+\end{figure}
+
+\section{Interface gráfica}\label{sec:materiais}
+
+Para uma melhor interação do usuário com o protótipo, será utilizado o \textit{hardware} 
+Nextion Intellignet (\autoref{fig:nextion}), \textit{display} capaz de fornecer uma interface de controle e visualização 
+de forma simples e rápida. Além desses fatores, essa placa possui um editor visual 
+com inúmeros componentes e recursos, desta forma, facilitando e reduzindo o tempo 
+de programação.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Nextion Intellignet}
+    \includegraphics[scale=0.3]{figuras/nextion.png} 
+    \legend{Fonte: Adaptado de \citeonline{nextionimg}.}
+    \label{fig:nextion}
+    \centering
+\end{figure}
+
+\section{Módulo de acionamento}\label{sec:materiais}
+
+Os relés são adequados para acionar dispositivos eletrônicos como luzes, 
+ventiladores, ar condicionado, etc. E atualmente são muito 
+utilizados em sistemas de automação residencial e industrial, devido a 
+facilidade em controlar cargas CA de média e alta tensão, a partir de 
+circuitos CC de baixa tensão. Desta forma, o acionamento do protótipo 
+será feito, por meio de um módulo relé (\autoref{fig:rele}).
+
+\begin{figure}[h!]
+    \centering
+    \caption{Módulo Relé}
+    \includegraphics[scale=1]{figuras/rele.png} 
+    \fonte{\citeonline{releimg}}%% Fonte \legend{Fonte: Adaptado de \citeonline{releimg}.}
+    \label{fig:rele}
+    \centering
+\end{figure}
+
+\section{Fechadura eletrônica}\label{sec:materiais}
+
+O controle de acesso só será funcional se houver uma fechadura eletrônica 
+integrada ao seu sistema. Desta forma, o protótipo utilizará o Fecho Elétrico (\autoref{fig:fecho}) 
+da AGL. Este que é indicado para portas internas, seja de madeira ou metal, sendo 
+acionado por uma tensão em 12v. Desta forma, se o usuário estiver cadastrado 
+e o sistema validar suas credenciais, a trava elétrica será acionada e 
+então o acesso será liberado.
+
+
+\begin{figure}[h!]
+    \centering
+    \caption{Fecho Elétrico}
+    \includegraphics[scale=0.3]{figuras/fechoagl.png} 
+    \fonte{\citeonline{fechaduraimg}}%%\legend{Fonte: Adaptado de \citeonline{fechaduraimg}.}
+    \label{fig:fecho}
+    \centering
+\end{figure}

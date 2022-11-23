@@ -704,7 +704,7 @@
 %	da \@university{}, como requisito parcial para obtenção do título de \@degree{}
 %	em \@degreearea{}.
 	\@goal{} apresentado como requisito para obtenção do título de \@degree{}
-	em \@degreearea{} do \@program{} da \@university{}.
+	em \@degreearea{} da \@university{} (UTFPR).
 }
 
 % Creative Commons

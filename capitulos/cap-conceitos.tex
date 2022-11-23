@@ -39,7 +39,8 @@ cartão SD e LED de alto brilho.
 
 Uma forma para programar o ESP32 é utilizando o Arduino IDE. Um aplicativo de 
 código aberto, escrito em C e C++, que permite a comunicação e gravação em chips 
-megaAVR. Entretanto, para gravar em chips ESP32, basta ativar o utilitário Esptool.
+ATmega da família AVR. Entretanto, para gravar em chips ESP32, basta ativar 
+o utilitário Esptool.
 
 Além do ambiente de desenvolvimento, outra vantagem é que o Arduino IDE 
 possui inúmeras bibliotecas e documentação. Facilitando e assegurando o 
@@ -49,7 +50,7 @@ testadas e atualizadas pela comunidade da plataforma Arduino.
 \section{OPENCV}\label{sec:formatacaoTexto}
 
 OpenCV é uma biblioteca de visão computacional e aprendizado de 
-máquina de código aberto, foi desenvolvido inicialmente pela Intel, com o 
+máquina de código aberto, tendo sido desenvolvida inicialmente pela Intel, com o 
 intuito de fornecer uma infraestrutura comum para aplicativos, acelerar o 
 desenvolvimento dessa tecnologia e tornar a visão computacional mais acessível 
 para desenvolvedores e pesquisadores.
@@ -58,7 +59,7 @@ O \citeonline{opencv} é escrito nativamente em C++, mas possui interfaces em
 Python, Java e MATLAB e suporta plataformas como Windows, Linux, Android e 
 Mac OS. Atualmente a biblioteca possui mais de 2.500 algoritmos otimizados, 
 que inclui algoritmos de visão computacional clássico, de última geração 
-e de aprendizado de máquina. Podendo ser usados para identificar objetos,
+e de aprendizado de máquina. Podendo ser usadas para identificar objetos,
 detectar e reconhecer rostos, rastrear objetos em movimento, etc.
 
 \section{PROCESSAMENTO DE IMAGENS}\label{sec:formatacaoTexto}
@@ -76,7 +77,7 @@ serve para de certa forma separar ambas as classes.
 
 Sendo assim, a forma mais simples de processamentos consiste na
 bipartição do histograma, dando valores iguais a 0 (branco) aos pixels que estiverem
-abaixo do valor de threshold (T), e iguais a 255 (preto) aos pixels que estiverem 
+abaixo do valor de \textit{threshold} (T), e iguais a 255 (preto) aos pixels que estiverem 
 acima desse valor. A \autoref{fig:escalacinza} mostra uma escala de tons 
 de cinza, e a \autoref{fig:escalabinarizada} mostra essa mesma escala após passar 
 por esse processamento, exemplificando o processo de binarização.
@@ -103,7 +104,7 @@ Especialmente durante o processo de reconhecimento de objetos.
 A segmentação é uma ferramenta indispensável para fins de análise e interpretação.
 
 A segmentação de uma imagem é um procedimento importante no que tange
-essas analises, uma vez que ela subdivide uma imagem em regiões que
+essas análises, uma vez que ela subdivide uma imagem em regiões que
 posteriormente serão ou não tidas como de interesse, o que pode variar muito de
 acordo com a aplicação \cite{gonzalez2010}.
 
@@ -173,13 +174,12 @@ De acordo com \citeonline{morais2010}, os principais tipos de biometria são:
 
     \item Íris: Formada durante o desenvolvimento fetal, estabiliza-se durante 
     os dois primeiros anos de vida. Sua textura é extremamente complexa e 
-    fornece informações a serem utilizadas no reconhecimento facial. Apresenta 
-    alta unicidade, sendo distinta mesmo em gêmeos idênticos. Tem um baixo grau 
+    fornece informações a serem utilizadas no reconhecimento facial. Tem um baixo grau 
     de impostura, pois é difícil até cirurgicamente alterar a textura da íris. 
     Seu ponto fraco está em sua capacidade de recuperação, requer equipamentos 
     caros e complexos, bem como cooperação individual.
 
-    \item Voz: Combinação de biometria fisiológica e comportamental. Ele não muda 
+    \item Voz: União de biometria comportamental e fisiológica. Ele não muda 
     em curtos períodos de tempo, mas é afetado por fatores como um simples frio, 
     estado emocional e ruído de fundo. Possui baixa exclusividade e não é 
     recomendado para identificação em larga escala. O ponto forte é a capacidade 
@@ -260,12 +260,12 @@ Segundo \citeonline{cavalcanti2005}, alterações estéticas, como cabelo e barb
 acessórios, como óculos e bonés, são fatores que aumentam as chances de falha no processo
 de reconhecimento facial.
 
-Sistemas biométricos que utilizam a face como característica biométrica seguem três
-etapas fundamentais. São elas :
+Para utilizar a face em sistemas biométricos é preciso seguir três
+etapas fundamentais. São elas:
 
 \begin{itemize}
-    \item Detecção Facial: Fase responsável por detectar e definir a localização de uma ou mais
-    faces em uma imagem estática ou vídeo;
+    \item Detecção Facial: Responsável por definir e localizar uma ou mais
+    faces;
 
     \item Extração de Características: Esta fase é responsável por remover o excesso de
     informações que rodeiam as faces detectadas, assim como selecionar as melhores

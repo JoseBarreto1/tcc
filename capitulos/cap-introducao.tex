@@ -20,21 +20,22 @@ a partir de suas características únicas. Como por exemplo, a face, retina,
 
 Dentre as tecnologias atuais de segurança, a biometria tem sido amplamente 
 utilizada, seja para acessar contas bancárias, aplicativos e até controlar 
-o acesso a locais públicos e privados. Onde atualmente o reconhecimento facial 
+o acesso a locais públicos e privados. Atualmente o reconhecimento facial 
 é uma das biometrias mais estudadas, pois além da praticidade é considerada uma 
 das formas mais seguras de identificação. 
 
 Embora seja promissora, mesmo assim, o sistema de identificação pode falhar durante o 
 processo de reconhecimento, principalmente devido a equívocos e interpretações 
-incorretas do \textit{software}. Onde esses problemas podem ser causados,
+incorretas do \textit{software}. Esses problemas podem ser causados,
 desde sujeira na lente da câmera, alta umidade, baixa iluminação, filtros digitais 
 não calibrados, ruídos, excesso de informação, inserção de dados falsos, etc.
 
 Desta forma, para um sistema biométrico obter uma alta assertividade, 
 deve-se validar todos os cenários possíveis e tomar os devidos cuidados durante seu 
 desenvolvimento. Pois, por exemplo, durante o processo de reconhecimento facial,
-pode-se haver falsos-positivo ou verdadeiros-negativo (\autoref{fig:pareidolia}), ou seja, o software pode identificar 
-um rosto humano que não existe, ou não identificar um rosto humano, mesmo existindo.
+pode-se haver falsos-positivo ou verdadeiros-negativo (\autoref{fig:pareidolia}), 
+ou seja, o \textit{software} pode identificar um rosto humano que não existe, 
+ou não identificar um rosto humano, mesmo existindo.
 
 \begin{figure}[h!]
     \centering
@@ -45,11 +46,11 @@ um rosto humano que não existe, ou não identificar um rosto humano, mesmo exis
     \centering
 \end{figure}
 
-Como solução, as literaturas recente propõe novas técnicas de visão computacional, 
-reconhecimento e aprendizado de máquina. Em conjunto disso, a taxa de assertividade 
-também vem aumentando, devido ao progresso dos sistemas computacionais e dos 
-novos \textit{hardwares}, onde é possível obter alta performance, com um 
-bom custo beneficio.
+Como solução, as literaturas recentes propõem novas técnicas de visão computacional, 
+reconhecimento e aprendizado de máquina. Em razão disso, a taxa de assertividade 
+vem aumentando, devido ao progresso dos sistemas computacionais e dos 
+novos \textit{hardwares}, sendo possível obter um maior desempenho, com um custo
+menor.
 
 Diante disso, o presente estudo visa discorrer sobre o desenvolvimento de um protótipo 
 para o controle de acesso, utilizando reconhecimento facial com SBC e OPENCV.
@@ -59,7 +60,8 @@ para o controle de acesso, utilizando reconhecimento facial com SBC e OPENCV.
 Neste capítulo serão apresentados os objetivos deste trabalho e as etapas necessárias 
 para o desenvolvimento do protótipo. Na qual, além da implementação do 
 \textit{hardware}, também serão necessárias algumas etapas para a elaboração do \textit{software}, 
-tendo como finalidade, obter uma alta assertividade.
+tendo como finalidade, obter uma alta assertividade no controle de acesso por 
+reconhecimento facial.
 
 \subsection{Objetivo geral}\label{subsec:objetivoGeral}
 
@@ -84,14 +86,14 @@ as quais, são apresentadas a seguir:
     \item Desenvolver uma interface física, onde os usuários possam interagir e 
     utilizar de forma simples e prática.
     
-    \item Por ultimo, criar um sistema para controle de acesso, onde o usuário 
+    \item Por último, criar um sistema para controle de acesso, onde o usuário 
     administrador, poderá gerenciar e cadastrar novos usuários, permitindo ou 
     restringindo o acesso, conforme necessário. 
 \end{itemize}
 
 \section{Justificativa}\label{sec:justificativa}
 
-Os sistemas de reconhecimento facial foi uma grande solução durante a retomada 
+Os sistemas de reconhecimento facial foram uma grande solução durante a retomada 
 das atividades presenciais após a pandemia do coronavírus, ajudando empresas
 a promoverem uma maior segurança física, como também segurança sanitária, 
 evitando contaminações e agilizando os processos. Ao contrário dos sistemas 
@@ -101,7 +103,7 @@ Atualmente o controle de acesso mais comum, são aqueles que utilizam chaves
 e tags, porém, como possuem inúmeras fragilidades, estes procedimentos não são 
 recomendados em locais que recebem um grande fluxo de pessoas, como por exemplo, 
 hotéis e centros comerciais. Pois, desta forma, qualquer pessoa pode ter acesso, 
-sem necessariamente estar credenciado.
+sem necessariamente estar credenciada.
 
 Outro ponto importante é que a implantação de sistemas automatizados, também 
 podem gerar economias. Como por exemplo, em condomínios e hotéis, onde o 

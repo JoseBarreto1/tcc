@@ -12,7 +12,7 @@ como o sistema vai tratar as entradas dos sinais (imagens), até validar os resu
 
 \begin{figure}[h!]
     \centering
-    \caption{Fluxograma do Programa}
+    \caption{Fluxograma do \textit{firmware}}
     \includegraphics[scale=0.4]{figuras/fluxo_programa.png} 
     \fonte{}%% Fonte
     \label{fig:fluxoprog}
@@ -21,22 +21,32 @@ como o sistema vai tratar as entradas dos sinais (imagens), até validar os resu
 
 Porém para executar esse algoritmo, será necessário a utilização de um \textit{hardware} 
 capaz de processá-lo, desta forma, a segunda etapa será responsável pela montagem 
-do protótipo. Onde os \textit{hardwares} que serão utilizados, não são muito complexos, 
-sendo compostos por módulos para aquisição dos sinais, processamento e o acionamento 
-referente ao controle de acesso.
+do protótipo. No intuito de facilitar a compreensão do seu funcionamento, o fluxograma da 
+\autoref{fig:fluxohard} foi criado. Onde no protótipo serão utilizados módulos para alimentação, 
+aquisição dos sinais e processamento, interface gráfica e por fim, um módulo para 
+acionamento da fechadura.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Diagrama de blocos do \textit{hardware}}
+    \includegraphics[scale=0.4]{figuras/fluxo_hardware.png} 
+    \fonte{}%% Fonte
+    \label{fig:fluxohard}
+    \centering
+\end{figure}
 
 A terceira e última etapa será referente a validação do protótipo, desde testes, 
-ajustes no algoritmo, até melhorias e atualização no hardware. Nessa etapa será 
+ajustes no algoritmo, até melhorias e atualização no \textit{hardware}. Nessa etapa será 
 analisada a assertividade do código desenvolvido e também a sua viabilidade para
 utilização no dia-a-dia.
 
 \section{Computador de placa única}\label{sec:materiais}
 
-O \textit{hardware} principal do protótipo, será o ESP32-CAM (\autoref{fig:espcam}) da Espressif®. 
+O módulo principal do protótipo, será o ESP32-CAM (\autoref{fig:espcam}) da Espressif®. 
 Este dispositivo apesar de ser simples e compacto é ideal para este projeto,  
 pois além de possuir uma câmera integrada a sua placa, possui uma capacidade de 
 execução em quase tempo real. Sendo este também, o responsável por 
-processar, analisar e controlar os demais hardwares. 
+processar, analisar e controlar os demais \textit{hardwares}. 
 
 \begin{figure}[h!]
     \centering
@@ -50,7 +60,7 @@ processar, analisar e controlar os demais hardwares.
 \section{Interface gráfica}\label{sec:materiais}
 
 Para uma melhor interação do usuário com o protótipo, será utilizado o \textit{hardware} 
-Nextion Intellignet (\autoref{fig:nextion}), display capaz de fornecer uma interface de controle e visualização 
+Nextion Intellignet (\autoref{fig:nextion}), \textit{display} capaz de fornecer uma interface de controle e visualização 
 de forma simples e rápida. Além desses fatores, essa placa possui um editor visual 
 com inúmeros componentes e recursos, desta forma, facilitando e reduzindo o tempo 
 de programação.
@@ -61,6 +71,24 @@ de programação.
     \includegraphics[scale=0.3]{figuras/nextion.png} 
     \legend{Fonte: Adaptado de \citeonline{nextionimg}.}
     \label{fig:nextion}
+    \centering
+\end{figure}
+
+\section{Módulo de acionamento}\label{sec:materiais}
+
+Os relés são adequados para acionar dispositivos eletrônicos como luzes, 
+ventiladores, ar condicionado, etc. E atualmente são muito 
+utilizados em sistemas de automação residencial e industrial, devido a 
+facilidade em controlar cargas CA de média e alta tensão, a partir de 
+circuitos CC de baixa tensão. Desta forma, o acionamento do protótipo 
+será feito, por meio de um módulo relé (\autoref{fig:rele}).
+
+\begin{figure}[h!]
+    \centering
+    \caption{Módulo Relé}
+    \includegraphics[scale=1]{figuras/rele.png} 
+    \fonte{\citeonline{releimg}}%% Fonte \legend{Fonte: Adaptado de \citeonline{releimg}.}
+    \label{fig:rele}
     \centering
 \end{figure}
 
@@ -78,7 +106,7 @@ então o acesso será liberado.
     \centering
     \caption{Fecho Elétrico}
     \includegraphics[scale=0.3]{figuras/fechoagl.png} 
-    \legend{Fonte: Adaptado de \citeonline{fechaduraimg}.}
+    \fonte{\citeonline{fechaduraimg}}%%\legend{Fonte: Adaptado de \citeonline{fechaduraimg}.}
     \label{fig:fecho}
     \centering
 \end{figure}

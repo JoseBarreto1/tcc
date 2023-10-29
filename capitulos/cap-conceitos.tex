@@ -6,18 +6,23 @@
 \chapter{Fundamentação te\'orica}\label{cap:referencialTeorico}
 
 Neste capítulo são apresentados alguns dos conceitos importantes para o entendimento
-do trabalho. Sendo abordados assuntos como o visão computacional, biometria e 
-reconhecimento facial.
+do trabalho. Sendo abordados assuntos como biometria, processamento de imagens, aprendizado 
+profundo e reconhecimento facial.
 
-\section{Computador de Placa Única}\label{sec:formatacaoTexto3}
+\section{Microcontrolador}\label{sec:microcontrolador}
 
-Computador de Placa Única ou Single Board Computer (SBC) é um computador onde todos 
-os componentes necessários para sua operação estão localizados em uma única placa de 
-circuito impresso. Esses computadores podem ser utilizados em sistemas simples ou complexos, 
-tendo diversas aplicações, desde sistemas de alarme, sistemas de controle, 
-monitoramento, etc.
+Um microcontrolador é um computador em um único \textit{chip} que incorpora um processador, 
+memória, periféricos de entrada e saída, temporizadores e dispositivos de 
+comunicação serial. Eles surgiram como uma evolução natural dos circuitos digitais 
+devido à crescente complexidade. Chegou um ponto em que foi mais prático e 
+econômico substituir a lógica das portas digitais por um conjunto de 
+processador e \textit{software} \cite{penido2013}.
 
-Quando se trata de SBC, uma boa opção é o ESP32 (\autoref{fig:esp32}). Mesmo não 
+O primeiro microcontrolador, o "8048", foi lançado pela Intel em 1977 e evoluiu 
+para a família "8051". Esses \textit{chips} são programados em linguagem \textit{Assembly} e 
+possuem um conjunto de instruções poderoso \cite{penido2013}.
+
+Atualmente, quando se trata de microcontrolador, uma boa opção é o ESP32 (\autoref{fig:esp32}). Mesmo não 
 sendo o modelo mais potente, nem o mais compacto, ainda assim, possui um ótimo custo 
 beneficio. Considerando sua simplicidade, poder de processamento e baixo consumo 
 de corrente \cite{espressif2022c}.
@@ -32,14 +37,14 @@ de corrente \cite{espressif2022c}.
 \end{figure}
 
 A versão escolhida para este projeto será o ESP32-CAM, onde além de possuir um 
-chip ESP32 integrado, nele também está incluso uma câmera, uma entrada para 
+\textit{chip} ESP32 integrado, nele também está incluso uma câmera, uma entrada para 
 cartão SD e LED de alto brilho.
 
-\subsection{Arduino IDE}\label{sec:espacamento}
+\subsection{PlatformIO}\label{sec:espacamento}
 
 Uma forma para programar o ESP32 é utilizando o Arduino IDE. Um aplicativo de 
-código aberto, escrito em C e C++, que permite a comunicação e gravação em chips 
-ATmega da família AVR. Entretanto, para gravar em chips ESP32, basta ativar 
+código aberto, escrito em C e C++, que permite a comunicação e gravação em \textit{chips} 
+ATmega da família AVR. Entretanto, para gravar em \textit{chips} ESP32, basta ativar 
 o utilitário Esptool.
 
 Além do ambiente de desenvolvimento, outra vantagem é que o Arduino IDE 
@@ -47,22 +52,18 @@ possui inúmeras bibliotecas e documentação. Facilitando e assegurando o
 desenvolvimento de novos códigos, pois essas bibliotecas são constantemente 
 testadas e atualizadas pela comunidade da plataforma Arduino.
 
-\section{OPENCV}\label{sec:formatacaoTexto}
+\section{ESP-DL}\label{sec:formatacaoTexto}
 
-OpenCV é uma biblioteca de visão computacional e aprendizado de 
-máquina de código aberto, tendo sido desenvolvida inicialmente pela Intel, com o 
-intuito de fornecer uma infraestrutura comum para aplicativos, acelerar o 
-desenvolvimento dessa tecnologia e tornar a visão computacional mais acessível 
-para desenvolvedores e pesquisadores.
+ESP-DL é uma biblioteca de alto desempenho dedicada ao ESP32, ESP32-S2, 
+ESP32-S3 e ESP32-C3, projetada para recursos de aprendizagem profunda. 
 
-O \citeonline{opencv} é escrito nativamente em C++, mas possui interfaces em 
-Python, Java e MATLAB e suporta plataformas como Windows, Linux, Android e 
-Mac OS. Atualmente a biblioteca possui mais de 2.500 algoritmos otimizados, 
-que inclui algoritmos de visão computacional clássico, de última geração 
-e de aprendizado de máquina. Podendo ser usadas para identificar objetos,
-detectar e reconhecer rostos, rastrear objetos em movimento, etc.
+O \citeonline{espdl} oferece APIs para tarefas como inferência de redes 
+neurais (NN), processamento de imagens, operações matemáticas e inclui 
+alguns modelos de aprendizado profundo. Com essa biblioteca, você 
+pode aproveitar os SoCs (System-on-Chip) da \textit{Espressif} de forma simples 
+e ágil para implementar diversos tipo de aplicações.
 
-\section{PROCESSAMENTO DE IMAGENS}\label{sec:formatacaoTexto}
+\section{PROCESSAMENTO DE IMAGENS}\label{sec:processamento}
 
 As técnicas de processamento de imagens começaram a surgir no final da década de 1960, 
 para serem utilizadas no realce e restauração de imagens capturadas do espaço, 
@@ -136,7 +137,7 @@ O que pode ser visualizado com mais facilidade na \autoref{fig:esqueletizacao}:
     \centering
 \end{figure}
 
-\section{BIOMETRIA}\label{sec:formatacaoTexto1}
+\section{BIOMETRIA}\label{sec:biometria}
 
 Com o avanço da tecnologia, hoje é possível realizar transações e pagamentos a 
 partir de qualquer lugar, ou até mesmo, sem sair de casa, apenas com o uso de 
@@ -154,7 +155,7 @@ características únicas. É uma técnica que foi utilizada até mesmo pelos eg�
 para o processo de identificação, baseando-se em características da
 aparência dos indivíduos, como cor dos olhos e cicatrizes \cite{santos2007}.
 
-\section{TIPOS DE BIOMETRIA}\label{sec:formatacaoTexto1}
+\section{TIPOS DE BIOMETRIA}\label{sec:tiposBiometria}
 
 De acordo com \citeonline{morais2010}, os principais tipos de biometria são:
 
@@ -195,7 +196,7 @@ De acordo com \citeonline{morais2010}, os principais tipos de biometria são:
     indicado para verificação de identidade em conversas.
 \end{itemize}
 
-\section{RECONHECIMENTO FACIAL}\label{sec:formatacaoTexto2}
+\section{RECONHECIMENTO FACIAL}\label{sec:reconhecimento}
 
 Desde a infância, o ser humano adquire e desenvolve sua capacidade de reconhecer traços faciais, 
 que é uma particularidade da visão e fundamental para relações sociais \cite{rouhani2019}.
@@ -238,7 +239,7 @@ ou em análise global destes.
     \centering
     \caption{Reconhecimento baseado na localização dos olhos e nariz}
     \includegraphics[scale=0.25]{figuras/haarcascate.png}
-    \legend{Fonte: Adaptado de \citeonline{opencvb}.}
+    \legend{Fonte: Adaptado de \citeonline{viola2004}.}
     \label{fig:haarcascate}
     \centering
 \end{figure}
@@ -247,11 +248,11 @@ E com a comparação das informações extraídas com as informações
 conhecidas, juntamente com uma pequena análise estatística, pode-se categorizar o
 objeto e ainda determinar com precisão do que se trata \cite{gonzalez2010}.
 
-\section{BIOMETRIA FACIAL PARA CONTROLE E ACESSO}\label{sec:formatacaoTexto}
+\section{BIOMETRIA FACIAL PARA CONTROLE E ACESSO}\label{sec:biometriaFacial}
 
 Os sistemas de identificação baseados em biometria são essencialmente sistemas de 
 reconhecimento que, dadas informações biométricas, são capazes de distinguir padrões e 
-classificá-los em diferentes classes ou categorias.  \cite{morais2010}.
+classificá-los em diferentes classes ou categorias. \cite{morais2010}.
 
 Ainda de acordo com o autor, algumas das principais características anatômicas, 
 fisiológicas e comportamentais utilizadas em sistemas biométricos incluem 

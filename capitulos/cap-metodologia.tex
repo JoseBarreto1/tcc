@@ -231,10 +231,10 @@ existente e acelerar o desenvolvimento. Como também sua
 simplificação no processo de compilação e carregamento de 
 código para o hardware de destino. 
 
-\subsection{Bibliotecas}\label{sec:formatacaoTexto}
+\subsection{Biblioteca ESP-DL}\label{sec:formatacaoTexto}
 
 Para identificação de rostos e reconhecimento facial, foram utilizados 
-os recursos disponiveis da biblioteca ESP-DL.
+os recursos disponíveis da biblioteca ESP-DL.
 
 O ESP-DL é uma biblioteca de alto desempenho dedicada ao ESP32, ESP32-S2,
 ESP32-S3 e ESP32-C3, projetada para recursos de aprendizagem profunda.
@@ -246,7 +246,151 @@ os desenvolvedores podem aproveitar os SoCs (System-on-Chip) da
 \textit{Espressif} de maneira simples e ágil para a implementação 
 de uma ampla variedade de aplicações.
 
+Dentre os recursos disponíveis do ESP-DL, se encontra o 
+ESP-Face, componente que fornece funções de detecção e 
+reconhecimento facial e também operações de rede neural. 
+O método \textit{face detect} utiliza o modelo MTMN (\textit{Multi-Task 
+Memory Network}) para a detecção de rostos humanos. 
+Esse modelo, especialmente projetado para dispositivos 
+embarcados, apresenta uma operação eficiente que se 
+baseia na arquitetura móvel MobileNetV2 e utiliza 
+redes convolucionais em cascata multitarefa.
 
+O MobileNetV2 faz parte de uma nova geração de redes 
+neurais convolucionais profundas voltadas para a 
+visão computacional. Essa arquitetura permite a 
+implementação em tempo real de aplicativos de 
+classificação, detecção e alinhamento de objetos 
+em dispositivos móveis pessoais, destacando-se por 
+sua capacidade de processamento leve.
+
+O MTMN se beneficia de redes neurais pré-treinadas, 
+que foram desenvolvidas com base em um vasto banco de 
+dados contendo mais de um milhão de imagens do ImageNet. 
+Essas redes aprenderam representações de recursos de 
+mais de 1.000 categorias de objetos, fornecendo uma 
+base sólida para a detecção de rostos.
+
+Uma característica distintiva do MTMN é sua estrutura 
+multitarefa de aprendizagem em cascata. Essa abordagem 
+permite que o modelo resolva desafios encontrados em 
+ambientes diversos, como variações de iluminação, 
+oclusões e poses variadas. O MTMN é composto por três 
+estágios de redes convolucionais profundas que preveem a 
+localização de faces e pontos de referência, proporcionando 
+uma detecção precisa que varia de informações gerais a 
+detalhes específicos.
+
+No contexto do reconhecimento facial, uma vez que um rosto 
+humano tenha sido detectado por meio do procedimento 
+mencionado anteriormente, é possível realizar uma verificação 
+comparando-o com os rostos previamente cadastrados. 
+A entrada para esse processo é a imagem original juntamente 
+com os resultados obtidos na etapa de detecção facial.
+
+O método de reconhecimento facial, denominado "recognize face" 
+faz uso do modelo FRMN (\textit{Face Recognition Memory Network}), que 
+também se baseia na arquitetura móvel MobileNetV2 e emprega o 
+algoritmo ArcFace. Para otimizar a complexidade computacional, 
+as imagens foram treinadas em dimensões reduzidas (56x56).
+
+Esse procedimento, além de oferecer um processo de reconhecimento 
+facial eficiente, permite a comparação precisa entre o rosto 
+identificado e as informações previamente cadastradas, 
+contribuindo para uma solução de alta qualidade em sistemas 
+de identificação e autenticação.
+
+\subsection{Fluxo de telas}\label{sec:telas}
+
+Os recursos gráficos fornecidos pelo display LCD desempenham um papel 
+fundamental na usabilidade da aplicação. Nesse contexto, a elaboração 
+do fluxo de telas se torna essencial para proporcionar aos usuários 
+uma experiência eficiente. Todos os fluxos foram planejados e 
+projetados com o objetivo de guiar o usuário por meio 
+de diferentes interações e funcionalidades.
+
+O primeiro conjunto de telas (\autoref{fig:fluxoinicial}), referente à 
+inicialização dos recursos utilizados no programa do protótipo, 
+abrange o momento em que a câmera, os sensores e o SPIFFS 
+(Sistema de Arquivos Flash de Interface Serial Periférica) 
+são ativados. Além disso, a lista de usuários cadastrados é 
+inicializada antes de exibir a tela de menu." 
+
+\begin{figure}[h!]
+    \centering
+    \caption{Telas de inicialização}
+    \includegraphics[scale=0.3]{figuras/fluxo_inicial.png}
+    \fonte{}%% Fonte
+    \label{fig:fluxoinicial}
+    \centering
+\end{figure}
+
+Ao chegar ao menu e selecionar a opção de login, o usuário inicia o 
+fluxo de telas de login. Inicialmente, é exibida uma mensagem de 
+orientação para enquadrar o rosto dentro do campo de visão da câmera. 
+Se o usuário estiver cadastrado, uma mensagem de sucesso é exibida, 
+e em seguida, o módulo do relé é acionado. Caso contrário, o timer 
+é executado em segundo plano, e quando o tempo se esgota, uma mensagem 
+de erro é exibida, como representado na \autoref{fig:fluxologin}.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Fluxo de telas do login}
+    \includegraphics[scale=2.2]{figuras/fluxo_login.png}
+    \fonte{}%% Fonte
+    \label{fig:fluxologin}
+    \centering
+\end{figure}
+
+No entanto, se o usuário escolher a opção de cadastro no menu, 
+ele deverá seguir o fluxo descrito na \autoref{fig:fluxocadastro}. 
+Na primeira etapa, o usuário é solicitado a digitar a senha. 
+Se a senha estiver correta, uma mensagem de "senha correta" é 
+exibida, e o processo de identificação e reconhecimento facial 
+é iniciado. Se tudo ocorrer conforme o esperado, os dados são 
+armazenados na memória RAM ou na memória flash. Caso contrário, 
+o usuário visualizará uma mensagem de erro.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Fluxo de telas do cadastro}
+    \includegraphics[scale=2.5]{figuras/fluxo_cadastro.png}
+    \fonte{}%% Fonte
+    \label{fig:fluxocadastro}
+    \centering
+\end{figure}
+
+
+Por fim, o ultimo fluxo principal é o processo de exclusão 
+de usuários (\autoref{fig:fluxosenha}), que se assemelha 
+muito ao fluxo de cadastro. Como observado, em ambos 
+os casos, a primeira tela solicita a inserção 
+da senha, e o usuário tem aproximadamente 40 segundos 
+para descobrir ou digitar a senha correta. Durante esse processo, 
+podem ser exibidas mensagens de erro ou sucesso. Se tudo ocorrer 
+conforme o esperado, a mensagem "usuários deletados" é exibida.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Telas deletar usuario}
+    \includegraphics[scale=2.5]{figuras/fluxo_deletar_usuario.png}
+    \fonte{}%% Fonte
+    \label{fig:fluxosenha}
+    \centering
+\end{figure}
+
+\section{Desenvolvimento do protótipo}\label{sec:prototipo}
+
+Para o desenvolvimento do protótipo foi necessário utilizar uma caixa
+
+Devido ao tamanho reduzido da caixa, foi necessário realizar um projeto minucioso de
+criação 3D seguindo as medidas exatas para que fosse possível alocar todos os conectores, botões
+e o circuito em si. Dessa forma, com a caixa modelada 3D foi possível testar as melhores posições
+para todos os elementos e também ter a medida e modelo exato para a placa de circuito impresso.
+
+O passo seguinte foi a criação do diagrama elétrico final do protótipo, mostrado na Figura
+36, feito com base no circuito testado e montado na protoboard. Optou-se pela inclusão de
+conectores do tipo KK que possuem travas para evitar desconexões
 
 
 \begin{figure}[h!]
@@ -257,6 +401,11 @@ de uma ampla variedade de aplicações.
     \label{fig:circuito}
     \centering
 \end{figure}
+
+Com base no esquema e no dimensionamento possível, a placa em dupla face foi criada,
+como mostra a Figura 37, onde os recortes foram necessários para que fosse possível encaixar os
+conectores da caixa. Além disso, a parte de botões da placa foi feita de forma destacável, uma
+vez que no projeto ela se encontra acima da placa principal, fixada na caixa.
 
 \begin{figure}[h!]
     \centering
@@ -294,41 +443,6 @@ de uma ampla variedade de aplicações.
     \centering
 \end{figure}
 
-\begin{figure}[h!]
-    \centering
-    \caption{Telas de inicialização}
-    \includegraphics[scale=0.3]{figuras/fluxo_inicial.png}
-    \fonte{}%% Fonte
-    \label{fig:fluxoinicial}
-    \centering
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \caption{Telas login}
-    \includegraphics[scale=2.2]{figuras/fluxo_login.png}
-    \fonte{}%% Fonte
-    \label{fig:fluxologin}
-    \centering
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \caption{Telas cadastro}
-    \includegraphics[scale=2.5]{figuras/fluxo_cadastro.png}
-    \fonte{}%% Fonte
-    \label{fig:fluxocadastro}
-    \centering
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \caption{Telas deletar usuario}
-    \includegraphics[scale=2.5]{figuras/fluxo_deletar_usuario.png}
-    \fonte{}%% Fonte
-    \label{fig:fluxosenha}
-    \centering
-\end{figure}
 
 \begin{figure}[h!]
     \centering
@@ -345,5 +459,14 @@ de uma ampla variedade de aplicações.
     \includegraphics[scale=0.45]{figuras/placa_montada.png}
     \fonte{}%% Fonte
     \label{fig:placamanufaturada}
+    \centering
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Placa montada}
+    \includegraphics[scale=0.3]{placa_case.png}
+    \fonte{}%% Fonte
+    \label{fig:placamontada}
     \centering
 \end{figure}

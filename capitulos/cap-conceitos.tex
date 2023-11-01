@@ -36,34 +36,7 @@ de corrente \cite{espressif2022c}.
     \centering
 \end{figure}
 
-A versão escolhida para este projeto será o ESP32-CAM, onde além de possuir um 
-\textit{chip} ESP32 integrado, nele também está incluso uma câmera, uma entrada para 
-cartão SD e LED de alto brilho.
-
-\subsection{PlatformIO}\label{sec:espacamento}
-
-Uma forma para programar o ESP32 é utilizando o Arduino IDE. Um aplicativo de 
-código aberto, escrito em C e C++, que permite a comunicação e gravação em \textit{chips} 
-ATmega da família AVR. Entretanto, para gravar em \textit{chips} ESP32, basta ativar 
-o utilitário Esptool.
-
-Além do ambiente de desenvolvimento, outra vantagem é que o Arduino IDE 
-possui inúmeras bibliotecas e documentação. Facilitando e assegurando o 
-desenvolvimento de novos códigos, pois essas bibliotecas são constantemente 
-testadas e atualizadas pela comunidade da plataforma Arduino.
-
-\section{ESP-DL}\label{sec:formatacaoTexto}
-
-ESP-DL é uma biblioteca de alto desempenho dedicada ao ESP32, ESP32-S2, 
-ESP32-S3 e ESP32-C3, projetada para recursos de aprendizagem profunda. 
-
-O \citeonline{espdl} oferece APIs para tarefas como inferência de redes 
-neurais (NN), processamento de imagens, operações matemáticas e inclui 
-alguns modelos de aprendizado profundo. Com essa biblioteca, você 
-pode aproveitar os SoCs (System-on-Chip) da \textit{Espressif} de forma simples 
-e ágil para implementar diversos tipo de aplicações.
-
-\section{PROCESSAMENTO DE IMAGENS}\label{sec:processamento}
+\section{Processamento de imagem}\label{sec:processamento}
 
 As técnicas de processamento de imagens começaram a surgir no final da década de 1960, 
 para serem utilizadas no realce e restauração de imagens capturadas do espaço, 
@@ -74,7 +47,7 @@ são empregadas nas mais diversas áreas de conhecimento \cite{gonzalez2010}.
 
 Em processamento de imagens um conceito bastante utilizado é a binarização de
 imagens, que consiste em duas classes distintas, o fundo e o objeto, esse processo 
-serve para de certa forma separar ambas as classes.
+serve para separar ambas as classes.
 
 Sendo assim, a forma mais simples de processamentos consiste na
 bipartição do histograma, dando valores iguais a 0 (branco) aos pixels que estiverem
@@ -109,12 +82,13 @@ essas análises, uma vez que ela subdivide uma imagem em regiões que
 posteriormente serão ou não tidas como de interesse, o que pode variar muito de
 acordo com a aplicação \cite{gonzalez2010}.
 
-Os principais algoritmos de segmentação se baseiam nas técnicas de
-descontinuidade e similaridade, a abordagem de descontinuidade consiste em dividir
-uma imagem com base nas mudanças bruscas mudanças de intensidade, como
-ocorre nas bordas. Enquanto na técnica por similaridade a divisão da imagem
-acontece por regiões que sejam semelhantes de acordo com um conjunto de critérios
-preestabelecidos \cite{gonzalez2010}.
+Os principais algoritmos de segmentação de imagem têm suas bases em duas 
+abordagens: descontinuidade e similaridade. A abordagem da descontinuidade 
+envolve a divisão de uma imagem com base em mudanças abruptas de 
+intensidade, como as que ocorrem nas bordas. Por outro lado, a técnica 
+de similaridade segmenta a imagem com base na identificação de regiões 
+que compartilham semelhanças de acordo com critérios 
+predefinidos \cite{gonzalez2010}.
 
 Por fim, uma outra técnica conhecida como esqueletização, 
 consiste na representação de um conjunto de pontos no interior de um 
@@ -137,7 +111,7 @@ O que pode ser visualizado com mais facilidade na \autoref{fig:esqueletizacao}:
     \centering
 \end{figure}
 
-\section{BIOMETRIA}\label{sec:biometria}
+\section{Biometria}\label{sec:biometria}
 
 Com o avanço da tecnologia, hoje é possível realizar transações e pagamentos a 
 partir de qualquer lugar, ou até mesmo, sem sair de casa, apenas com o uso de 
@@ -155,7 +129,67 @@ características únicas. É uma técnica que foi utilizada até mesmo pelos eg�
 para o processo de identificação, baseando-se em características da
 aparência dos indivíduos, como cor dos olhos e cicatrizes \cite{santos2007}.
 
-\section{TIPOS DE BIOMETRIA}\label{sec:tiposBiometria}
+Os sistemas biométricos podem ser divididos em dois grupos distintos: 
+1) os métodos invasivos, que requerem a colaboração ativa do sujeito 
+para a identificação; e 2) os métodos não invasivos, que podem ser 
+aplicados sem que o indivíduo identificado tenha conhecimento disso. 
+Entre os métodos, incluem-se técnicas amplamente conhecidas, 
+como a biometria da impressão digital, do rosto, da íris, da assinatura, 
+entre outras. \cite{teixeira2011}
+
+O foco deste estudo está a respeito da biometria não invasiva, mais 
+precisamente no processo de identificação e reconhecimento de 
+características faciais, um tema que tem atraído crescente 
+interesse de pesquisadores e cientistas na área de visão 
+computacional.
+
+\section{História da Biometria}\label{sec:histbiometria}
+
+Contrariando o senso comum, é importante notar que o conceito de biometria 
+não é algo recente; o que realmente se tornou inédito foi a sua aplicação 
+em sistemas computacionais. Na verdade, práticas de identificação com base 
+em características físicas datam de muito tempo atrás. Um exemplo notório 
+é o uso que os faraós do Egito faziam de características como cicatrizes, 
+cor dos olhos, arcada dentária e outros detalhes para distinguir 
+indivíduos \cite{boechat2008}.
+
+Na Europa, por volta de 1890, o antropologista e delegado policial 
+parisiense Alphonse Bertillon viu na biometria uma maneira de identificar 
+criminosos e a transformou em uma nova área de estudo \cite{moraes2006}. 
+Bertillon, com um profundo interesse em pesquisas criminalísticas, 
+começou a medir diversas partes do corpo humano, incluindo o diâmetro 
+transversal da cabeça, comprimento dos pés, dedos, antebraços, estatura, 
+entre outros, e registrou essas medidas em cartões. Embora os resultados 
+obtidos por Bertillon não tenham sido conclusivos, a ideia de relacionar 
+medidas do corpo humano para a identificação continuou a ser usada 
+por autoridades policiais em todo o mundo, sendo conhecida como 
+"Bertillonage" \cite{boechat2008}.
+
+Na \autoref{fig:bertillon}, podem ser observadas várias técnicas de medição 
+desenvolvidas por meio do método de Bertillon, abrangendo aferições dos 
+braços, pernas, cabeça e até mesmo das orelhas.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Método de Bertillon.}
+    \includegraphics[scale=0.25]{figuras/bertillon.jpg} 
+    \legend{Fonte: Adaptado de \cite{moraes2006}.}
+    \label{fig:bertillon}
+    \centering
+\end{figure}
+
+Na Suíça, com a introdução da fotografia, essa técnica começou a ser 
+usada de maneira exclusiva nos procedimentos de identificação 
+criminal. Na Índia, um indivíduo chamado William James Hersche, 
+insatisfeito com a falta de cumprimento de contratos por parte 
+dos comerciantes locais, passou a exigir que as assinaturas 
+fossem acompanhadas pela impressão digital nos documentos \cite{boechat2008}.
+
+Por fim, nas últimas décadas, novos sistemas biométricos começaram a surgir 
+à medida que novas aplicações biométricas eram desenvolvidas e se tornavam 
+uma realidade comercial.
+
+\section{Tipos de biometria}\label{sec:tiposBiometria}
 
 De acordo com \citeonline{morais2010}, os principais tipos de biometria são:
 
@@ -172,7 +206,8 @@ De acordo com \citeonline{morais2010}, os principais tipos de biometria são:
     calor que possivelmente podem estar próximas ao indivíduo. Seus pontos fortes 
     são a universalidade, a impostura e a singularidade.
 
-    \item Impressão digital: recurso mais comumente usado em credenciais 
+    \item Impressão digital: como pode ser vistor na \autoref{fig:digital}, 
+    recurso mais comumente usado em credenciais 
      automatizadas em grande escala.  Sua popularidade se deve em parte a 
      dispositivos de coleta de baixo custo e desempenho de processo razoável. 
      Embora a impressão digital não se modifique naturalmente ao longo dos anos, 
@@ -180,6 +215,15 @@ De acordo com \citeonline{morais2010}, os principais tipos de biometria são:
      submetidos, o que pode levar à sua alteração e deterioração. Trabalhadores 
      manuais, por exemplo, podem ver suas impressões digitais constantemente 
      alteradas devido a cortes profundos ou outros cortes em seus dedos.
+     
+     \begin{figure}[h!]
+        \centering
+        \caption{Modelo de Impressão Digital.}
+        \includegraphics[scale=0.2]{figuras/impressao_digital.png} 
+        \legend{Fonte: Adaptado de \cite{boechat2008}.}
+        \label{fig:digital}
+        \centering
+    \end{figure}
 
     \item Íris: Formada durante o desenvolvimento fetal, estabiliza-se durante 
     os dois primeiros anos de vida. Sua textura é extremamente complexa e 
@@ -196,7 +240,7 @@ De acordo com \citeonline{morais2010}, os principais tipos de biometria são:
     indicado para verificação de identidade em conversas.
 \end{itemize}
 
-\section{RECONHECIMENTO FACIAL}\label{sec:reconhecimento}
+\section{Reconhecimento facial}\label{sec:reconhecimento}
 
 Desde a infância, o ser humano adquire e desenvolve sua capacidade de reconhecer traços faciais, 
 que é uma particularidade da visão e fundamental para relações sociais \cite{rouhani2019}.
@@ -216,39 +260,37 @@ cadastrados. Assim, existem três abordagens conhecidas para reconhecimento:
     \item Vídeo para vídeo: a amostra e o banco de dados que consiste em vídeos;
 
     \item Imagem para vídeo: o exemplo é um vídeo. O vídeo é comparado a um banco de 
-    dados de imagens estáticas. Para esse caso, a biblioteca OpenCV possibilita,
-     a partir da versão 2.4, o uso da classe FaceRecognizer para reconhecimento 
-     facial. Os algoritmos atualmente disponíveis na biblioteca são: Fisherfaces 
-     e Histogramas de Padrões Binários Locais (LBP).
+    dados de imagens estáticos. 
 \end{itemize}
 
-Após a imagem ter sido lida e transformada em uma matriz da OpenCV, a mesma é
-duplicada e redimensionada proporcionalmente para uma altura fixa. A imagem original 
-é mantida para ser utilizada posteriormente. Em seguida a imagem é convertida para 
-escalas de cinza e então equalizada para realçar o contraste e facilitar a detecção de faces.
+Após a imagem ter sido lida e transformada, a mesma é duplicada e redimensionada 
+proporcionalmente para uma altura fixa. A imagem original é mantida para ser 
+utilizada posteriormente. Em seguida a imagem é convertida para escalas de 
+cinza e então equalizada para realçar o contraste e facilitar a detecção de faces.
 
-A seguir, é feita a detecção das faces utilizando o classificador LBP
-fornecido pela biblioteca OpenCV. Removendo o fundo ao redor da face, pois 
+A seguir, é feita a detecção das faces utilizando o classificador 
+de objetos treinados. Removendo o fundo ao redor da face, pois 
 pode atrapalhar os algoritmos de reconhecimento.
 
 As abordagens mais populares usadas no problema de reconhecimento facial são 
-baseadas na localização e análise de atributos faciais como olhos, nariz e boca (\autoref{fig:haarcascate}), 
-ou em análise global destes.
+baseadas na localização e análise de atributos faciais como olhos, nariz e 
+boca (\autoref{fig:haarcascate}), ou em análise global destes.
 
 \begin{figure}[h!]
     \centering
     \caption{Reconhecimento baseado na localização dos olhos e nariz}
-    \includegraphics[scale=0.25]{figuras/haarcascate.png}
+    \includegraphics[scale=0.35]{figuras/haarcascate.png}
     \legend{Fonte: Adaptado de \citeonline{viola2004}.}
     \label{fig:haarcascate}
     \centering
 \end{figure}
 
-E com a comparação das informações extraídas com as informações
-conhecidas, juntamente com uma pequena análise estatística, pode-se categorizar o
-objeto e ainda determinar com precisão do que se trata \cite{gonzalez2010}.
+Ao comparar as informações extraídas com aquelas já conhecidas, 
+complementadas por uma breve análise estatística, é possível,
+categorizar o objeto e determinar com grande precisão sua natureza 
+ou identidade \cite{gonzalez2010}.
 
-\section{BIOMETRIA FACIAL PARA CONTROLE E ACESSO}\label{sec:biometriaFacial}
+\section{Biometria facial para controle de acesso}\label{sec:biometriaFacial}
 
 Os sistemas de identificação baseados em biometria são essencialmente sistemas de 
 reconhecimento que, dadas informações biométricas, são capazes de distinguir padrões e 
@@ -259,15 +301,28 @@ fisiológicas e comportamentais utilizadas em sistemas biométricos incluem
 impressão digital, impressão da mão, aparência facial, temperatura da face, 
 retina, voz, assinatura, entre outras.
 
-A biometria facial é o recurso biométrico mais utilizado por humanos para identificação 
-pessoal. Embora usar a face para identificar conhecidos seja uma tarefa trivial para 
-o ser humano, no entanto, é uma tarefa bastante complexa para computadores. Mesmo 
-tendo um desempenho razoável em sistemas comerciais, um sistema biométrico facial 
-impõem algumas restrições no fundo, como iluminação e o ângulo das imagens utilizadas.
+A biometria facial representa a técnica biométrica mais adotada atualmente. 
+Embora o reconhecimento de rostos seja uma tarefa simples para as 
+pessoas, ela se revela notavelmente complexa para os computadores. 
+Mesmo em condições desafiadoras, o cérebro humano é capaz de identificar 
+com precisão uma pessoa com base em sua imagem facial, apesar das variações 
+na iluminação, distorções ou deformações.
 
+Embora os sistemas biométricos faciais apresentem um desempenho aceitável em 
+ambientes comerciais, ainda estão sujeitos a restrições relacionadas ao ambiente, 
+como variações na iluminação (\autoref{fig:iluminacao}) e ângulos das imagens.
 Segundo \citeonline{cavalcanti2005}, alterações estéticas, como cabelo e barba, uso de
 acessórios, como óculos e bonés, são fatores que aumentam as chances de falha no processo
 de reconhecimento facial.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Rostos em diferentes iluminação}
+    \includegraphics[scale=0.25]{figuras/iluminacao.png}
+    \legend{Fonte: Adaptado de \citeonline{opencv4}.}
+    \label{fig:iluminacao}
+    \centering
+\end{figure}
 
 Para utilizar a face em sistemas biométricos é preciso seguir três
 etapas fundamentais. São elas:
@@ -286,3 +341,33 @@ etapas fundamentais. São elas:
     identificado;
 
 \end{itemize}
+
+Essas etapas desempenham um papel fundamental na avaliação da imagem, eliminando informações 
+redundantes e irrelevantes. Por exemplo, se o algoritmo identifica uma ou mais faces na 
+imagem, essas são extraídas da imagem original para análise individual. É importante 
+notar que, quando a entrada do sistema é uma sequência de vídeo, a dimensão temporal 
+também é considerada, tornando essencial que o algoritmo opere em tempo real, com 
+desempenho crítico, para permitir a detecção em tempo real \cite{boechat2008}. 
+
+Muitos algoritmos de detecção facial requerem treinamento para produzir resultados 
+satisfatórios. Esse treinamento envolve o uso de diversas imagens de faces 
+e objetos diferentes.
+
+Os algoritmos de reconhecimento facial têm a capacidade de identificar indivíduos com 
+base em características específicas, como o tamanho dos olhos, nariz e boca. Essas 
+características são usadas para localizar imagens correspondentes que se assemelham 
+à imagem da face capturada. Além disso, os algoritmos desse tipo normalmente armazenam 
+informações relevantes apenas da região da imagem que contém as características de 
+interesse, conforme pode ser observado na \autoref{fig:haarcascate}. De acordo 
+com \cite{brunelli1993}, um dos primeiros sistemas de reconhecimento 
+facial baseava-se em um modelo de técnicas aplicadas a um conjunto de características 
+faciais, resultando em uma representação facial compacta e correspondente.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Pontos de referência a partir de características faciais}
+    \includegraphics[scale=0.9]{figuras/facereg.jpg}
+    \legend{Fonte: Adaptado de \citeonline{opencv5}.}
+    \label{fig:facereg}
+    \centering
+\end{figure}

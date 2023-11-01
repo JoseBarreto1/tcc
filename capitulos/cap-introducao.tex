@@ -6,58 +6,62 @@
 %% Título e rótulo de capítulo (rótulos não devem conter caracteres especiais, acentuados ou cedilha)
 \chapter{Introdução}\label{cap:introducao}
 
-Desde o nascimento, os seres humanos desenvolvem capacidades de reconhecimento e 
-identificação de objetos, onde essa capacidade foi muito 
-importante durante o processo evolutivo da espécie humana. Sendo as primeiras 
-demonstrações de identificação de seres vivos e objetos, datados no período 
-pré-histórico.
+Desde o nascimento, os seres humanos desenvolvem habilidades de reconhecimento 
+e identificação de objetos. Logo na primeira semana de vida, os bebês estabelecem 
+rapidamente reconhecimentos individuais, discriminando e demonstrando preferência 
+pela face, voz e odor de sua própria mãe \cite{vieira2017}.
 
-A biometria, do grego \textit{bios}-vida e \textit{metron}-medida, pode ser 
-definida como o processo de identificação de aspectos físicos, biológicos e até 
+O termo biometria, do grego \textit{bios}-vida e \textit{metron}-medida, pode ser 
+definida como ramo da ciência que estuda a identificação de aspectos físicos, biológicos e até 
 comportamentais dos seres vivos. Na qual, são utilizados para distinguir indivíduos, 
-a partir de suas características únicas. Como por exemplo, a face, retina, 
+a partir de suas características únicas \cite{ferreira2009}. Como por exemplo, a face, retina, 
 íris, impressões digitais, geometria da mão, etc.
+
+A biometria se tornou uma nova área de estudo a partir do antropologista francês
+Alphonse Bertillon, em 1890, quando utilizou conceitos de biometria para a 
+identificação de criminosos \cite{moraes2006}. 
 
 Dentre as tecnologias atuais de segurança, a biometria tem sido amplamente 
 utilizada, seja para acessar contas bancárias, aplicativos e até controlar 
 o acesso a locais públicos e privados. Atualmente o reconhecimento facial 
 é uma das biometrias mais estudadas, pois além da praticidade é considerada uma 
-das formas mais seguras de identificação. 
+das formas mais seguras de identificação \cite{zhao2003}. 
 
-Embora seja promissora, mesmo assim, o sistema de identificação pode falhar durante o 
-processo de reconhecimento, principalmente devido a equívocos e interpretações 
-incorretas do \textit{software}. Esses problemas podem ser causados,
-desde sujeira na lente da câmera, alta umidade, baixa iluminação, filtros digitais 
-não calibrados, ruídos, excesso de informação, inserção de dados falsos, etc.
+Embora a identificação facial seja uma tarefa simples para os seres humanos, 
+representa um desafio considerável para os computadores. Isso se deve em 
+parte às restrições impostas pelo sistema biométrico facial, que abrangem 
+o controle da iluminação e dos ângulos das imagens utilizadas. Além disso, 
+várias variáveis estéticas, como barba, cabelo, uso de óculos e bonés, 
+problemas na lente da câmera e até mesmo a possibilidade de inserção de 
+dados incorretos, podem ocasionar falhas no processo de 
+reconhecimento. \cite{cavalcanti2005}.
 
-Desta forma, para um sistema biométrico obter uma alta assertividade, 
-deve-se validar todos os cenários possíveis e tomar os devidos cuidados durante seu 
-desenvolvimento. Pois, por exemplo, durante o processo de reconhecimento facial,
-pode-se haver falsos-positivo ou verdadeiros-negativo (\autoref{fig:pareidolia}), 
-ou seja, o \textit{software} pode identificar um rosto humano que não existe, 
-ou não identificar um rosto humano, mesmo existindo.
+Assim, aprimorar a precisão de um sistema biométrico requer atenção 
+durante o desenvolvimento, com foco na minimização de falsos 
+positivos e falsos negativos no reconhecimento facial. Para superar esse 
+desafio, é essencial encontrar uma abordagem que seja mais adequada ao 
+sistema de autenticação por imagem. Entre as várias abordagens disponíveis, 
+é fundamental avaliar a taxa de identificações incorretas e a taxa de 
+casos não detectados. \cite{viola2004}.
 
-\begin{figure}[h!]
-    \centering
-    \caption{Imagens que lembram rostos humanos}
-    \includegraphics[scale=0.25]{figuras/pareidolia.jpg} 
-    \legend{Fonte: Adaptado de \citeonline{pareidoliaimg}.}
-    \label{fig:pareidolia}
-    \centering
-\end{figure}
+% \begin{figure}[h!]
+%     \centering
+%     \caption{Imagens que lembram rostos humanos}
+%     \includegraphics[scale=0.25]{figuras/pareidolia.jpg} 
+%     \legend{Fonte: Adaptado de \citeonline{pareidoliaimg}.}
+%     \label{fig:pareidolia}
+%     \centering
+% \end{figure}
 
-Como solução, as literaturas recentes propõem novas técnicas de visão computacional, 
-reconhecimento e aprendizado de máquina. Em razão disso, a taxa de assertividade 
-vem aumentando, devido ao progresso dos sistemas computacionais e dos 
-novos \textit{hardwares}, sendo possível obter um maior desempenho, com um custo
-menor.
-
-Diante disso, o presente estudo visa discorrer sobre o desenvolvimento de um protótipo 
-para o controle de acesso, utilizando reconhecimento facial com SBC e OPENCV.
+Diante disso, o objetivo deste estudo é abordar o desenvolvimento de um 
+protótipo que visa simplificar o controle de acesso através de um sistema 
+de reconhecimento facial compacto e acessível, tornando-o de fácil 
+utilização para qualquer pessoa. E também permitindo a integração 
+com sistemas já existentes. 
 
 \section{Objetivos}\label{sec:objetivos}
 
-Neste capítulo serão apresentados os objetivos deste trabalho e as etapas necessárias 
+Nesta seção serão apresentados os objetivos deste trabalho e as etapas necessárias 
 para o desenvolvimento do protótipo. Na qual, além da implementação do 
 \textit{hardware}, também serão necessárias algumas etapas para a elaboração do \textit{software}, 
 tendo como finalidade, obter uma alta assertividade no controle de acesso por 
@@ -66,9 +70,9 @@ reconhecimento facial.
 \subsection{Objetivo geral}\label{subsec:objetivoGeral}
 
 Este trabalho tem por objetivo realizar o estudo e desenvolvimento de um protótipo 
-para controle de acesso por meio de reconhecimento facial. Para isso, serão implementados 
-algorítimos de visão computacional e aprendizado de maquina, em um computador de placa 
-única (ESP32-CAM).
+para controle de acesso por meio de reconhecimento facial. Para isso, 
+serão utilizados algorítimos de processamento de imagens e aprendizagem 
+profunda no microcontrolador ESP32-CAM.
 
 \subsection{Objetivos específicos}\label{subsec:objetivosEspecificos}
 
@@ -81,14 +85,14 @@ as quais, são apresentadas a seguir:
     bons resultados para a etapa de reconhecimento facial.
   
     \item Implementar um código que seja otimizado e organizado, o suficiente para 
-    conseguir filtrar e processar as imagens em quase tempo real. 
+    conseguir processar as imagens em tempo real. 
     
-    \item Desenvolver uma interface física, onde os usuários possam interagir e 
-    utilizar de forma simples e prática.
+    \item Criar uma interface gráfica e física que permita aos usuários interagir 
+    e utilizar de maneira intuitiva e simples.
     
-    \item Por último, criar um sistema para controle de acesso, onde o usuário 
-    administrador, poderá gerenciar e cadastrar novos usuários, permitindo ou 
-    restringindo o acesso, conforme necessário. 
+    \item Por último, desenvolver o módulo de controle de acesso, que permitirá 
+    ao administrador gerenciar e cadastrar novos usuários, concedendo ou 
+    limitando o acesso de acordo com as necessidades.
 \end{itemize}
 
 \section{Justificativa}\label{sec:justificativa}
@@ -97,7 +101,7 @@ Os sistemas de reconhecimento facial foram uma grande solução durante a retoma
 das atividades presenciais após a pandemia do coronavírus, ajudando empresas
 a promoverem uma maior segurança física, como também segurança sanitária, 
 evitando contaminações e agilizando os processos. Ao contrário dos sistemas 
-manuais, onde normalmente geram atrasos e demandam atenção.
+manuais, onde normalmente geram atrasos e demandam contato físico \cite{terra2020}.
 
 Atualmente o controle de acesso mais comum, são aqueles que utilizam chaves 
 e tags, porém, como possuem inúmeras fragilidades, estes procedimentos não são 
@@ -105,42 +109,16 @@ recomendados em locais que recebem um grande fluxo de pessoas, como por exemplo,
 hotéis e centros comerciais. Pois, desta forma, qualquer pessoa pode ter acesso, 
 sem necessariamente estar credenciada.
 
-Outro ponto importante é que a implantação de sistemas automatizados, também 
-podem gerar economias. Como por exemplo, em condomínios e hotéis, onde o 
-sistema pode realizar parte do serviço de porteiros e/ou recepcionistas, 
-possibilitando uma redução na carga horária destes trabalhadores e 
-inclusive, resultando na redução de custos para as empresas.
+Um aspecto relevante a considerar é que a implementação de sistemas 
+automatizados tem o potencial de reduzir custos. Isso é notável, por 
+exemplo, em condomínios e hotéis, onde tais sistemas podem desempenhar 
+funções que, anteriormente, eram realizadas por porteiros e recepcionistas 
+no cotidiano. Isso não só permite uma diminuição nas horas de trabalho 
+desses profissionais, mas também resulta em economia de despesas para 
+essas empresas.
 
 Por fim, a facilidade desses sistemas, fazem com que os usuários não precisem 
 mais memorizar senhas, ou carregar suas chaves, impactando positivamente na 
-experiência de uso. Além disso, esse sistema reduz a probabilidade de golpes 
-ou fraudes, pois impossibilita o compartilhamento do mesmo acesso.
-
-\section{Cronograma}\label{sec:cronograma}
-
-O cronograma abaixo (\autoref{quad:quadro1}), mostra as atividades que 
-serão realizadas durante o desenvolvimento deste trabalho.
-
-\begin{tabframed}[htb]
-    \caption{Cronograma de desenvolvimento do trabalho}
-    \label{quad:quadro1}
-    \begin{tabular}{|l|*{12}{p{0.04\textwidth-\columnsep}|}}
-    \hline
-    \multirow{2}{*}{\textbf{Etapa}} & \multicolumn{5}{c|}{\textbf{2022}} & \multicolumn{6}{c|}{\textbf{2023}} \\  
-    \cline{2-12}
-    &\textbf{Ag} &\textbf{Se} &\textbf{Ou} &\textbf{No} &\textbf{De} &\textbf{Ja} &\textbf{Fe} &\textbf{Ma} &\textbf{Ab} &\textbf{Ma} &\textbf{Ju} \\ \hline
-    Definição do tema                                 &X & & & & & & & & & & \\   \hline
-    Definição do escopo do trabalho                   &X & & & & & & & & & & \\   \hline
-    Analise de viabilidade e planejamento da execução &X & & & & & & & & & & \\   \hline
-    Revisão Bibliográfica                             & &X &X &X & & & & & & & \\ \hline
-    Pesquisa sobre ESP32-CAM e OpenCV                     & &X &X & & & & & & & & \\  \hline
-    Estudo da plataforma Nextion Editor               & & & &X &X & & & & & & \\  \hline
-    Desenvolvimento do protótipo                      & & & & &X &X &X & & & & \\ \hline
-    Aplicação do reconhecimento facial                & & & & & &X &X & & & & \\  \hline
-    Análise dos resultados                            & & & & & & &X &X & & & \\  \hline
-    Correção de erros e aprimoramentos                & & & & & & & &X &X &X & \\ \hline
-    Escrita do trabalho                               &X &X &X &X &X &X &X &X &X &X &X \\ \hline
-    Apresentação do trabalho                          & & & & & & & & & & &X \\   \hline
-    \end{tabular}
-    \fonte{}%% Fonte
-\end{tabframed}
+experiência de uso. Além disso, essa abordagem reduz significativamente a 
+probabilidade de golpes e fraudes, uma vez que torna inviável o 
+compartilhamento de acessos.

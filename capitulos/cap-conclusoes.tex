@@ -2,26 +2,45 @@
 %%
 \chapter{Conclusão}\label{cap:conclusoeseperspectivas}
 
-Podemos notar que o avanço da tecnologia em diversos campos possibilitou 
-à sociedade moderna oferecer as mais diversas facilidades aos 
-seus indivíduos. Hoje, é possível realizar transações financeiras de casa, 
-realizar reuniões com pessoas que estão a milhares de quilômetros de distância, 
-participar de cursos e conferências ministradas em outro país para viajar de um 
-continente para outro em poucas horas.
+O trabalho, de forma geral, apresentou bons resultados. O desenvolvimento e 
+implementação do protótipo de controle de acesso por 
+reconhecimento facial utilizando o ESP32-CAM mostraram-se promissores, atendendo 
+aos requisitos do projeto. Desta forma, o sistema demonstrou 
+a capacidade de detectar e reconhecer rostos, além de executar com sucesso 
+tarefas como cadastro de usuários e a implementação de um temporizador.
 
-No entanto, todas essas conveniências, e um número crescente de quem tira proveito 
-delas, tornou essencial o uso de mecanismos pessoais cada vez mais robustos que 
-podem provar que um indivíduo é quem eles afirmam ser. Esses mecanismos, que são 
-na forma de cartões magnéticos, senhas pessoais, carteiras de identidade, 
-passaportes, entre outros, e, também trazem uma série de problemas associados, 
-como perda, adulteração, empréstimo e dificuldade em armazenamento de vários 
-códigos, entre outros.
+No entanto, algumas limitações foram identificadas durante a elaboração do 
+protótipo. Notavelmente, a falta de recursos de processamento do ESP32 limitou 
+a plena capacidade de processamento de imagem e visão computacional. 
+A ausência de bibliotecas de visão computacional amplamente disponíveis 
+para o ESP32 também representou um desafio. No entanto, soluções alternativas 
+foram aplicadas, permitindo o reconhecimento facial com relativo sucesso.
 
-O processo de identificação pessoal baseado na biometria tenta minimizar esses 
-problemas, pois deixa de ser baseado em algo que o indivíduo possui e então 
-passa a considerar o próprio indivíduo como código de identificação.
+Para aprimorar ainda mais o sistema, seria essencial a inclusão de bibliotecas 
+de visão computacional mais abrangentes, como o OpenCV, que ofereceriam mais 
+opções e métodos de processamento de imagem. Além disso, a avaliação da 
+influência da luminosidade na precisão do reconhecimento é um tópico importante 
+a ser investigado, bem como a otimização dos parâmetros para melhorar a taxa 
+de assertividade.
 
-Assim, o controle de acesso baseado em funcionalidades vem se mostrando uma área 
-extremamente atrativa para explorar e experimentar novas abordagens, visto que 
-possui demanda crescente e extremamente rica em termos de abordagens e técnicas a 
-serem implementadas.
+Apesar das limitações, o protótipo atendeu a praticamente todos os requisitos 
+do projeto e mostrou-se uma base sólida para desenvolvimentos futuros. A 
+implementação de melhorias, como a possibilidade de configurar o número de 
+usuários cadastrados, exibir o ID do usuário e permitir a exclusão de usuários 
+por ID, tornaria o sistema ainda mais flexível e prático. 
+
+Além disso, a perspectiva de integrar o protótipo em aplicativos e servidores 
+web expandiria suas aplicações práticas, tornando-o útil em sistemas de controle 
+de acesso online.
+
+Conforme mencionado antes, uma melhoria substancial poderia ser alcançada 
+ao desenvolver uma placa personalizada, usando apenas o chip ESP32. Isso permitiria 
+uma maior flexibilidade na alocação de recursos, liberando GPIOs adicionais 
+para integração de novos recursos e funcionalidades.
+
+Em resumo, o protótipo de controle de acesso por reconhecimento facial 
+demonstrou ser uma solução viável, e suas limitações podem ser superadas 
+com melhorias no hardware, software e integração em sistemas mais amplos. 
+Com uma abordagem contínua de desenvolvimento e aprimoramento, esse sistema 
+tem o potencial de se tornar uma ferramenta poderosa para controle de acesso 
+em diversas aplicações.

@@ -135,7 +135,8 @@ aplicações de acordo com suas necessidades específicas.
 
 \section{Interface gráfica}\label{sec:interface}
 
-O Display LCD TFT de 1.8 polegadas, com resolução de 128x160 pixels
+O Display LCD TFT (Thin-Film Transistor) de 1.8 polegadas, 
+com resolução de 128x160 pixels
 e \textit{driver} ST7735 (\autoref{fig:tft7735}) é um componente popular 
 utilizado em uma variedade de aplicações eletrônicas, devido à sua 
 capacidade de fornecer uma interface visual clara e interativa. 
@@ -150,7 +151,7 @@ processo de desenvolvimento do projeto, tornando-o mais acessível e eficaz.
 \begin{figure}[h!]
     \centering
     \caption{Display LCD TFT 1.8"}
-    \includegraphics[scale=0.5]{figuras/tftst7735.png}
+    \includegraphics[scale=0.4]{figuras/tftst7735.png}
     \legend{Fonte: Adaptado de \citeonline{tft7735img}.}
     \label{fig:tft7735}
     \centering
@@ -167,7 +168,7 @@ de alta potência por meio de sinais de baixa potência.
 \begin{figure}[h!]
     \centering
     \caption{Módulo Relé}
-    \includegraphics[scale=1]{figuras/rele.png}
+    \includegraphics[scale=0.8]{figuras/rele.png}
     \fonte{\citeonline{releimg}}%% Fonte \legend{Fonte: Adaptado de \citeonline{releimg}.}
     \label{fig:rele}
     \centering
@@ -231,10 +232,10 @@ existente e acelerar o desenvolvimento. Como também sua
 simplificação no processo de compilação e carregamento de 
 código para o hardware de destino. 
 
-\subsection{Bibliotecas}\label{sec:formatacaoTexto}
+\subsection{Biblioteca ESP-DL}\label{sec:formatacaoTexto}
 
 Para identificação de rostos e reconhecimento facial, foram utilizados 
-os recursos disponiveis da biblioteca ESP-DL.
+os recursos disponíveis da biblioteca ESP-DL.
 
 O ESP-DL é uma biblioteca de alto desempenho dedicada ao ESP32, ESP32-S2,
 ESP32-S3 e ESP32-C3, projetada para recursos de aprendizagem profunda.
@@ -246,8 +247,192 @@ os desenvolvedores podem aproveitar os SoCs (System-on-Chip) da
 \textit{Espressif} de maneira simples e ágil para a implementação 
 de uma ampla variedade de aplicações.
 
+Dentre os recursos disponíveis do ESP-DL, se encontra o 
+ESP-Face, componente que fornece funções de detecção e 
+reconhecimento facial e também operações de rede neural. 
+O método \textit{face detect} utiliza o modelo MTMN (\textit{Multi-Task 
+Memory Network}) para a detecção de rostos humanos. 
+Esse modelo, especialmente projetado para dispositivos 
+embarcados, apresenta uma operação eficiente que se 
+baseia na arquitetura móvel \textit{MobileNetV2} e utiliza 
+redes convolucionais em cascata multitarefa.
+
+A \autoref{fig:mtmn} a seguir é mostrado o fluxo de trabalho do MTNM.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Diagrama de trabalho do MTNM}
+    \includegraphics[scale=0.5]{figuras/mtmn.png}
+    \legend{Fonte: Adaptado de \citeonline{mtmnimg}.}
+    \label{fig:mtmn}
+    \centering
+\end{figure}
+
+O \textit{MobileNetV2} faz parte de uma nova geração de redes 
+neurais convolucionais profundas voltadas para a 
+visão computacional. Essa arquitetura permite a 
+implementação em tempo real de aplicativos de 
+classificação, detecção e alinhamento de objetos 
+em dispositivos móveis pessoais, destacando-se por 
+sua capacidade de processamento leve.
+
+O MTMN se beneficia de redes neurais pré-treinadas, 
+que foram desenvolvidas com base em um vasto banco de 
+dados contendo mais de um milhão de imagens do ImageNet. 
+Essas redes aprenderam representações de recursos de 
+mais de 1.000 categorias de objetos, fornecendo uma 
+base sólida para a detecção de rostos \cite{luna2022}.
+
+Uma característica distintiva do MTMN é sua estrutura 
+multitarefa de aprendizagem em cascata. Essa abordagem 
+permite que o modelo resolva desafios encontrados em 
+ambientes diversos, como variações de iluminação, 
+oclusões e poses variadas. O MTMN é composto por três 
+estágios de redes convolucionais profundas que preveem a 
+localização de faces e pontos de referência, proporcionando 
+uma detecção precisa que varia de informações gerais a 
+detalhes específicos \cite{luna2022}.
+
+No contexto do reconhecimento facial, uma vez que um rosto 
+humano tenha sido detectado por meio do procedimento 
+mencionado anteriormente, é possível realizar uma verificação 
+comparando-o com os rostos previamente cadastrados. 
+A entrada para esse processo é a imagem original juntamente 
+com os resultados obtidos na etapa de detecção facial.
+
+O método de reconhecimento facial, denominado \textit{recognize face}  
+faz uso do modelo FRMN (\textit{Face Recognition Memory Network}), que 
+também se baseia na arquitetura móvel \textit{MobileNetV2} e emprega o 
+algoritmo ArcFace. Para otimizar a complexidade computacional, 
+as imagens foram treinadas em dimensões reduzidas (56x56). 
+Na \autoref{fig:frmn}, é possível visualizar todas as etapas do algoritmo 
+no processo de reconhecimento facial.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Fluxograma do funcionamento do método \textit{recognize face}}
+    \includegraphics[scale=0.45]{figuras/face-recognition.png}
+    \legend{Fonte: Adaptado de \citeonline{frmnimg}.}
+    \label{fig:frmn}
+    \centering
+\end{figure}
+
+Esse procedimento, além de oferecer um processo de reconhecimento 
+facial eficiente, permite a comparação precisa entre o rosto 
+identificado e as informações previamente cadastradas, 
+contribuindo para uma solução de alta qualidade em sistemas 
+de identificação e autenticação.
+
+\subsection{Fluxo de telas}\label{sec:telas}
+
+Os recursos gráficos fornecidos pelo display LCD desempenham um papel 
+fundamental na usabilidade da aplicação. Nesse contexto, a elaboração 
+do fluxo de telas se torna essencial para proporcionar aos usuários 
+uma experiência eficiente. Todos os fluxos foram planejados e 
+projetados com o objetivo de guiar o usuário por meio 
+de diferentes interações e funcionalidades.
+
+O primeiro conjunto de telas (\autoref{fig:fluxoinicial}), referente à 
+inicialização dos recursos utilizados no programa do protótipo, 
+abrange o momento em que a câmera, os sensores e o SPIFFS 
+(Sistema de Arquivos Flash de Interface Serial Periférica) 
+são ativados. Além disso, a lista de usuários cadastrados é 
+inicializada antes de exibir a tela de menu." 
+
+\begin{figure}[h!]
+    \centering
+    \caption{Telas de inicialização}
+    \includegraphics[scale=0.25]{figuras/fluxo_inicial.png}
+    \fonte{}%% Fonte
+    \label{fig:fluxoinicial}
+    \centering
+\end{figure}
+
+Ao chegar ao menu e selecionar a opção de login, o usuário inicia o 
+fluxo de telas de login. Inicialmente, é exibida uma mensagem de 
+orientação para enquadrar o rosto dentro do campo de visão da câmera. 
+Se o usuário estiver cadastrado, uma mensagem de sucesso é exibida, 
+e em seguida, o módulo do relé é acionado. Caso contrário, o timer 
+é executado em segundo plano, e quando o tempo se esgota, uma mensagem 
+de erro é exibida, como representado na \autoref{fig:fluxologin}.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Fluxo de telas do login}
+    \includegraphics[scale=2.1]{figuras/fluxo_login.png}
+    \fonte{}%% Fonte
+    \label{fig:fluxologin}
+    \centering
+\end{figure}
+
+No entanto, se o usuário escolher a opção de cadastro no menu, 
+ele deverá seguir o fluxo descrito na \autoref{fig:fluxocadastro}. 
+Na primeira etapa, o usuário é solicitado a digitar a senha. 
+Se a senha estiver correta, uma mensagem de "senha correta" é 
+exibida, e o processo de identificação e reconhecimento facial 
+é iniciado. Se tudo ocorrer conforme o esperado, os dados são 
+armazenados na memória RAM ou na memória flash. Caso contrário, 
+o usuário visualizará uma mensagem de erro.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Fluxo de telas do cadastro}
+    \includegraphics[scale=2]{figuras/fluxo_cadastro.png}
+    \fonte{}%% Fonte
+    \label{fig:fluxocadastro}
+    \centering
+\end{figure}
 
 
+Por fim, o ultimo fluxo principal é o processo de exclusão 
+de usuários (\autoref{fig:fluxosenha}), que se assemelha 
+muito ao fluxo de cadastro. Como observado, em ambos 
+os casos, a primeira tela solicita a inserção 
+da senha, e o usuário tem aproximadamente 40 segundos 
+para descobrir ou digitar a senha correta. Durante esse processo, 
+podem ser exibidas mensagens de erro ou sucesso. Se tudo ocorrer 
+conforme o esperado, a mensagem "usuários deletados" é exibida.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Telas deletar usuario}
+    \includegraphics[scale=1.8]{figuras/fluxo_deletar_usuario.png}
+    \fonte{}%% Fonte
+    \label{fig:fluxosenha}
+    \centering
+\end{figure}
+
+\subsection{Gravação do código}\label{sec:gravador}
+
+Para a gravação do código no ESP32-CAM, foi essencial o uso do módulo 
+adaptador ESP32-CAM MB (conforme representado na 
+\autoref{fig:adaptadoresp32}). Este módulo desempenhou um papel importante, 
+estabelecendo uma conexão entre o ESP32-CAM e um computador por meio 
+do cabo USB.
+
+Para o desenvolvimento do protótipo, elaborou-se um diagrama elétrico 
+detalhado, conforme ilustrado na \autoref{fig:circuito}. Este diagrama 
+foi construído com base em um circuito previamente testado e montado em 
+uma placa de prototipagem ("protoboard"). A escolha dos conectores do 
+tipo borne KRE para as conexões de entrada e saída se justifica pela 
+praticidade e segurança que oferecem, graças ao seu encaixe lateral que 
+simplifica a conexão com os componentes eletrônicos.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Módulo Adaptador ESP32-CAM MB}
+    \includegraphics[scale=0.25]{figuras/adaptador_esp32cam.png}
+    \legend{Fonte: Adaptado de \citeonline{adaptadoresp32}.}
+    \label{fig:adaptadoresp32}
+    \centering
+\end{figure}
+
+\section{Desenvolvimento do protótipo}\label{sec:prototipo}
+
+Para o desenvolvimento do protótipo, foi fundamental criar um diagrama 
+elétrico detalhado para guiar a montagem do circuito. O diagrama 
+apresentado na \autoref{fig:circuito}, foi elaborado com base no 
+circuito pré-testado e montado em uma placa de prototipagem ("protoboard").
 
 \begin{figure}[h!]
     \centering
@@ -258,92 +443,171 @@ de uma ampla variedade de aplicações.
     \centering
 \end{figure}
 
-\begin{figure}[h!]
-    \centering
-    \caption{Diagrama elétrico do Display TFT}
-    \includegraphics[scale=0.4]{figuras/modulo_tft.png}
-    \fonte{}%% Fonte
-    \label{fig:diagramatft}
-    \centering
-\end{figure}
+O diagrama elétrico do protótipo divide o circuito em quatro blocos 
+principais: o ESP32-CAM, o TFT ST7735, o módulo de relé e o módulo 
+de botões (\textit{push button}). O bloco principal, que é o ESP32-CAM, 
+possui 16 pinos de entrada/saída (GPIOs), como representado na 
+\autoref{fig:diagramaesp}, e desempenha o papel de controle e 
+coordenação do sistema como um todo. Dos 16 pinos disponíveis, 
+7 são dedicados ao display TFT (GPIOs 2, 12, 13, 14 e 15), 2 são 
+reservados para os botões (GPIOs 4 e 3), e 1 pino é utilizado 
+como saída para controlar o módulo do relé (GPIO 1).
+
+Importante mencionar que algumas GPIOs têm funções específicas. 
+Por exemplo, a GPIO 16 permanece em nível lógico alto e é utilizada 
+para habilitar a memória PSRAM. Além disso, a GPIO 0 é designada como 
+clock da câmera e não pode ser realocada para outras finalidades, 
+uma vez que isso afetaria o funcionamento adequado da captura de 
+imagens. Essas atribuições de GPIOs foram cuidadosamente 
+planejadas para garantir o correto funcionamento de 
+cada componente do protótipo. 
 
 \begin{figure}[h!]
     \centering
     \caption{Diagrama elétrico do ESP32-CAM}
-    \includegraphics[scale=0.35]{figuras/modulo_esp.png}
+    \includegraphics[scale=0.3]{figuras/modulo_esp.png}
     \fonte{}%% Fonte
     \label{fig:diagramaesp}
     \centering
 \end{figure}
 
+O segundo bloco corresponde ao controlador ST7735 (\autoref{fig:diagramatft}), 
+um componente projetado para o gerenciamento de \textit{displays} TFT de tamanho 
+reduzido e com capacidade de exibir cores. A principal função desse 
+controlador é administrar a apresentação de informações na tela, 
+permitindo a criação de gráficos e a exibição de texto colorido.
+
+A tela em si é composta por uma matriz de pixels coloridos, em que 
+cada pixel é formado por subpixels nas cores vermelha, verde e azul 
+(RGB), possibilitando a exibição de uma vasta gama de cores. Os pinos 
+SCK (Serial Clock), SDA e CS (Chip Select) são utilizados para a 
+comunicação serial com o microcontrolador. Por sua vez, o pino de 
+reset é designado para reiniciar o display em caso de falhas ou erros.
+
+Adicionalmente, o pino A0 desempenha um papel fundamental ao indicar 
+se os dados transmitidos se referem a comandos de controle (estado LOW) 
+ou a dados de pixel (estado HIGH), desempenhando um papel crucial no 
+funcionamento adequado do controlador ST7735.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Diagrama elétrico do Display TFT}
+    \includegraphics[scale=0.36]{figuras/modulo_tft.png}
+    \fonte{}%% Fonte
+    \label{fig:diagramatft}
+    \centering
+\end{figure}
+
+O bloco que compreende os botões desempenha um papel fundamental na 
+interatividade do projeto, pois permite a seleção de itens no menu 
+e a inserção dos valores da senha. A estrutura dos botões é 
+ilustrada no circuito apresentado na \autoref{fig:diagramabotoes}, e 
+cada botão é capaz de enviar um sinal de nível lógico baixo quando não 
+pressionado e de nível lógico alto quando acionado, transmitindo esses 
+sinais ao microcontrolador.
+
+Devido a mudança de estado do botões ao alterar o sinal elétrico conforme 
+são pressionados ou soltos, permite ao microcontrolador reconhecer as ações 
+do usuário, possibilitando a navegação no aplicativo de forma eficiente 
+e prática. Isso torna esses componentes essenciais para a interatividade 
+do protótipo e contribuindo significativamente para a experiência do usuário.
+
 \begin{figure}[h!]
     \centering
     \caption{Diagrama elétrico dos botões}
-    \includegraphics[scale=0.4]{figuras/modulo-push-button.png}
+    \includegraphics[scale=0.25]{figuras/modulo_push.png}
     \fonte{}%% Fonte
     \label{fig:diagramabotoes}
     \centering
 \end{figure}
 
+O relé é um dispositivo eletromecânico amplamente utilizado para o controle 
+de circuitos elétricos, permitindo a comutação (abertura ou fechamento) 
+por meio de um sinal elétrico aplicado à sua bobina.
+
+O módulo de relé, conforme apresentado na (\autoref{fig:diagramarele}), 
+consiste em um circuito que viabiliza que um microcontrolador 
+envie um sinal de baixa potência para a base de um transistor. A conexão do 
+coletor do transistor à bobina do relé viabiliza o seu acionamento 
+quando o transistor entra em estado de saturação. Isso, por sua vez, permite que o ESP32 
+controle dispositivos de alta potência por meio de sinais de baixa potência. 
+Um elemento crucial nesse circuito é o diodo em paralelo ao relé, 
+que também é conhecido como diodo de roda livre.
+
+O diodo de roda livre desempenha um papel essencial na proteção do 
+circuito contra picos de tensão e corrente gerados quando a bobina 
+do relé é desativada. Esse fenômeno ocorre devido à interrupção 
+abrupta da corrente que fluía através da bobina, criando uma sobretensão 
+reversa que poderia potencialmente danificar os componentes do circuito. 
+O diodo age como um caminho de baixa resistência para a corrente, 
+permitindo um caminho controlado para a dissipação da energia excedente, 
+evitando danos aos componentes sensíveis do circuito. Portanto, o diodo 
+de roda livre é crucial para garantir a integridade e a confiabilidade 
+do sistema elétrico.
+
 \begin{figure}[h!]
     \centering
-    \caption{Diagrama elétrico acionamento relé}
-    \includegraphics[scale=0.4]{figuras/modulo_rele_esquema.png}
+    \caption{Diagrama elétrico do módulo relé}
+    \includegraphics[scale=0.2]{figuras/modulo_rele_esquema.png}
     \fonte{}%% Fonte
     \label{fig:diagramarele}
     \centering
 \end{figure}
 
-\begin{figure}[h!]
-    \centering
-    \caption{Telas de inicialização}
-    \includegraphics[scale=0.3]{figuras/fluxo_inicial.png}
-    \fonte{}%% Fonte
-    \label{fig:fluxoinicial}
-    \centering
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \caption{Telas login}
-    \includegraphics[scale=2.2]{figuras/fluxo_login.png}
-    \fonte{}%% Fonte
-    \label{fig:fluxologin}
-    \centering
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \caption{Telas cadastro}
-    \includegraphics[scale=2.5]{figuras/fluxo_cadastro.png}
-    \fonte{}%% Fonte
-    \label{fig:fluxocadastro}
-    \centering
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \caption{Telas deletar usuario}
-    \includegraphics[scale=2.5]{figuras/fluxo_deletar_usuario.png}
-    \fonte{}%% Fonte
-    \label{fig:fluxosenha}
-    \centering
-\end{figure}
+Com base no esquema elétrico e na necessidade de criar um protótipo 
+compacto e eficiente, o projeto da PCB (Printed Circuit Board ou 
+Placa de Circuito Impresso) foi concebido com o objetivo de otimizar 
+o aproveitamento de espaço, como pode ser observado na \autoref{fig:placapcb}. 
+Nessa placa, os componentes estão dispostos de forma organizada, 
+seguindo uma lógica de uso e, ao mesmo tempo, minimizando o espaço 
+ocupado para garantir uma solução compacta e funcional. A disposição 
+estratégica dos componentes na PCB é crucial para a eficiência e o 
+desempenho do protótipo.
 
 \begin{figure}[h!]
     \centering
     \caption{Projeto da placa de circuito impresso do protótipo}
-    \includegraphics[scale=0.35]{figuras/placa_pcb.png}
+    \includegraphics[scale=0.25]{figuras/placa_pcb.png}
     \fonte{}%% Fonte
     \label{fig:placapcb}
     \centering
 \end{figure}
 
+Após a conclusão do projeto da PCB, procedeu-se à fabricação da placa e 
+à integração dos componentes eletrônicos. Como ilustrado na \autoref{fig:placamanufaturada}, 
+foram adicionados os componentes de acordo com o projeto. Uma escolha 
+estratégica foi a inclusão de barras de pinos fêmea no lugar dos 
+conectores do ESP32-CAM e do Display TFT. Essa decisão visou 
+possibilitar a remoção e substituição desses componentes com 
+facilidade. Esse recurso é especialmente útil para o ESP32, 
+permitindo a conexão a um gravador de código externo sempre 
+que necessário, proporcionando maior flexibilidade e 
+versatilidade ao protótipo.
+
 \begin{figure}[h!]
     \centering
     \caption{Placa manufaturada}
-    \includegraphics[scale=0.45]{figuras/placa_montada.png}
+    \includegraphics[scale=0.35]{figuras/placa_montada.png}
     \fonte{}%% Fonte
     \label{fig:placamanufaturada}
+    \centering
+\end{figure}
+
+Como parte final do processo, uma caixa foi projetada e fabricada para cumprir 
+dois propósitos essenciais: proteger o circuito eletrônico e oferecer um 
+acabamento esteticamente agradável para o usuário. A caixa, como ilustrada 
+na \autoref{fig:placamontada}, foi dimensionada a partir das dimensões da placa 
+já confeccionada. A modelagem 3D foi realizada para que a caixa pudesse 
+ser impressa em 3D e posteriormente acoplada à placa. Esse invólucro 
+não apenas protege o protótipo, mas também contribui para uma 
+apresentação mais profissional e amigável ao usuário, resultando em 
+uma experiência mais agradável de uso.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Placa montada}
+    \includegraphics[scale=0.3]{placa_case.png}
+    \fonte{}%% Fonte
+    \label{fig:placamontada}
     \centering
 \end{figure}

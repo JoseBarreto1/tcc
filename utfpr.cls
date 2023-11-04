@@ -1531,7 +1531,7 @@
 % comandos para figuras e tabelas com fonte:
 \renewcommand{\fonte}[1]{
 \ifx\hfuzz#1\hfuzz
-    \caption*{\ABNTEXfontereduzida{\bfseries\nomefonte: Autoria própria (\the\year)}}
+    \caption*{\ABNTEXfontereduzida{\bfseries\nomefonte: Autoria própria (\the\year).}}
 \else
     \caption*{\ABNTEXfontereduzida{\bfseries\nomefonte: {#1}}} 
 \fi

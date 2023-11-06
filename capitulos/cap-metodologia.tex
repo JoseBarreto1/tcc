@@ -2,7 +2,7 @@
 
 \chapter{Metodologia}\label{cap:materialemetodos}
 
-O projeto será estruturado em duas etapas principais: o desenvolvimento da
+O projeto foi estruturado em duas etapas principais: o desenvolvimento da
 infraestrutura de \textit{hardware} e a criação do \textit{software}.
 Desta forma, além da construção do protótipo físico, será desenvolvido
 o programa de controle de acesso por biometria, atendendo todos
@@ -29,13 +29,13 @@ dentro do sistema.
 \end{figure}
 
 Para a execução desse programa, é necessário o uso de um \textit{hardware}
-capaz de processá-lo. Portanto, a primeira etapa do projeto será dedicada à
+capaz de processá-lo. Portanto, a primeira etapa do projeto foi dedicada à
 construção do protótipo físico. E com o intuito de facilitar a compreensão desta
 parte do projeto, foi criado o diagrama apresentado na \autoref{fig:fluxohard}.
 Conforme evidenciado, o ESP32-CAM é o módulo central, encarregado do
 processamento de dados e da coordenação das informações aos demais módulos.
 Para melhorar a interação com os usuários, é adicionado o módulo com botões e
-uma interface gráfica (display). Por fim, o módulo relé é
+uma interface gráfica (\textit{display}). Por fim, o módulo relé é
 responsável pelo controle de acesso, podendo acionar diferentes tipos de
 fechaduras elétricas.
 
@@ -49,7 +49,7 @@ fechaduras elétricas.
 \end{figure}
 
 Como um dos objetivos do projeto é o desenvolvimento de um protótipo de
-baixo custo. A versão selecionada para essa finalidade é o ESP32-CAM,
+baixo custo, a versão selecionada para essa finalidade é o ESP32-CAM,
 que se destaca por integrar um \textit{chip} ESP32, uma câmera, uma
 entrada para cartão SD e LED de alto brilho.
 
@@ -64,9 +64,9 @@ integrada à placa, um processador dual-core de 32 bits capaz de
 executar tarefas em tempo real e disponibiliza 16 pinos de
 Entrada/Saída (E/S).
 
-Neste projeto, o ESP32-CAM desempenhará um papel central, sendo
+Neste projeto, o ESP32-CAM desempenhou um papel central, sendo
 responsável pelo processamento de dados, análise das informações
-e controle dos demais componentes de \textit{hardware}. Isso inclui
+e controle dos demais componentes de \textit{hardware}. Isso incluiu
 o gerenciamento de dispositivos adicionais e a coordenação das funções
 necessárias para a aplicação proposta.
 
@@ -99,13 +99,13 @@ tarefas específicas de acordo com as necessidades do projeto.
 \end{figure}
 
 Esses pinos são fundamentais para a comunicação com sensores, atuadores,
-dispositivos de armazenamento, displays e muitos outros componentes
-eletrônicos. Tornando o ESP32-CAM
+dispositivos de armazenamento, \textit{displays} e muitos outros componentes
+eletrônicos, tornando o ESP32-CAM
 adequado para inúmeras aplicações, desde sistemas de
-segurança e monitoramento, até projetos de automação residencial..
+segurança e monitoramento, até projetos de automação residencial.
 
 No quadro a seguir (\autoref{quad:quadro1}), são detalhadas as funcionalidades dos 16 pinos 
-de Entrada/Saída (E/S) disponíveis no ESP32-CAM. E seu entendimento, possibilita 
+de Entrada/Saída (E/S) disponíveis no ESP32-CAM. O entendimento destes pinos, possibilita 
 aos desenvolvedores a flexibilidade de personalizar e expandir suas 
 aplicações de acordo com suas necessidades específicas.
 
@@ -116,7 +116,7 @@ aplicações de acordo com suas necessidades específicas.
         \hline
         \textbf{Pinos} & \textbf{Descrição}                                                                          \\ \hline
         5V             & Pino de entrada para alimentação do circuito do ESP32.                                      \\ \hline
-        3GND           & 3 pinos de aterramento, usado para referência de potencial zero                             \\ \hline
+        3GND           & 3 pinos de aterramento, usado para referência de potencial zero.                          \\ \hline
         GPIO12         & Pino de propósito geral.                                                                    \\ \hline
         GPIO13         & Pino de propósito geral.                                                                    \\ \hline
         GPIO15         & Pino de propósito geral.                                                                    \\ \hline
@@ -125,7 +125,7 @@ aplicações de acordo com suas necessidades específicas.
         GPIO4          & Pino de propósito geral e pode ser utilizado para acionar o Flash do ESP32.                 \\ \hline
         3.3V           & Pino de fornecimento de energia de 3,3V.                                                    \\ \hline
         GPIO16         & Este pino sempre fica em nível lógico alto e é utilizado para alimentar o circuto de PSRAM. \\ \hline
-        GPIO0          & Pino de propósito geral, entretanto este pino é responsável pelo clock da cÂmera.           \\ \hline
+        GPIO0          & Pino de propósito geral, entretanto este pino é responsável pelo clock da câmera.           \\ \hline
         3.3V/5V        & Pode fornecer energia de 3,3V ou 5V para outros dispositivos.                               \\ \hline
         GPIO3          & Pino de entrada de dados UART (RX) para comunicação serial.                                 \\ \hline
         GPIO1          & Pino de saída de dados UART (TX) para comunicação serial.                                   \\ \hline
@@ -135,22 +135,22 @@ aplicações de acordo com suas necessidades específicas.
 
 \section{Interface gráfica}\label{sec:interface}
 
-O Display LCD TFT (Thin-Film Transistor) de 1.8 polegadas, 
-com resolução de 128x160 pixels
+O \textit{Display} LCD TFT (\textit{Thin-Film Transistor}) de 1.8 polegadas, 
+com resolução de 128x160 \textit{pixels}
 e \textit{driver} ST7735 (\autoref{fig:tft7735}) é um componente popular 
 utilizado em uma variedade de aplicações eletrônicas, devido à sua 
 capacidade de fornecer uma interface visual clara e interativa. 
-Esse tipo de display é frequentemente empregado em projetos que requerem 
+Esse tipo de \textit{display} é frequentemente empregado em projetos que requerem 
 a exibição de informações, gráficos e interação direta com o usuário.
 
-Neste contexto, o uso deste display no projeto tem o propósito de aprimorar 
+Neste contexto, o uso deste \textit{display} no projeto tem o propósito de aprimorar 
 a experiência do usuário, fornecendo uma representação visual clara da 
 aplicação. Além disso, sua biblioteca de fácil utilização simplifica o 
 processo de desenvolvimento do projeto, tornando-o mais acessível e eficaz.
 
 \begin{figure}[h!]
     \centering
-    \caption{Display LCD TFT 1.8"}
+    \caption{\textit{Display} LCD TFT 1.8"}
     \includegraphics[scale=0.4]{figuras/tftst7735.png}
     \legend{Fonte: Adaptado de \citeonline{tft7735img}.}
     \label{fig:tft7735}
@@ -159,7 +159,7 @@ processo de desenvolvimento do projeto, tornando-o mais acessível e eficaz.
 
 \section{Módulo de acionamento}\label{sec:acionamento}
 
-Um módulo relé, como por exemplo, o da \autoref{fig:rele}, é um componente 
+Um módulo relé, como apresentado na \autoref{fig:rele}, é um componente 
 eletrônico amplamente utilizado em projetos que envolvem controle 
 e automação de dispositivos elétricos. Ele desempenha 
 um papel essencial ao permitir o controle de circuitos 
@@ -179,7 +179,7 @@ os módulos relé desempenham um papel crucial, facilitando o funcionamento e
 a segurança do sistema de controle de acesso. Geralmente, essas fechaduras 
 incluem um mecanismo de trinco que pode ser controlado eletronicamente. 
 O módulo relé é utilizado para controlar a ativação e desativação 
-desse mecanismo. Quando um usuário autorizado fornece uma credencial 
+desse mecanismo, quando um usuário autorizado fornece uma credencial 
 válida (como uma senha, cartão RFID ou impressão digital), o sistema 
 eletrônico de controle gera um sinal de baixa potência para acionar 
 o módulo relé. O relé fecha seu contato, permitindo a passagem de 
@@ -195,15 +195,15 @@ assim o acesso.
     \centering
 \end{figure}
 
-\section{Desenvolvimento do software}\label{sec:software}
+\section{Desenvolvimento do \textit{software}}\label{sec:software}
 
-Para o desenvolvimento do software, foi essencial escolher uma plataforma 
+Para o desenvolvimento do \textit{software}, foi essencial escolher uma plataforma 
 de desenvolvimento capaz de programar e gravar códigos nos microcontroladores 
 ESP32. Duas opções amplamente conhecidas são o Arduino IDE e o PlatformIO. 
 Além disso, o desenvolvimento exigiu um estudo aprofundado das 
 bibliotecas disponíveis para atender aos requisitos do projeto, 
 tais como o reconhecimento facial, transmissão em tempo real de 
-imagens em um display LCD, implementação de um timer e a manipulação 
+imagens em um \textit{display} LCD, implementação de um \textit{timer} e a manipulação 
 dos dados de entrada e saída.
 
 \subsection{PlatformIO}\label{sec:platformio}
@@ -213,24 +213,24 @@ que é uma ferramenta indispensável para quem trabalha com dispositivos
 microcontrolados, como o ESP32. Projetado para simplificar o processo 
 de desenvolvimento e programação de microcontroladores, o PlatformIO 
 oferece uma ampla gama de recursos e uma abordagem unificada que 
-facilita o trabalho com diferentes plataformas de hardware e 
+facilita o trabalho com diferentes plataformas de \textit{hardware} e 
 ambientes de desenvolvimento.
 
 Quando se trata do ESP32, o PlatformIO desempenha 
 um papel crucial, permitindo que desenvolvedores e entusiastas de 
 eletrônica programem e depurem suas aplicações de maneira eficiente.
 O PlatformIO é projetado para funcionar com diversos editores de 
-código populares, como Visual Studio Code (VSCode), Atom e CLion. 
+código populares, como \textit{Visual Studio Code} (VSCode), Atom e CLion. 
 Isso permite que os desenvolvedores escolham a IDE que melhor 
 se adapte às suas preferências.
 
-Por fim, dois outros pontos fortes do PlatformIO é que ele 
-possui um gerenciador de bibliotecas embutido que facilita a 
+Por fim, outros dois outros pontos fortes da ferramenta PlatformIO podem 
+ser citados: a plataforma possui um gerenciador de bibliotecas embutido que facilita a 
 pesquisa, instalação e atualização de bibliotecas de código-fonte 
 aberto. Isso é particularmente útil para reutilizar código 
-existente e acelerar o desenvolvimento. Como também sua 
+existente e acelerar o desenvolvimento, como também sua 
 simplificação no processo de compilação e carregamento de 
-código para o hardware de destino. 
+código para o \textit{hardware} de destino. 
 
 \subsection{Biblioteca ESP-DL}\label{sec:formatacaoTexto}
 
@@ -257,7 +257,7 @@ embarcados, apresenta uma operação eficiente que se
 baseia na arquitetura móvel \textit{MobileNetV2} e utiliza 
 redes convolucionais em cascata multitarefa.
 
-A \autoref{fig:mtmn} a seguir é mostrado o fluxo de trabalho do MTNM.
+Na \autoref{fig:mtmn} é demonstrado o fluxo de trabalho do MTNM.
 
 \begin{figure}[h!]
     \centering
@@ -303,7 +303,7 @@ com os resultados obtidos na etapa de detecção facial.
 O método de reconhecimento facial, denominado \textit{recognize face}  
 faz uso do modelo FRMN (\textit{Face Recognition Memory Network}), que 
 também se baseia na arquitetura móvel \textit{MobileNetV2} e emprega o 
-algoritmo ArcFace. Para otimizar a complexidade computacional, 
+algoritmo \textit{ArcFace}. Para otimizar a complexidade computacional, 
 as imagens foram treinadas em dimensões reduzidas (56x56). 
 Na \autoref{fig:frmn}, é possível visualizar todas as etapas do algoritmo 
 no processo de reconhecimento facial.
@@ -325,7 +325,7 @@ de identificação e autenticação.
 
 \subsection{Fluxo de telas}\label{sec:telas}
 
-Os recursos gráficos fornecidos pelo display LCD desempenham um papel 
+Os recursos gráficos fornecidos pelo \textit{display} LCD desempenham um papel 
 fundamental na usabilidade da aplicação. Nesse contexto, a elaboração 
 do fluxo de telas se torna essencial para proporcionar aos usuários 
 uma experiência eficiente. Todos os fluxos foram planejados e 
@@ -337,7 +337,7 @@ inicialização dos recursos utilizados no programa do protótipo,
 abrange o momento em que a câmera, os sensores e o SPIFFS 
 (Sistema de Arquivos Flash de Interface Serial Periférica) 
 são ativados. Além disso, a lista de usuários cadastrados é 
-inicializada antes de exibir a tela de menu." 
+inicializada antes de exibir a tela de menu.
 
 \begin{figure}[h!]
     \centering
@@ -348,12 +348,12 @@ inicializada antes de exibir a tela de menu."
     \centering
 \end{figure}
 
-Ao chegar ao menu e selecionar a opção de login, o usuário inicia o 
+Ao chegar no menu e selecionar a opção de login, o usuário inicia o 
 fluxo de telas de login. Inicialmente, é exibida uma mensagem de 
 orientação para enquadrar o rosto dentro do campo de visão da câmera. 
-Se o usuário estiver cadastrado, uma mensagem de sucesso é exibida, 
-e em seguida, o módulo do relé é acionado. Caso contrário, o timer 
-é executado em segundo plano, e quando o tempo se esgota, uma mensagem 
+Se o usuário estiver cadastrado, uma mensagem de sucesso é exibida 
+e em seguida, o módulo do relé é acionado. Caso contrário, o \textit{timer} 
+é executado em segundo plano e quando o tempo se esgota, uma mensagem 
 de erro é exibida, como representado na \autoref{fig:fluxologin}.
 
 \begin{figure}[h!]
@@ -367,9 +367,9 @@ de erro é exibida, como representado na \autoref{fig:fluxologin}.
 
 No entanto, se o usuário escolher a opção de cadastro no menu, 
 ele deverá seguir o fluxo descrito na \autoref{fig:fluxocadastro}. 
-Na primeira etapa, o usuário é solicitado a digitar a senha. 
-Se a senha estiver correta, uma mensagem de "senha correta" é 
-exibida, e o processo de identificação e reconhecimento facial 
+Na primeira etapa, é solicitado ao usuário para digitar a senha. 
+Se a senha estiver correta, uma mensagem de ''senha correta'' é 
+exibida e o processo de identificação e reconhecimento facial 
 é iniciado. Se tudo ocorrer conforme o esperado, os dados são 
 armazenados na memória RAM ou na memória flash. Caso contrário, 
 o usuário visualizará uma mensagem de erro.
@@ -384,18 +384,18 @@ o usuário visualizará uma mensagem de erro.
 \end{figure}
 
 
-Por fim, o ultimo fluxo principal é o processo de exclusão 
+Por fim, o último fluxo principal é o processo de exclusão 
 de usuários (\autoref{fig:fluxosenha}), que se assemelha 
-muito ao fluxo de cadastro. Como observado, em ambos 
+ao fluxo de cadastro. Como observado, em ambos 
 os casos, a primeira tela solicita a inserção 
-da senha, e o usuário tem aproximadamente 40 segundos 
+da senha e o usuário tem aproximadamente 40 segundos 
 para descobrir ou digitar a senha correta. Durante esse processo, 
 podem ser exibidas mensagens de erro ou sucesso. Se tudo ocorrer 
-conforme o esperado, a mensagem "usuários deletados" é exibida.
+conforme o esperado, a mensagem ''usuários deletados'' é exibida.
 
 \begin{figure}[h!]
     \centering
-    \caption{Telas deletar usuario}
+    \caption{Fluxo de telas para deletar usuário}
     \includegraphics[scale=1.8]{figuras/fluxo_deletar_usuario.png}
     \fonte{}%% Fonte
     \label{fig:fluxosenha}
@@ -410,12 +410,12 @@ adaptador ESP32-CAM MB (conforme representado na
 estabelecendo uma conexão entre o ESP32-CAM e um computador por meio 
 do cabo USB.
 
-Para o desenvolvimento do protótipo, elaborou-se um diagrama elétrico 
+Para desenvolvimento do protótipo, elaborou-se um diagrama elétrico 
 detalhado, conforme ilustrado na \autoref{fig:circuito}. Este diagrama 
 foi construído com base em um circuito previamente testado e montado em 
-uma placa de prototipagem ("protoboard"). A escolha dos conectores do 
+uma placa de prototipagem (''\textit{protoboard}''). A escolha dos conectores do 
 tipo borne KRE para as conexões de entrada e saída se justifica pela 
-praticidade e segurança que oferecem, graças ao seu encaixe lateral que 
+praticidade e segurança que oferecem, devido ao seu encaixe lateral que 
 simplifica a conexão com os componentes eletrônicos.
 
 \begin{figure}[h!]
@@ -429,10 +429,10 @@ simplifica a conexão com os componentes eletrônicos.
 
 \section{Desenvolvimento do protótipo}\label{sec:prototipo}
 
-Para o desenvolvimento do protótipo, foi fundamental criar um diagrama 
+Para desenvolvimento do protótipo, foi fundamental criar um diagrama 
 elétrico detalhado para guiar a montagem do circuito. O diagrama 
 apresentado na \autoref{fig:circuito}, foi elaborado com base no 
-circuito pré-testado e montado em uma placa de prototipagem ("protoboard").
+circuito pré-testado e montado em uma placa de prototipagem (''\textit{protoboard}'').
 
 \begin{figure}[h!]
     \centering
@@ -447,16 +447,16 @@ O diagrama elétrico do protótipo divide o circuito em quatro blocos
 principais: o ESP32-CAM, o TFT ST7735, o módulo de relé e o módulo 
 de botões (\textit{push button}). O bloco principal, que é o ESP32-CAM, 
 possui 16 pinos de entrada/saída (GPIOs), como representado na 
-\autoref{fig:diagramaesp}, e desempenha o papel de controle e 
+\autoref{fig:diagramaesp} e desempenha o papel de controle e 
 coordenação do sistema como um todo. Dos 16 pinos disponíveis, 
-7 são dedicados ao display TFT (GPIOs 2, 12, 13, 14 e 15), 2 são 
-reservados para os botões (GPIOs 4 e 3), e 1 pino é utilizado 
+7 são dedicados ao \textit{display} TFT (GPIOs 2, 12, 13, 14 e 15), 2 são 
+reservados para os botões (GPIOs 4 e 3) e 1 pino é utilizado 
 como saída para controlar o módulo do relé (GPIO 1).
 
 Importante mencionar que algumas GPIOs têm funções específicas. 
 Por exemplo, a GPIO 16 permanece em nível lógico alto e é utilizada 
 para habilitar a memória PSRAM. Além disso, a GPIO 0 é designada como 
-clock da câmera e não pode ser realocada para outras finalidades, 
+\textit{clock} da câmera e não pode ser realocada para outras finalidades, 
 uma vez que isso afetaria o funcionamento adequado da captura de 
 imagens. Essas atribuições de GPIOs foram cuidadosamente 
 planejadas para garantir o correto funcionamento de 
@@ -477,21 +477,21 @@ reduzido e com capacidade de exibir cores. A principal função desse
 controlador é administrar a apresentação de informações na tela, 
 permitindo a criação de gráficos e a exibição de texto colorido.
 
-A tela em si é composta por uma matriz de pixels coloridos, em que 
-cada pixel é formado por subpixels nas cores vermelha, verde e azul 
+A tela em si é composta por uma matriz de \textit{pixels} coloridos, em que 
+cada \textit{pixel} é formado por subpixels nas cores vermelha, verde e azul 
 (RGB), possibilitando a exibição de uma vasta gama de cores. Os pinos 
-SCK (Serial Clock), SDA e CS (Chip Select) são utilizados para a 
+SCK (\textit{Serial Clock}), SDA e CS (\textit{Chip Select}) são utilizados para a 
 comunicação serial com o microcontrolador. Por sua vez, o pino de 
-reset é designado para reiniciar o display em caso de falhas ou erros.
+\textit{reset} é designado para reiniciar o \textit{display} em caso de falhas ou erros.
 
 Adicionalmente, o pino A0 desempenha um papel fundamental ao indicar 
-se os dados transmitidos se referem a comandos de controle (estado LOW) 
-ou a dados de pixel (estado HIGH), desempenhando um papel crucial no 
+se os dados transmitidos se referem a comandos de controle (estado \textit{LOW}) 
+ou a dados de \textit{pixel} (estado \textit{HIGH}), desempenhando um papel crucial no 
 funcionamento adequado do controlador ST7735.
 
 \begin{figure}[h!]
     \centering
-    \caption{Diagrama elétrico do Display TFT}
+    \caption{Diagrama elétrico do \textit{Display} TFT}
     \includegraphics[scale=0.36]{figuras/modulo_tft.png}
     \fonte{}%% Fonte
     \label{fig:diagramatft}
@@ -500,7 +500,9 @@ funcionamento adequado do controlador ST7735.
 
 O bloco que compreende os botões desempenha um papel fundamental na 
 interatividade do projeto, pois permite a seleção de itens no menu 
-e a inserção dos valores da senha. A estrutura dos botões é 
+e a inserção dos valores da senha. 
+
+A estrutura dos botões é 
 ilustrada no circuito apresentado na \autoref{fig:diagramabotoes}, e 
 cada botão é capaz de enviar um sinal de nível lógico baixo quando não 
 pressionado e de nível lógico alto quando acionado, transmitindo esses 
@@ -510,7 +512,7 @@ Devido a mudança de estado do botões ao alterar o sinal elétrico conforme
 são pressionados ou soltos, permite ao microcontrolador reconhecer as ações 
 do usuário, possibilitando a navegação no aplicativo de forma eficiente 
 e prática. Isso torna esses componentes essenciais para a interatividade 
-do protótipo e contribuindo significativamente para a experiência do usuário.
+do protótipo e contribuem significativamente para a experiência do usuário.
 
 \begin{figure}[h!]
     \centering
@@ -555,7 +557,7 @@ do sistema elétrico.
 \end{figure}
 
 Com base no esquema elétrico e na necessidade de criar um protótipo 
-compacto e eficiente, o projeto da PCB (Printed Circuit Board ou 
+compacto e eficiente, o projeto da PCB (\textit{Printed Circuit Board} ou 
 Placa de Circuito Impresso) foi concebido com o objetivo de otimizar 
 o aproveitamento de espaço, como pode ser observado na \autoref{fig:placapcb}. 
 Nessa placa, os componentes estão dispostos de forma organizada, 
@@ -577,7 +579,7 @@ Após a conclusão do projeto da PCB, procedeu-se à fabricação da placa e
 à integração dos componentes eletrônicos. Como ilustrado na \autoref{fig:placamanufaturada}, 
 foram adicionados os componentes de acordo com o projeto. Uma escolha 
 estratégica foi a inclusão de barras de pinos fêmea no lugar dos 
-conectores do ESP32-CAM e do Display TFT. Essa decisão visou 
+conectores do ESP32-CAM e do \textit{Display} TFT. Essa decisão visou 
 possibilitar a remoção e substituição desses componentes com 
 facilidade. Esse recurso é especialmente útil para o ESP32, 
 permitindo a conexão a um gravador de código externo sempre 

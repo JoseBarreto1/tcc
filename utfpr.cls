@@ -971,18 +971,29 @@
 
 %% Listagem de Códigos fonte
 \usepackage{listings}
-\lstset{ 
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+  frame=l,
   numbers=left,
+  language=c++,
   numberstyle=\small,
   basicstyle=\small,
   keepspaces=true,
   showspaces=false, 
   showstringspaces=false,
   showtabs=false,
-  tabsize=2,
-  aboveskip=0.75em,
+  tabsize=3,
+  aboveskip=3mm,
+  belowskip=3mm,
   belowcaptionskip=0em,
-  belowskip=0em,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
   literate=
     {á}{{\'a}}1
     {à}{{\`a}}1

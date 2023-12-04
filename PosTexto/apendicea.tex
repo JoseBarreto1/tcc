@@ -3,32 +3,155 @@
 %% Texto ou documento elaborado pelo autor, a fim de complementar sua argumentação, sem prejuízo da unidade nuclear do trabalho.
 
 %% Título e rótulo de apêndice (rótulos não devem conter caracteres especiais, acentuados ou cedilha)
-\chapter{Título do Apêndice A com um Texto Muito Longo que Pode Ocupar Mais de uma Linha}\label{cap:apendicea}
+\chapter{Código principal}\label{cap:apendicea}
 
-Quando houver necessidade pode-se apresentar como apêndice documento(s) auxiliar(es) e/ou complementar(es) como: legislação, estatutos, gráficos, tabelas, etc. Os apêndices são enumerados com letras maiúsculas: \autoref{cap:apendicea}, \autoref{cap:apendiceb}, etc.
+Abaixo, apresenta-se o código do arquivo principal (main.cpp), fornecendo 
+uma visão dos principais métodos empregados no projeto. Para acessar 
+a implementação completa, por favor, visite o repositório no \textit{GitHub} 
+disponível em: https://github.com/JoseBarreto1/projeto-tcc-software.
 
-No \latex\ apêndices são editados como capítulos. O comando \verb|\appendix| faz com que todos os capítulos seguintes sejam considerados apêndices.
-
-Apêndices complementam o texto principal da tese com informações para leitores com especial interesse no tema, devendo ser considerados leitura opcional, ou seja, o entendimento do texto principal da tese não deve exigir a leitura atenta dos apêndices.
-
-Apêndices usualmente contemplam provas de teoremas, deduções de fórmulas matemáticas, diagramas esquemáticos, gráficos e trechos de código. Quanto a este último, código extenso não deve fazer parte da tese, mesmo como apêndice. O ideal é disponibilizar o código na Internet para os interessados em examiná-lo ou utilizá-lo.
-
-%% Título e rótulo de seção (rótulos não devem conter caracteres especiais, acentuados ou cedilha)
-%\section{Título da Seção Secundária do Apêndice B}\label{sec:secaoapendicea}
-
-%Exemplo de seção secundária em apêndice (\autoref{sec:secaoapendicea} do \autoref{cap:apendicea}).
-
-%% Título e rótulo de seção (rótulos não devem conter caracteres especiais, acentuados ou cedilha)
-%\subsection{Título da Seção Terciária do Apêndice B}\label{subsec:subsecaoapendicea}
-
-%Exemplo de seção terciária em apêndice (\autoref{subsec:subsecaoapendicea} do \autoref{cap:apendicea}).
-
-%% Título e rótulo de seção (rótulos não devem conter caracteres especiais, acentuados ou cedilha)
-%\subsubsection{Título da seção quaternária do Apêndice B}\label{subsubsec:subsubsecaoapendicea}
-
-%Exemplo de seção quaternária em apêndice (\autoref{subsubsec:subsubsecaoapendicea} do \autoref{cap:apendicea}).
-
-%% Título e rótulo de seção (rótulos não devem conter caracteres especiais, acentuados ou cedilha)
-%\paragraph{Título da seção quinária do Apêndice B}\label{para:paragraphapendicea}
-
-%Exemplo de seção quinária em apêndice (\autoref{para:paragraphapendicea} do \autoref{cap:apendicea}).
+\begin{Spacing}{1}
+\begin{lstlisting}
+	#include "face_recognition.h"
+	#include "face_detect.h"
+	#include "constants.h"
+	#include "display.h"
+	#include "camera.h"
+	#include "debug.h"
+	#include "timer.h"
+	#include "user.h"
+	
+	// variaveis globais
+	static face_id_list id_list = {0};
+	static bool enroll_enabled = true;
+	static bool reset_password = true;
+	static int user_number = 0;
+	static int selected_option = MENU_OPTION;
+	camera_fb_t *fb = NULL;
+	
+	void setup()
+	{
+		// inicializando o pinos de entrada e saída
+		pinMode(RELAY_PIN, OUTPUT);
+		pinMode(PUSH_BUTTON_1, INPUT);
+		pinMode(PUSH_BUTTON_2, INPUT_PULLDOWN);
+		digitalWrite(RELAY_PIN, LOW);
+		debug_init();
+		camera_init();
+		init_sensor_camera();
+		display_init();
+		init_SPIFFS();
+		user_number = find_last_number_user_save();
+		init_face_id(&id_list, user_number);
+	}
+	
+	void return_menu(void *arg)
+	{
+		selected_option = MENU_DEFAULT;
+		delay(100);
+		if (fb != NULL)
+		{
+			esp_camera_fb_return(fb);
+			fb = NULL;
+		}
+		digitalWrite(FLASH_PIN, LOW);
+		display_error();
+		pinMode(PUSH_BUTTON_2, INPUT_PULLDOWN);
+		selected_option = MENU_OPTION;
+		return;
+	}
+	
+	void open_door()
+	{
+		if (digitalRead(RELAY_PIN) == LOW)
+		{
+			digitalWrite(RELAY_PIN, HIGH);
+			display_write_string("Abrindo \n \n  porta ", TEXT_SIZE_MEDIUM, TFT_DARKGREEN);
+			delay(2000);
+			digitalWrite(RELAY_PIN, LOW);
+		}
+		selected_option = MENU_OPTION;
+		return;
+		}
+		void success_face_detected()
+		{
+		stop_timer();
+		display_success();
+		digitalWrite(FLASH_PIN, LOW);
+		pinMode(PUSH_BUTTON_2, INPUT_PULLDOWN);
+		selected_option = OPEN_DOOR;
+		return;
+	}
+	
+	void menu_option()
+	{
+		display_menu();
+		if (digitalRead(PUSH_BUTTON_1) == HIGH)
+		{
+			init_timer(TIME_DEFAULT, &return_menu);
+		
+			display_write_string("Enquadre seu\n \n      Rosto na \n \n        Tela \n", TEXT_SIZE_DEFAULT);
+			delay(4000);
+			pinMode(FLASH_PIN, OUTPUT);
+			digitalWrite(FLASH_PIN, HIGH);
+		
+			selected_option = LOGIN_OPTION;
+			enroll_enabled = false;
+			return;
+		}
+		else if (digitalRead(PUSH_BUTTON_2) == HIGH)
+		{
+			init_timer(TIME_DEFAULT, &return_menu);
+			reset_password = true;
+			selected_option = REGISTER_OPTION;
+			return;
+		}
+	}
+	
+	void login()
+	{
+		if (!processing_face(fb, &id_list, &user_number, &enroll_enabled, &success_face_detected) && selected_option != MENU_DEFAULT)
+		{
+			camera_live_stream(fb);
+		}
+	}
+	
+	void registration()
+	{
+		bool push_button_up = digitalRead(PUSH_BUTTON_1) == HIGH;
+		bool push_button_down = digitalRead(PUSH_BUTTON_2) == HIGH;
+		bool is_correct = enter_password(push_button_up, push_button_down, &reset_password);
+		if (is_correct)
+		{
+			init_timer(TIME_DEFAULT, &return_menu);
+			display_initial_count();
+			pinMode(FLASH_PIN, OUTPUT);
+			digitalWrite(FLASH_PIN, HIGH);
+			selected_option = LOGIN_OPTION;
+			enroll_enabled = true;
+			return;
+		}
+	}
+	
+	void loop()
+	{
+		switch (selected_option)
+		{
+		case MENU_OPTION:
+			menu_option();
+			break;
+		case LOGIN_OPTION:
+			login();
+			break;
+		case REGISTER_OPTION:
+			registration();
+			break;
+		case OPEN_DOOR:
+			open_door();
+			break;
+		default:
+			break;
+		}
+	}
+\end{lstlisting}
+\end{Spacing}

@@ -11,15 +11,13 @@ e identificação de objetos. Logo na primeira semana de vida, os bebês estabel
 rapidamente reconhecimentos individuais, discriminando e demonstrando preferência 
 pela face, voz e odor de sua própria mãe \cite{vieira2017}.
 
-O termo biometria, do grego \textit{bios}-vida e \textit{metron}-medida, pode ser 
+O termo biometria, do grego bios (vida) e metron (medida), pode ser 
 definida como ramo da ciência que estuda a identificação de aspectos físicos, biológicos e até 
 comportamentais dos seres vivos. Na qual, são utilizados para distinguir indivíduos, 
-a partir de suas características únicas \cite{ferreira2009}. Como por exemplo, a face, retina, 
-íris, impressões digitais, geometria da mão, etc.
-
-A biometria se tornou uma nova área de estudo a partir do antropologista francês
-Alphonse Bertillon, em 1890, quando utilizou conceitos de biometria para a 
-identificação de criminosos \cite{moraes2006}. 
+a partir de suas características únicas \cite{ferreira2009}. Como, por exemplo, a face, retina, 
+íris, impressões digitais, geometria da mão, etc. A biometria se tornou uma nova área de estudo 
+a partir do antropologista francês Alphonse Bertillon, em 1890, quando utilizou 
+conceitos de biometria para a identificação de criminosos \cite{moraes2006}. 
 
 Dentre as tecnologias atuais de segurança, a biometria tem sido amplamente 
 utilizada, seja para acessar contas bancárias, aplicativos e até controlar 
@@ -80,19 +78,19 @@ Para que o objetivo geral seja atingido, alguma etapas essenciais deverão
 ser realizadas:
 
 \begin{itemize}
-    \item  Desenvolver o \textit{hardware} para aquisição de imagens, levando em 
-    consideração a luminosidade local e a qualidade da câmera, garantindo assim, 
+    \item  Desenvolver o \textit{hardware} para aquisição de imagens, considerando a 
+    luminosidade local e a qualidade da câmera, garantindo assim, 
     bons resultados para a etapa de reconhecimento facial;
   
-    \item Implementar um código que seja otimizado e organizado, o suficiente para 
-    conseguir processar as imagens em tempo real; 
+    \item Implementar um código, que seja otimizado e organizado o suficiente, 
+    para conseguir processar as imagens em tempo real; 
     
     \item Criar uma interface gráfica e física que permita aos usuários interagir 
     e utilizar de maneira intuitiva e simples;
     
     \item Por último, desenvolver o módulo de controle de acesso, que permitirá 
     ao administrador gerenciar e cadastrar novos usuários, concedendo ou 
-    limitando o acesso de acordo com as necessidades.
+    limitando o acesso conforme as necessidades.
 \end{itemize}
 
 \section{Justificativa}\label{sec:justificativa}
@@ -103,22 +101,36 @@ a promoverem uma maior segurança física, como também segurança sanitária,
 evitando contaminações e agilizando os processos. Ao contrário dos sistemas 
 manuais, onde normalmente geram atrasos e demandam contato físico \cite{terra2020}.
 
-Atualmente, os controles de acesso mais comuns utilizam chaves 
-e tags, porém, como possuem inúmeras fragilidades, estes procedimentos não são 
-recomendados em locais que recebem um grande fluxo de pessoas, como por exemplo, 
-hotéis e centros comerciais, pois, qualquer pessoa pode ter acesso, 
-sem necessariamente estar credenciada.
+No cotidiano, uma das formas mais comuns de garantir a segurança é por meio de 
+chaves físicas, utilizadas tanto em fechaduras mecânicas quanto em fechaduras 
+eletrônicas, onde essas chaves podem assumir a forma de dispositivos metálicos 
+ou tags de proximidade. No entanto, apesar de sua praticidade, 
+essas chaves apresentam vulnerabilidades relacionadas à possibilidade de 
+fraudes, seja através de cópias não autorizadas ou do uso de técnicas como 
+o ''\textit{Bump Key}'', uma ameaça frequente em diversos tipos de chaves. Um exemplo 
+atual é o caso do Flipper Zero, um dispositivo projetado para clonar 
+frequências de NFC, Bluetooth e RFID. De acordo com a Anatel (Agência 
+Nacional de Telecomunicações), esse aparelho possui um ''potencial lesivo'' 
+aos usuários, permitindo a reprodução não autorizada de controles 
+remotos de portões eletrônicos, sistemas de segurança residencial, 
+chaves de carro, entre outros \cite{anatel2023}. Essa capacidade de clonagem destaca 
+a necessidade de abordagens mais seguras e avançadas no desenvolvimento 
+de tecnologias de acesso e segurança. 
 
-Um aspecto relevante a ser considerado é que a implementação de sistemas 
-automatizados tem o potencial de reduzir custos. Isso é notável, por 
-exemplo, em condomínios e hotéis, onde tais sistemas podem desempenhar 
-funções que, anteriormente, eram realizadas por porteiros e recepcionistas 
-no cotidiano. Isso não só permite uma diminuição nas horas de trabalho 
-desses profissionais, mas também resulta em economia de despesas para 
-essas empresas.
+Quanto ao reconhecimento facial, um aspecto a ser considerado é a automação 
+de processos. Embora a redução de custos seja um diferencial destacado 
+por muitos gestores ao abordar a automação, é igualmente crucial ponderar 
+sobre o potencial dessa tecnologia em proporcionar benefícios mais 
+significativos para toda a cadeia produtiva. Isso implica não apenas em 
+otimizar a eficiência operacional, mas também em maximizar as 
+recompensas globais para os diversos setores envolvidos \cite{tiinside2023}.
 
-Por fim, a facilidade desses sistemas, fazem com que os usuários não precisem 
-mais memorizar senhas ou carregar suas chaves, impactando positivamente na 
-experiência de uso. Além disso, essa abordagem reduz significativamente a 
-probabilidade de golpes e fraudes, uma vez que torna inviável o 
-compartilhamento de acessos.
+Por último, destaca-se a praticidade desse sistema, uma vez que 
+elimina a necessidade de memorizarem senhas ou carregarem 
+chaves consigo. Esse fator tem um impacto positivo de forma geral para 
+a maioria das pessoas, mas vem sendo especialmente benéfico 
+para grupos de pessoas com Déficit de Atenção. 
+Ao considerar que pessoas com Déficit de Atenção muitas vezes enfrentam dificuldades 
+em lembrar-se de compromissos, extraviam chaves (casa ou carro) com facilidade e podem 
+esquecer de tarefas cotidianas \cite{abda2023}, desta forma, sistemas de reconhecimento 
+facial são soluções que favorecem e os ajudam em seu cotidiano.

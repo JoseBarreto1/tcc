@@ -195,21 +195,18 @@
 
 %% Arquivos de apêndices
  \begin{arquivosdeapendices}%% Os arquivos de apêndices devem se incluídos neste ambiente - Não comente esta linha
-%   %\partapendices%% Página de início dos apêndices - adiciona uma página com o título Apêndices
+%  \partapendices%% Página de início dos apêndices - adiciona uma página com o título Apêndices
 %   %% Capítulo de exemplo
-%  \include{./PosTexto/apendicea}%% Apêndice - Comente para remover este item
+% \include{./PosTexto/apendicea}%% Apêndice - Comente para remover este item
 %  \include{./PosTexto/apendiceb}%% Apêndice - Comente para remover este item
  \end{arquivosdeapendices}%% Não comente esta linha
 
 
-% \begin{apendicesenv}%% Ambiente apendicesenv
-
+\begin{apendicesenv}%% Ambiente apendicesenv
 % \partapendices
-% \chapter{Ola}
-
-% \lipsum[55-56]
-
-% \end{apendicesenv}
+\input{./PosTexto/apendicea}%% Apêndice - Comente para remover este item
+\input{./PosTexto/apendiceb}%% Apêndice - Comente para remover este item
+\end{apendicesenv}
 
 %% Arquivos de anexos
 \begin{arquivosdeanexos}%% Os arquivos de anexos devem se incluídos neste ambiente - Não comente esta linha

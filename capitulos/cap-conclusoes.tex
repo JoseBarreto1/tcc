@@ -2,45 +2,40 @@
 %%
 \chapter{Conclusão}\label{cap:conclusoeseperspectivas}
 
-O trabalho, de forma geral, apresentou bons resultados. O desenvolvimento e 
-implementação do protótipo de controle de acesso por 
-reconhecimento facial utilizando o ESP32-CAM mostraram-se promissores, atendendo 
-aos requisitos do projeto. Desta forma, o sistema demonstrou 
-a capacidade de detectar e reconhecer rostos, além de executar com sucesso 
-tarefas como cadastro de usuários e a implementação de um temporizador.
 
-No entanto, algumas limitações foram identificadas durante a elaboração do 
-protótipo. Notavelmente, a falta de recursos de processamento do ESP32 limitou 
-a plena capacidade de processamento de imagem e visão computacional. 
-A ausência de bibliotecas de visão computacional amplamente disponíveis 
-para o ESP32 também representou um desafio. No entanto, soluções alternativas 
-foram aplicadas, permitindo o reconhecimento facial com relativo sucesso.
+O trabalho de desenvolvimento de um protótipo de reconhecimento 
+facial alcançou todos os objetivos estabelecidos. O hardware foi 
+projetado e construído com sucesso, utilizando componentes de baixo 
+custo e disponíveis no mercado. O código foi implementado de 
+forma otimizada e organizada, utilizando técnicas de aprendizado 
+de máquina para realizar o reconhecimento facial. 
 
-Para aprimorar ainda mais o sistema, seria essencial a inclusão de bibliotecas 
-de visão computacional mais abrangentes, como o OpenCV, que ofereceriam mais 
-opções e métodos de processamento de imagem. Além disso, a avaliação da 
-influência da luminosidade na precisão do reconhecimento é um tópico importante 
-a ser investigado, bem como a otimização dos parâmetros para melhorar a taxa 
-de assertividade.
+No que diz respeito à interface gráfica e física, a elaboração de 
+telas específicas para a inicialização, login, cadastro e exclusão 
+de usuários foi cuidadosamente projetada para fornecer uma 
+experiência intuitiva ao usuário. 
+Os fluxos de interação, incluindo o módulo do administrador com 
+senhas, destacam a importância dos botões na interface física, 
+desempenhando um papel significativo na navegação e inserção de 
+valores.
 
-Apesar das limitações, o protótipo atendeu a praticamente todos os requisitos 
-do projeto e mostrou-se uma base sólida para desenvolvimentos futuros. A 
-implementação de melhorias, como a possibilidade de configurar o número de 
-usuários cadastrados, exibir o ID do usuário e permitir a exclusão de usuários 
-por ID, tornaria o sistema ainda mais flexível e prático. 
+Após a avaliação do protótipo, foram identificadas algumas 
+possibilidades de melhoria. Uma delas seria aumentar o número máximo de 
+usuários que podem ser cadastrados. Outra seria incluir IDs para cada 
+usuário, o que permitiria excluí-los por meio desses identificadores. 
+Também seria permitir que o administrador altere as senhas 
+associadas ao protótipo.
 
-Além disso, a perspectiva de integrar o protótipo em aplicativos e servidores 
-web expandiria suas aplicações práticas, tornando-o útil em sistemas de controle 
-de acesso online.
+Outra melhoria interessante seria a ativação do módulo Wi-Fi, o 
+que permitiria a integração do protótipo com aplicativos ou 
+serviços web. Por fim, uma melhoria de grande impacto envolveria 
+a criação de uma placa personalizada, utilizando apenas o chip 
+ESP32-S. Essa abordagem implicaria na liberação do I2C para uso 
+geral, ampliando a disponibilidade de portas (GPIO) e 
+possibilitando a incorporação de novos recursos.
 
-Conforme mencionado anteriormente, uma melhoria substancial poderia ser alcançada 
-ao desenvolver uma placa personalizada, utilizando apenas o chip ESP32. Isso permitiria 
-uma maior flexibilidade na alocação de recursos, liberando GPIOs adicionais 
-para integração de novos recursos e funcionalidades.
-
-Em resumo, o protótipo de controle de acesso por reconhecimento facial 
-demonstrou ser uma solução viável e suas limitações podem ser superadas 
-com melhorias no \textit{hardware}, \textit{software} e integração em sistemas mais amplos. 
+No geral, o trabalho foi um sucesso e o protótipo desenvolvido 
+apresenta um bom potencial de aplicação em diversos contextos. 
 Com uma abordagem contínua de desenvolvimento e aprimoramento, esse sistema 
 tem o potencial de se tornar uma ferramenta poderosa para controle de acesso 
 em diversas aplicações.

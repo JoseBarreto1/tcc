@@ -39,7 +39,7 @@ durante o desenvolvimento, com foco na minimização de falsos
 positivos e falsos negativos no reconhecimento facial. Para superar esse 
 desafio, é essencial encontrar uma abordagem que seja mais adequada ao 
 sistema de autenticação por imagem. Entre as várias abordagens disponíveis, 
-é fundamental avaliar a taxa de identificações incorretas e a taxa de 
+é importante avaliar a taxa de identificações incorretas e a taxa de 
 casos não detectados \cite{viola2004}.
 
 % \begin{figure}[h!]
@@ -51,44 +51,38 @@ casos não detectados \cite{viola2004}.
 %     \centering
 % \end{figure}
 
-Diante disso, o objetivo deste estudo é abordar o desenvolvimento de um 
-protótipo que visa simplificar o controle de acesso através de um sistema 
-de reconhecimento facial compacto e acessível, tornando-o de fácil 
-utilização para qualquer pessoa. E também permitindo a integração 
-com sistemas já existentes. 
+Diante disso, a proposta deste trabalho é desenvolver um dispositivo que emprega 
+o reconhecimento facial para controle de acesso, acompanhado por 
+uma interface gráfica e física que seja intuitiva e fácil de usar.
 
 \section{Objetivos}\label{sec:objetivos}
 
 Nesta seção serão apresentados os objetivos deste trabalho e as etapas necessárias 
 para o desenvolvimento do protótipo. Na qual, além da implementação do 
-\textit{hardware}, também serão necessárias algumas etapas para a elaboração do \textit{software}, 
-tendo como finalidade, obter uma alta assertividade no controle de acesso por 
+\textit{hardware}, também foram necessárias algumas etapas para a elaboração do \textit{software}, 
+tendo como finalidade, obter um protótipo de controle de acesso por 
 reconhecimento facial.
 
 \subsection{Objetivo geral}\label{subsec:objetivoGeral}
 
-Este trabalho tem por objetivo realizar o estudo e desenvolvimento de um protótipo 
-para controle de acesso por meio de reconhecimento facial. Para isso, 
-serão utilizados algoritmos de processamento de imagens e aprendizagem 
+Desenvolver um protótipo para controle de acesso por meio de reconhecimento facial. 
+Para isso, foram utilizados algoritmos de processamento de imagens e aprendizagem 
 profunda no microcontrolador ESP32-CAM.
 
 \subsection{Objetivos específicos}\label{subsec:objetivosEspecificos}
 
-Para que o objetivo geral seja atingido, alguma etapas essenciais deverão 
-ser realizadas:
+Para atingir o objetivo geral, alguma etapas essenciais foram realizadas:
 
 \begin{itemize}
     \item  Desenvolver o \textit{hardware} para aquisição de imagens, considerando a 
-    luminosidade local e a qualidade da câmera, garantindo assim, 
-    bons resultados para a etapa de reconhecimento facial;
+    luminosidade local e a qualidade da câmera;
   
-    \item Implementar um código, que seja otimizado e organizado o suficiente, 
-    para conseguir processar as imagens em tempo real; 
+    \item Implementar um código, que seja otimizado e organizado; 
     
     \item Criar uma interface gráfica e física que permita aos usuários interagir 
     e utilizar de maneira intuitiva e simples;
     
-    \item Por último, desenvolver o módulo de controle de acesso, que permitirá 
+    \item Desenvolver o módulo de controle de acesso, que permitirá 
     ao administrador gerenciar e cadastrar novos usuários, concedendo ou 
     limitando o acesso conforme as necessidades.
 \end{itemize}

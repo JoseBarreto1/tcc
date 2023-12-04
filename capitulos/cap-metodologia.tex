@@ -101,7 +101,7 @@ tarefas específicas de acordo com as necessidades do projeto.
     \centering
 \end{figure}
 
-Esses pinos são fundamentais para a comunicação com sensores, atuadores,
+Esses pinos são necessários para a comunicação com sensores, atuadores,
 dispositivos de armazenamento, \textit{displays} e muitos outros componentes
 eletrônicos, tornando o ESP32-CAM
 adequado para inúmeras aplicações, desde sistemas de
@@ -191,9 +191,9 @@ assim o acesso.
 
 \section{Desenvolvimento do \textit{software}}\label{sec:software}
 
-Para o desenvolvimento do \textit{software}, foi essencial escolher uma plataforma 
+Para o desenvolvimento do \textit{software}, foi necessário escolher uma plataforma 
 de desenvolvimento capaz de programar e gravar códigos nos microcontroladores 
-ESP32. Duas opções amplamente conhecidas são o Arduino IDE e o PlatformIO. 
+ESP32. Das opções conhecidas eram o Arduino IDE e o PlatformIO. 
 Além disso, o desenvolvimento exigiu um estudo aprofundado das 
 bibliotecas disponíveis para atender aos requisitos do projeto, 
 tais como o reconhecimento facial, transmissão em tempo real de 
@@ -225,8 +225,8 @@ no ESP32.
 
 Para estabelecer a comunicação com o PlatformIO, tanto para gravação quanto para 
 a leitura de dados no ESP32-CAM, a utilização do adaptador ESP32-CAM MB 
-(conforme representado na \autoref{fig:adaptadoresp32}) revelou-se fundamental. 
-Este módulo desempenhou um papel importante, pois simplificou a conexão do ESP32-CAM 
+(conforme representado na \autoref{fig:adaptadoresp32}) revelou-se necessário. 
+Este módulo foi muito importante, pois simplificou a conexão do ESP32-CAM 
 com o computador.
 
 \begin{figure}[h!]
@@ -245,7 +245,7 @@ uma ferramenta que disponibiliza Interfaces de Programação de Aplicações
 (APIs) para tarefas como inferência de redes neurais (NN), 
 processamento de imagens, operações matemáticas 
 e alguns modelos de aprendizado profundo. Essa biblioteca 
-desempenhou um papel fundamental tanto na identificação de rostos, 
+contribuiu tanto na implementação da identificação de rostos, 
 quanto na execução do processo de reconhecimento facial.
 
 Dentre os recursos disponíveis do ESP-DL, se encontra o 
@@ -321,9 +321,9 @@ int run_face_recognition(face_id_list *id_list, dl_matrix3du_t *image_matrix, bo
 
 \subsection{Fluxo de telas}\label{sec:telas}
 
-Os recursos gráficos fornecidos pelo \textit{display} LCD desempenhou um papel 
-fundamental na usabilidade da aplicação. Nesse contexto, a elaboração 
-do fluxo de telas se tornou essencial para proporcionar aos usuários 
+Os recursos gráficos fornecidos pelo \textit{display} LCD melhorou de 
+forma substancial a usabilidade da aplicação. Nesse contexto, a elaboração 
+do fluxo de telas se tornou indispensável para proporcionar aos usuários 
 uma experiência eficiente. Todos os fluxos foram planejados e 
 projetados com o objetivo de guiar o usuário por meio 
 de diferentes interações e funcionalidades.
@@ -436,7 +436,7 @@ SCK (\textit{Serial Clock}), SDA e CS (\textit{Chip Select}) são utilizados par
 comunicação serial com o microcontrolador. Por sua vez, o pino de 
 \textit{reset} é designado para reiniciar o \textit{display} em caso de falhas ou erros.
 
-Adicionalmente, o pino A0 desempenha um papel fundamental ao indicar 
+Adicionalmente, o pino A0 indica 
 se os dados transmitidos se referem a comandos de controle (estado \textit{LOW}) 
 ou a dados de \textit{pixel} (estado \textit{HIGH}), desempenhando um papel crucial no 
 funcionamento adequado do controlador ST7735.
@@ -450,7 +450,7 @@ funcionamento adequado do controlador ST7735.
     \centering
 \end{figure}
 
-O bloco que compreende os botões desempenha um papel fundamental na 
+O bloco que compreende os botões é importante na 
 interatividade do projeto, pois permite a seleção de itens no menu 
 e a inserção dos valores da senha. A estrutura dos botões é 
 ilustrada no circuito apresentado na \autoref{fig:diagramabotoes}, e 
@@ -461,8 +461,8 @@ sinais ao microcontrolador.
 Devido a mudança de estado do botões ao alterar o sinal elétrico conforme 
 são pressionados ou soltos, permite ao microcontrolador reconhecer as ações 
 do usuário, possibilitando a navegação no aplicativo de forma eficiente 
-e prática. Isso torna esses componentes essenciais para a interatividade 
-do protótipo e contribuem significativamente para a experiência do usuário.
+e prática. Isso faz com que esses componentes contribuam significativamente 
+com a interatividade do protótipo e a experiência do usuário.
 
 \begin{figure}[h!]
     \centering
@@ -479,9 +479,8 @@ envie um sinal de baixa potência para a base de um transistor. A conexão do
 coletor do transistor à bobina do relé viabiliza o seu acionamento 
 quando o transistor entra em estado de saturação. Isso, por sua vez, permite que o ESP32 
 controle dispositivos de alta potência por meio de sinais de baixa potência. 
-Um elemento crucial nesse circuito é o diodo em paralelo ao relé, 
-que também é conhecido como diodo de roda livre, que desempenha um papel 
-essencial na proteção do circuito.
+O diodo em paralelo ao relé, também conhecido como diodo de roda 
+livre, desempenha o papel de proteger o circuito de picos ou sobretensão reversa.
 
 \begin{figure}[h!]
     \centering

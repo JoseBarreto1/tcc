@@ -154,26 +154,21 @@ cadastrados. Assim, existem três abordagens conhecidas para reconhecimento:
 Após a imagem ter sido lida e transformada, a mesma é duplicada e redimensionada 
 proporcionalmente para uma altura fixa. A imagem original é mantida para ser 
 utilizada posteriormente, em seguida, na copia da imagem é realizado alguns 
-processamentos para extrair suas características.
-
-A seguir, é feita a detecção das faces utilizando o classificador 
-de objetos treinados. Removendo o fundo ao redor da face, pois 
-pode atrapalhar os algoritmos de reconhecimento. As abordagens mais 
+processamentos para extrair suas características. Contudo, as abordagens mais 
 populares usadas no problema de reconhecimento facial são 
 baseadas na localização e análise de atributos faciais como olhos, nariz e 
-boca (\autoref{fig:haarcascate}), ou em análise global destes.
+boca (\autoref{fig:haarcascate}).
 
 \begin{figure}[h!]
     \centering
     \caption{Reconhecimento baseado na localização dos olhos e nariz}
-    \includegraphics[scale=0.35]{figuras/haarcascate.png}
+    \includegraphics[scale=0.32]{figuras/haarcascate.png}
     \legend{Fonte: Adaptado de \citeonline{viola2004}.}
     \label{fig:haarcascate}
     \centering
 \end{figure}
 
-Ao comparar as informações extraídas com aquelas já conhecidas, 
-complementadas por uma breve análise estatística, é possível 
+Ao comparar as informações extraídas com aquelas já conhecidas, é possível 
 categorizar o objeto e determinar com grande precisão sua natureza 
 ou identidade \cite{gonzalez2010}.
 
@@ -200,7 +195,7 @@ pós-processamento, exemplificando o processo de binarização.
 \begin{figure}[h!]
     \centering
     \caption{Escala de cinza}
-    \includegraphics[scale=0.25]{figuras/escala_cinza.png} 
+    \includegraphics[scale=0.22]{figuras/escala_cinza.png} 
     \fonte{}%% Fonte
     \label{fig:escalacinza}
     \centering
@@ -209,7 +204,7 @@ pós-processamento, exemplificando o processo de binarização.
 \begin{figure}[h!]
     \centering
     \caption{Escala de cinza binarizada}
-    \includegraphics[scale=0.25]{figuras/escala_binarizada.png} 
+    \includegraphics[scale=0.22]{figuras/escala_binarizada.png} 
     \fonte{}%% Fonte
     \label{fig:escalabinarizada}
     \centering
@@ -314,15 +309,13 @@ O \textit{MobileNetV2} faz parte de uma nova geração de redes
 neurais convolucionais profundas voltadas para a 
 visão computacional. Essa arquitetura permite a 
 implementação em tempo real de aplicativos de 
-classificação, detecção e alinhamento de objetos 
-em dispositivos móveis, destacando-se por 
+classificação e detecção, destacando-se por 
 sua capacidade de processamento leve \cite{luna2022}.
 
 Uma característica distintiva do MTMN é sua estrutura 
 multitarefa de aprendizagem em cascata. Essa abordagem 
 permite que o modelo resolva desafios encontrados em 
-ambientes diversos, como variações de iluminação, 
-oclusões e poses variadas. O MTMN é composto por três 
+ambientes diversos. O MTMN é composto por três 
 estágios de redes convolucionais profundas que preveem a 
 localização de faces e pontos de referência, proporcionando 
 uma detecção precisa que varia de informações gerais a 
@@ -346,7 +339,7 @@ coordenadas das referências faciais) \cite{zhang2016}.
 \begin{figure}[h!]
     \centering
     \caption{Fluxo de trabalho do MTNM}
-    \includegraphics[scale=0.34]{figuras/mtmn.png}
+    \includegraphics[scale=0.25]{figuras/mtmn.png}
     \legend{Fonte: Adaptado de \citeonline{mtmnimg}.}
     \label{fig:mtmn}
     \centering
@@ -402,7 +395,7 @@ de reconhecimento facial.
 \begin{figure}[h!]
     \centering
     \caption{Rostos em diferentes iluminações}
-    \includegraphics[scale=0.25]{figuras/iluminacao.png}
+    \includegraphics[scale=0.2]{figuras/iluminacao.png}
     \legend{Fonte: Adaptado de \citeonline{opencv4}.}
     \label{fig:iluminacao}
     \centering
@@ -446,7 +439,7 @@ faciais, resultando em uma representação facial compacta e correspondente.
 \begin{figure}[h!]
     \centering
     \caption{Pontos de referência a partir de características faciais}
-    \includegraphics[scale=0.9]{figuras/facereg.jpg}
+    \includegraphics[scale=0.8]{figuras/facereg.jpg}
     \legend{Fonte: Adaptado de \citeonline{opencv5}.}
     \label{fig:facereg}
     \centering
@@ -464,7 +457,7 @@ no processo de reconhecimento facial.
 \begin{figure}[h!]
     \centering
     \caption{Fluxograma do funcionamento do método \textit{recognize face}}
-    \includegraphics[scale=0.3]{figuras/face-recognition.png}
+    \includegraphics[scale=0.28]{figuras/face-recognition.png}
     \legend{Fonte: Adaptado de \citeonline{frmnimg}.}
     \label{fig:frmn}
     \centering
@@ -499,7 +492,7 @@ custo-benefício ao considerar sua simplicidade e poder de processamento \cite{e
 \begin{figure}[h!]
     \centering
     \caption{ESP32-DevKitC.}
-    \includegraphics[scale=0.13]{figuras/esp323.png} 
+    \includegraphics[scale=0.1]{figuras/esp323.png} 
     \legend{Fonte: Adaptado de \citeonline{espressifimg}.}
     \label{fig:esp32}
     \centering

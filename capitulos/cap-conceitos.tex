@@ -19,13 +19,11 @@ e comprovar quem realmente está utilizando esses serviços.
 
 Por mais que existam outros processos de identificação, como por exemplo, cartões 
 magnéticos, senhas, tags, etc., atualmente o processo considerado mais seguro é 
-o baseado em biometria.
-
-A biometria pode ser definida como o processo de identificação 
+o baseado em biometria. A biometria pode ser definida como o processo de identificação 
 dos seres vivos e tem por intuito distinguir os indivíduos por meio 
 de suas características únicas. É uma técnica que foi utilizada até mesmo pelos egípcios 
 para o processo de identificação, baseando-se em características da
-aparência dos indivíduos, como cor dos olhos e cicatrizes \cite{santos2007}.
+aparência dos indivíduos, como cor dos olhos e cicatrizes \cite[p. 15]{galimberti2018}.
 
 Os sistemas biométricos podem ser divididos em dois grupos distintos: 
 1) os métodos invasivos, que requerem a colaboração ativa do sujeito 
@@ -33,13 +31,7 @@ para a identificação; e 2) os métodos não invasivos, que podem ser
 aplicados sem que o indivíduo identificado tenha conhecimento disso. 
 Entre os métodos, incluem-se técnicas amplamente conhecidas, 
 como a biometria da impressão digital, do rosto, da íris, da assinatura, 
-entre outras \cite{teixeira2011}
-
-O foco deste estudo será um método de biometria não invasivo, mais 
-precisamente no processo de identificação e reconhecimento de 
-características faciais, um tema que tem atraído crescente 
-interesse de pesquisadores e cientistas na área de visão 
-computacional.
+entre outras \cite[p. 20]{teixeira2011}
 
 \section{História da biometria}\label{sec:histbiometria}
 
@@ -49,11 +41,11 @@ em sistemas computacionais. Na verdade, práticas de identificação com base
 em características físicas datam de muito tempo atrás. Um exemplo notório 
 é o uso que os faraós do Egito faziam de características como cicatrizes, 
 cor dos olhos, arcada dentária e outros detalhes para distinguir 
-indivíduos \cite{boechat2008}.
+indivíduos \cite[p. 19-25]{boechat2008}.
 
 Na Europa, por volta de 1890, o antropologista e delegado policial 
 parisiense Alphonse Bertillon viu na biometria uma maneira de identificar 
-criminosos e a transformou em uma nova área de estudo \cite{moraes2006}. 
+criminosos e a transformou em uma nova área de estudo \cite[p. 15]{galimberti2018}. 
 Bertillon, com um profundo interesse em pesquisas criminalísticas, 
 começou a medir diversas partes do corpo humano, incluindo o diâmetro 
 transversal da cabeça, comprimento dos pés, dedos, antebraços, estatura, 
@@ -61,7 +53,7 @@ entre outros e, registrou essas medidas em cartões. Embora os resultados
 obtidos por Bertillon não tenham sido conclusivos, a ideia de relacionar 
 medidas do corpo humano para a identificação continuou a ser usada 
 por autoridades policiais em todo o mundo, sendo conhecida como 
-''Bertillonage'' \cite{boechat2008}.
+''Bertillonage'' \cite[p. 18]{boechat2008}.
 
 Na \autoref{fig:bertillon}, podem ser observadas várias técnicas de medição 
 desenvolvidas por meio do método de Bertillon, abrangendo aferições dos 
@@ -71,7 +63,7 @@ braços, pernas, cabeça e até mesmo das orelhas.
     \centering
     \caption{Método de Bertillon}
     \includegraphics[scale=0.25]{figuras/bertillon.jpg} 
-    \legend{Fonte: Adaptado de \cite{moraes2006}.}
+    \legend{Fonte: Adaptado de \cite[p. 16]{galimberti2018}.}
     \label{fig:bertillon}
     \centering
 \end{figure}
@@ -81,7 +73,7 @@ usada de maneira exclusiva nos procedimentos de identificação
 criminal. Na Índia, um indivíduo chamado William James Hersche, 
 insatisfeito com a falta de cumprimento de contratos por parte 
 dos comerciantes locais, passou a exigir que as assinaturas 
-fossem acompanhadas pela impressão digital nos documentos \cite{boechat2008}.
+fossem acompanhadas pela impressão digital nos documentos \cite[p. 18]{boechat2008}.
 
 Por fim, nas últimas décadas, novos sistemas biométricos começaram a surgir 
 à medida que novas aplicações biométricas eram desenvolvidas e se tornavam 
@@ -92,16 +84,14 @@ uma realidade comercial.
 De acordo com \citeonline{morais2010}, os principais tipos de biometria são:
 
 \begin{itemize}
-    \item Orelhas: usa a anatomia da orelha para identificar indivíduos, abordagem 
-    incomum. 
+    \item Orelhas: usa a anatomia da orelha para identificar indivíduos.
 
     \item Termograma da face e das mãos: o padrão de calor emitido pelo corpo 
     humano é uma característica de cada pessoa e pode ser captado por 
     infravermelho. Sistemas baseados em imagens termográficas não requerem 
     contato ou cooperação individual. No entanto, a captura de imagem continua 
     sendo um desafio em ambientes não controlados, pois é afetada por fontes de 
-    calor que possivelmente podem estar próximas ao indivíduo. Seus pontos fortes 
-    são a universalidade, a impostura e a singularidade.
+    calor que possivelmente podem estar próximas ao indivíduo.
 
     \item Impressão digital: como pode ser observado na \autoref{fig:digital}, 
     recurso mais comumente usado em credenciais 
@@ -117,7 +107,7 @@ De acordo com \citeonline{morais2010}, os principais tipos de biometria são:
         \centering
         \caption{Modelo de impressão digital}
         \includegraphics[scale=0.2]{figuras/impressao_digital.png} 
-        \legend{Fonte: Adaptado de \cite{boechat2008}.}
+        \legend{Fonte: Adaptado de \cite[p. 10]{boechat2008}.}
         \label{fig:digital}
         \centering
     \end{figure}
@@ -141,7 +131,7 @@ De acordo com \citeonline{morais2010}, os principais tipos de biometria são:
 \section{Reconhecimento facial}\label{sec:reconhecimento}
 
 Desde a infância, o ser humano adquire e desenvolve sua capacidade de reconhecer traços faciais, 
-que é uma particularidade da visão e inevitável para relações sociais \cite{rouhani2019}.
+que é uma particularidade da visão e inevitável para relações sociais \cite[p. 16]{rouhani2019}.
 
 Existem estudos sobre automatização do reconhecimento facial desde os anos 60. Os projetos iniciais nessa 
 área dependiam do administrador encontrar manualmente as características faciais nas imagens, só 
@@ -164,28 +154,23 @@ cadastrados. Assim, existem três abordagens conhecidas para reconhecimento:
 Após a imagem ter sido lida e transformada, a mesma é duplicada e redimensionada 
 proporcionalmente para uma altura fixa. A imagem original é mantida para ser 
 utilizada posteriormente, em seguida, na copia da imagem é realizado alguns 
-processamentos para extrair suas características.
-
-A seguir, é feita a detecção das faces utilizando o classificador 
-de objetos treinados. Removendo o fundo ao redor da face, pois 
-pode atrapalhar os algoritmos de reconhecimento. As abordagens mais 
+processamentos para extrair suas características. Contudo, as abordagens mais 
 populares usadas no problema de reconhecimento facial são 
 baseadas na localização e análise de atributos faciais como olhos, nariz e 
-boca (\autoref{fig:haarcascate}), ou em análise global destes.
+boca (\autoref{fig:haarcascate}).
 
 \begin{figure}[h!]
     \centering
     \caption{Reconhecimento baseado na localização dos olhos e nariz}
-    \includegraphics[scale=0.35]{figuras/haarcascate.png}
+    \includegraphics[scale=0.32]{figuras/haarcascate.png}
     \legend{Fonte: Adaptado de \citeonline{viola2004}.}
     \label{fig:haarcascate}
     \centering
 \end{figure}
 
-Ao comparar as informações extraídas com aquelas já conhecidas, 
-complementadas por uma breve análise estatística, é possível 
+Ao comparar as informações extraídas com aquelas já conhecidas, é possível 
 categorizar o objeto e determinar com grande precisão sua natureza 
-ou identidade \cite{gonzalez2010}.
+ou identidade \cite[p. 409]{gonzalez2010}.
 
 \subsection{Processamento de imagem}\label{subsec:processamento}
 
@@ -194,7 +179,7 @@ para serem utilizadas no realce e restauração de imagens capturadas do espaço
 como por exemplo, as imagens da missão Apollo. Logo em seguida, essa tecnologia 
 começou a ser empregada para processar imagens em diagnósticos médicos e, com 
 o aumento do poder de processamento dos computadores, essas técnicas agora 
-são empregadas nas mais diversas áreas de conhecimento \cite{gonzalez2010}.
+são empregadas nas mais diversas áreas de conhecimento \cite[p. 2]{gonzalez2010}.
 
 Em processamento de imagens, um conceito bastante utilizado é a binarização de
 imagens, que consiste em duas classes distintas, o fundo e o objeto, esse processo 
@@ -210,7 +195,7 @@ pós-processamento, exemplificando o processo de binarização.
 \begin{figure}[h!]
     \centering
     \caption{Escala de cinza}
-    \includegraphics[scale=0.25]{figuras/escala_cinza.png} 
+    \includegraphics[scale=0.22]{figuras/escala_cinza.png} 
     \fonte{}%% Fonte
     \label{fig:escalacinza}
     \centering
@@ -219,7 +204,7 @@ pós-processamento, exemplificando o processo de binarização.
 \begin{figure}[h!]
     \centering
     \caption{Escala de cinza binarizada}
-    \includegraphics[scale=0.25]{figuras/escala_binarizada.png} 
+    \includegraphics[scale=0.22]{figuras/escala_binarizada.png} 
     \fonte{}%% Fonte
     \label{fig:escalabinarizada}
     \centering
@@ -230,7 +215,7 @@ a segmentação é uma ferramenta indispensável para fins de análise e interpr
 A segmentação de uma imagem é um procedimento importante no que tange
 ao reconhecimento e extração objetos, uma vez que ela subdivide uma imagem em regiões que
 posteriormente serão ou não tidas como de interesse, o que pode variar muito de
-acordo com a aplicação \cite{gonzalez2010}.
+acordo com a aplicação \cite[p. 6]{gonzalez2010}.
 
 Os principais algoritmos de segmentação de imagem têm suas bases em duas 
 abordagens: descontinuidade e similaridade. A abordagem da descontinuidade 
@@ -238,7 +223,7 @@ envolve a divisão de uma imagem com base em mudanças abruptas de
 intensidade, como as que ocorrem nas bordas. Por outro lado, a técnica 
 de similaridade segmenta a imagem com base na identificação de regiões 
 que compartilham semelhanças de acordo com critérios 
-predefinidos \cite{gonzalez2010}.
+predefinidos \cite[p. 6]{gonzalez2010}.
 
 \subsection{Redes neurais}\label{subsec:redes}
 
@@ -249,7 +234,7 @@ prévio. Essas redes podem variar em complexidade, desde estruturas simples
 com um único neurônio até configurações mais sofisticadas com múltiplas 
 camadas totalmente conectadas. O emprego de redes neurais apresenta um 
 bom desempenho na solução de diversos problemas, destacando-se 
-notadamente na área de classificação \cite{italo2021}.
+notadamente na área de classificação \cite[p. 19]{italo2021}.
 
 A tarefa de classificação envolve o cálculo das probabilidades associadas 
 a um determinado dado de entrada pertencente aos conjuntos de saídas 
@@ -259,7 +244,7 @@ experimental de características. Nesse processo, são apresentadas entradas
 (na camada de entrada) com seus valores de saída correspondentes 
 (na camada de saída). A rede, então, busca representar as características 
 comuns identificadas nos parâmetros treinados, localizados na camada 
-oculta \cite{italo2021}.
+oculta \cite[p. 19]{italo2021}.
 
 \subsection{Redes neurais convolucionais}\label{subsec:convolucionais}
 
@@ -271,44 +256,43 @@ simples demandaria uma quantidade exorbitante de amostras, tornando-se
 impraticável para aplicações de aprendizado computacional. Por esses 
 motivos, as Redes Neurais Convolucionais (CNN) oferecem metodologias 
 e arquiteturas específicas para efetivamente reduzir o número de 
-parâmetros que precisam ser ajustados pela rede \cite{italo2021}.
+parâmetros que precisam ser ajustados pela rede \cite[p. 22]{italo2021}.
 
 A CNN foi inicialmente apresentada pela arquitetura \textit{LeNet},
 porém apenas recebeu mais destaque posteriormente pela arquitetura \textit{AlexNet}. Esta rede
 pode ser definida como uma rede neural que utiliza a operação matemática convolução
-no lugar da multiplicação geral da matriz em pelo menos uma de suas camadas \cite{lecun1998}.
+no lugar da multiplicação geral da matriz em pelo menos uma de suas camadas \cite[p. 6]{lecun1998}.
 
 \subsection{Classificador em cascata}\label{subsec:cascatas}
 
-O classificador em cascata é caracterizado por características semelhantes 
-às de \textit{Haar-like}, que são essencialmente quadros retangulares escaláveis, 
+O classificador em cascata possui uma certa semelhança com 
+a técnica de \textit{Haar-like}, que é essencialmente quadros retangulares escaláveis, 
 usados para comparar e analisar como os \textit{pixels} se relacionam entre si, essa 
-técnica é conhecida como "\textit{Haar-like features}". O classificador em 
-cascata é chamado assim porque  combina vários classificadores fracos, ou seja, 
-são classificadores que sozinho não pode classificar uma imagem, porem uma soma 
-ponderada desses classificadores é capaz de formar um classificador mais forte, 
-que é chamado de método de reforço. Até 200 recursos fornecem detecção com 
-95 (porcento) de precisão. A principal vantagem deste método é sua baixa 
+técnica é conhecida como ''\textit{Haar-like features}''. O classificador em 
+cascata é chamado assim, pois combina vários classificadores fracos, ou seja, 
+sozinhos não podem classificar uma imagem, porém uma soma 
+ponderada deles é capaz de formar um classificador mais forte, 
+que é chamado de método de reforço. A principal vantagem deste método é sua baixa 
 complexidade computacional e sua paralelização, sendo uma das técnicas mais 
 utilizadas na indústria ou no meio científico para detecção de faces ou 
-objetos \cite{viola2004}.
+objetos \cite[p. 2]{viola2004}.
 
 \subsection{Redes convolucionais em cascata de multitarefas}\label{subsec:multirarefas}
 
 Diferentemente das abordagens manuais, as Redes Neurais Convolucionais 
 (CNNs) desenvolvem descritores automaticamente a partir das imagens de 
 treino, sem fazer qualquer pré-suposição sobre padrões ou características 
-específicas da imagem a ser analisada \cite{zafeiriou2015}. 
+específicas da imagem a ser analisada \cite[p. 14]{zafeiriou2015}. 
 Embora seja verdade que o número de camadas está diretamente relacionado 
 à qualidade das previsões da rede, é importante ressaltar que esse aumento 
 na complexidade também resulta em um significativo incremento no custo 
-computacional \cite{mukherjee2015}.
+computacional \cite[p. 3]{mukherjee2015}.
 
-O algoritmo \textit{Multitask Cascaded Convolutional Neural Networks} (MTCNN) 
+O algoritmo \textit{Multi-task Cascaded Convolutional Neural Networks} (MTCNN) 
 é um modelo fundamentado em cascata de Redes Neurais Convolucionais (CNN), 
 adotando uma estrutura sequencial composta por três redes neurais 
 convolucionais. Essas redes são capazes de prever a localização de um 
-rosto e seus pontos-chave em uma imagem \cite{zhang2016}. Embora o 
+rosto e seus pontos-chave em uma imagem \cite[p. 1]{zhang2016}. Embora o 
 modelo MTCNN alcance elevadas taxas de precisão, é importante notar que 
 sua implementação pode exigir considerável poder computacional.
 
@@ -324,19 +308,17 @@ O \textit{MobileNetV2} faz parte de uma nova geração de redes
 neurais convolucionais profundas voltadas para a 
 visão computacional. Essa arquitetura permite a 
 implementação em tempo real de aplicativos de 
-classificação, detecção e alinhamento de objetos 
-em dispositivos móveis, destacando-se por 
-sua capacidade de processamento leve \cite{luna2022}.
+classificação e detecção, destacando-se por 
+sua capacidade de processamento leve \cite[p. 4]{luna2022}.
 
 Uma característica distintiva do MTMN é sua estrutura 
 multitarefa de aprendizagem em cascata. Essa abordagem 
 permite que o modelo resolva desafios encontrados em 
-ambientes diversos, como variações de iluminação, 
-oclusões e poses variadas. O MTMN é composto por três 
+ambientes diversos. O MTMN é composto por três 
 estágios de redes convolucionais profundas que preveem a 
 localização de faces e pontos de referência, proporcionando 
 uma detecção precisa que varia de informações gerais a 
-detalhes específicos \cite{luna2022}.
+detalhes específicos \cite[p. 4]{luna2022}.
 
 Conforme o fluxo de trabalho do MTNM, demonstrado na \autoref{fig:mtmn}, 
 inicialmente uma imagem é redimensionada em diferentes escalas para formar uma pirâmide e que 
@@ -347,16 +329,16 @@ Após isso é executado o método NMS (\textit{Non-Maximum Suppression}) para ju
 possuem mais sobreposição e com isso a saída será utilizada para alimentar o próximo estágio. O R-Net 
 (\textit{Refine Network}) recebe todas os quadros escolhidas pela P-Net, que agora possui camadas 
 densas após as convoluções, essa etapa é responsável por diminuir o número de falsos quadros 
-e calibrar o vetor da caixa delimitadora e também o NMS como no estágio anterior. A ultima etapa, 
+e calibrar o vetor da caixa delimitadora e também é executado o NMS como no estágio anterior. A ultima etapa, 
 o O-Net (\textit{Output Network}) é uma etapa similar a R-Net, porém foca em descrever a face em 
-mais detalhes e com isso atualizar o NMS. Como resultado do treinamento, terá como 
-saída 3 elementos (classificação do rosto, coordenadas da caixa delimitadora e as 
-coordenadas das referências faciais) \cite{zhang2016}.
+mais detalhes e com isso atualizar o NMS. O resultado do processamento sempre terá 3 valores 
+principais (classificação do rosto, coordenadas da caixa delimitadora e as 
+coordenadas das referências faciais) \cite[p. 2-3]{zhang2016}.
 
 \begin{figure}[h!]
     \centering
     \caption{Fluxo de trabalho do MTNM}
-    \includegraphics[scale=0.34]{figuras/mtmn.png}
+    \includegraphics[scale=0.25]{figuras/mtmn.png}
     \legend{Fonte: Adaptado de \citeonline{mtmnimg}.}
     \label{fig:mtmn}
     \centering
@@ -382,15 +364,14 @@ que foram desenvolvidas com base em um vasto banco de
 dados contendo mais de um milhão de imagens do \textit{ImageNet}. 
 Essas redes aprenderam representações de recursos de 
 mais de 1.000 categorias de objetos, fornecendo uma 
-base sólida para a detecção de rostos \cite{luna2022}.
+base sólida para a detecção de rostos \cite[p. 5]{luna2022}.
 
 \section{Biometria facial para controle de acesso}\label{sec:biometriaFacial}
 
 Os sistemas de identificação baseados em biometria são essencialmente sistemas de 
 reconhecimento que, dadas informações biométricas, são capazes de distinguir padrões e 
-classificá-los em diferentes classes ou categorias \cite{morais2010}.
-
-Ainda de acordo com o autor, algumas das principais características anatômicas, 
+classificá-los em diferentes classes ou categorias \cite[p. 22]{morais2010}. Ainda 
+de acordo com o autor, algumas das principais características anatômicas, 
 fisiológicas e comportamentais utilizadas em sistemas biométricos incluem 
 impressão digital, impressão da mão, aparência facial, temperatura da face, 
 retina, voz, assinatura, entre outras.
@@ -405,14 +386,14 @@ na iluminação, distorções ou deformações.
 Embora os sistemas biométricos faciais apresentem um desempenho aceitável em 
 ambientes comerciais, ainda estão sujeitos a restrições relacionadas ao ambiente, 
 como variações na iluminação (\autoref{fig:iluminacao}) e ângulos das imagens.
-Segundo \citeonline{cavalcanti2005}, alterações estéticas, como cabelo e barba, uso de
+Segundo \citeonline[p. 31]{cavalcanti2005}, alterações estéticas, como cabelo e barba, uso de
 acessórios, como óculos e bonés, são fatores que aumentam as chances de falha no processo
 de reconhecimento facial.
 
 \begin{figure}[h!]
     \centering
     \caption{Rostos em diferentes iluminações}
-    \includegraphics[scale=0.25]{figuras/iluminacao.png}
+    \includegraphics[scale=0.2]{figuras/iluminacao.png}
     \legend{Fonte: Adaptado de \citeonline{opencv4}.}
     \label{fig:iluminacao}
     \centering
@@ -440,8 +421,8 @@ Essas etapas são importantes na avaliação da imagem, eliminando informações
 redundantes e irrelevantes. Por exemplo, se o algoritmo identifica uma ou mais faces na 
 imagem, essas são extraídas da imagem original para análise individual. É importante 
 notar que, quando a entrada do sistema é uma sequência de vídeo, a dimensão temporal 
-também é considerada, tornando necessário que o algoritmo opere em tempo real, com 
-desempenho crítico, para permitir a detecção em tempo real \cite{boechat2008}. 
+também é considerada, tornando necessário que o algoritmo utilize mais recursos de 
+processamento, para permitir a detecção em tempo real \cite[p. 44]{boechat2008}.
 
 Os algoritmos de reconhecimento facial têm a capacidade de identificar indivíduos com 
 base em características específicas, como o tamanho dos olhos, nariz e boca. Essas 
@@ -449,14 +430,14 @@ características são usadas para localizar imagens correspondentes que se assem
 à imagem da face capturada. Além disso, os algoritmos desse tipo normalmente armazenam 
 informações relevantes apenas da região da imagem que contém as características de 
 interesse, conforme pode ser observado na \autoref{fig:facereg}. De acordo 
-com \cite{brunelli1993}, um dos primeiros sistemas de reconhecimento 
+com \cite[p. 6]{brunelli1993}, um dos primeiros sistemas de reconhecimento 
 facial baseava-se em um modelo de técnicas aplicadas a um conjunto de características 
 faciais, resultando em uma representação facial compacta e correspondente.
 
 \begin{figure}[h!]
     \centering
     \caption{Pontos de referência a partir de características faciais}
-    \includegraphics[scale=0.9]{figuras/facereg.jpg}
+    \includegraphics[scale=0.8]{figuras/facereg.jpg}
     \legend{Fonte: Adaptado de \citeonline{opencv5}.}
     \label{fig:facereg}
     \centering
@@ -474,7 +455,7 @@ no processo de reconhecimento facial.
 \begin{figure}[h!]
     \centering
     \caption{Fluxograma do funcionamento do método \textit{recognize face}}
-    \includegraphics[scale=0.3]{figuras/face-recognition.png}
+    \includegraphics[scale=0.28]{figuras/face-recognition.png}
     \legend{Fonte: Adaptado de \citeonline{frmnimg}.}
     \label{fig:frmn}
     \centering
@@ -496,11 +477,11 @@ memória, periféricos de entrada e saída, temporizadores e dispositivos de
 comunicação serial. Eles surgiram como uma evolução natural dos circuitos digitais 
 devido à crescente complexidade. Chegou um ponto em que foi mais prático e 
 econômico substituir a lógica das portas digitais por um conjunto de 
-processador e \textit{software} \cite{penido2013}.
+processador e \textit{software} \cite[p. 15]{penido2013}.
 
 O primeiro microcontrolador, o ''8048'', foi lançado pela Intel em 1977 e evoluiu 
 para a família ''8051''. Esses \textit{chips} são programados em linguagem \textit{Assembly} e 
-possuem um conjunto de instruções poderoso \cite{penido2013}.
+possuem um conjunto de instruções poderoso \cite[p.16]{penido2013}.
 
 Atualmente, quando se trata de microcontrolador, uma boa opção é o ESP32 (\autoref{fig:esp32}). Mesmo não 
 sendo o modelo mais potente, nem o mais compacto, ainda assim, possui um ótimo 
@@ -509,7 +490,7 @@ custo-benefício ao considerar sua simplicidade e poder de processamento \cite{e
 \begin{figure}[h!]
     \centering
     \caption{ESP32-DevKitC.}
-    \includegraphics[scale=0.13]{figuras/esp323.png} 
+    \includegraphics[scale=0.1]{figuras/esp323.png} 
     \legend{Fonte: Adaptado de \citeonline{espressifimg}.}
     \label{fig:esp32}
     \centering
